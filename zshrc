@@ -1,21 +1,26 @@
+ZSH_DISABLE_COMPFIX=true
+typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='100'
 ZSH_THEME="powerlevel9k/powerlevel9k"
+if test -f ~/google-desktop; then
+	echo 'loading google-desktop'
+	unalias zz
+	unalias d
+	unalias s
+	alias ld="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') +5%"
+	alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
+	xsetroot -solid "#FFFFFF"
+	unalias gcl
+	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
+	fpath=($(realpath /google/src/files/head/depot/google3/devtools/blaze/scripts/zsh_completion) $fpath)
+	source /etc/bash.bashrc.d/shell_history_forwarder.sh
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
+fi
 
-function get_citc() {
-  if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
-    print -n "${match[1]}"
-  fi
-}
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+set -o vi
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
 
-function get_path() {
-  if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
-    print -n "${match[2]}"
-  fi
-	if [[ $PWD =~ '/usr/local/google/home/davidlerner(.*)' ]]; then
-    print -n "~${match[1]}"
-	fi
-}
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 
 POWERLEVEL9K_CUSTOM_CITC='get_citc'
 POWERLEVEL9K_CUSTOM_CITC_BACKGROUND='255'
@@ -27,6 +32,10 @@ POWERLEVEL9K_TIME_FOREGROUND='232'
 POWERLEVEL9K_CUSTOM_PATH='get_path'
 POWERLEVEL9K_CUSTOM_PATH_BACKGROUND='255'
 POWERLEVEL9K_CUSTOM_PATH_FOREGROUND='232'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='255'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='255'
+POWERLEVEL9K_DIR_ETC_BACKGROUND='255'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='255'
 
 
 # What to show in the tail of prompt
@@ -45,13 +54,13 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-plugins=(git alias-tips common-aliases extract fasd history zsh-completions fzf vi-mode)
+plugins=(git alias-tips common-aliases extract fasd history fzf vi-mode)
+### todo: make zsh-completions work especially for google
+#plugins=(git alias-tips common-aliases extract fasd history zsh-completions fzf vi-mode)
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 if [[ -f /etc/bash_completion.d/g4d ]]; then
-  . /etc/bash_completion.d/p4
-  . /etc/bash_completion.d/g4d
+	. /etc/bash_completion.d/p4
+	. /etc/bash_completion.d/g4d
 fi
 
 #set ZLE=true
@@ -120,19 +129,18 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-eval "$(fasd --init auto)"
-autoload -U compinit && compinit
+#eval "$(fasd --init auto)"
+#autoload -U compinit && compinit
 # better zz from fasd
-unalias zz
 function zz() {
-	  local dir
-		  dir="$(fasd -Rdl "$*" | fzf --query="$*" -1 -0 --no-sort +m)" && cd "${dir}" || return 1
-		}
+	local dir
+	dir="$(fasd -Rdl "$*" | fzf --query="$*" -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+}
 # Usage: fv file pattern
 function fv() {
-  local file
-  file="$(fzf --exact --height 40% --reverse --query="$1"  --select-1 --exit-0)"
-  [[ -n "$file" ]] && vim "$file"
+	local file
+	file="$(fzf --exact --height 40% --reverse --query="$1"  --select-1 --exit-0)"
+	[[ -n "$file" ]] && vim "$file"
 }
 
 
@@ -141,7 +149,7 @@ setopt prompt_subst  # enable command substitution (and other expansions) in PRO
 alias rv='rm ~/.vim/cache/*.sw*'
 
 function kp {
-  kill -9 "$(lsof -i | grep 8898 | awk 'NR==1 {print $2}')";
+	kill -9 "$(lsof -i | grep 8898 | awk 'NR==1 {print $2}')";
 }
 alias willitfit=/google/data/ro/projects/quota_tools/willitfit.par
 #alias g="grep -ir --color=always $1 | sort"
@@ -149,9 +157,9 @@ function g {
 	grep -ir --color=always $1 | sort; 
 }
 function gn { cd;
-  cd 'Notes/2019';
- #grep -ir --color=always $1 | sort;
- ack --smart-case $1 --sort-files;
+	cd 'Notes/2019';
+	#grep -ir --color=always $1 | sort;
+	ack --smart-case $1 --sort-files;
 }
 function a {
 	ack --smart-case $1 --sort-files;
@@ -161,15 +169,14 @@ alias prodspec='/google/data/ro/teams/prodspec/prodspec'
 alias print_prodspec='/google/data/ro/teams/prodspec/print_prodspec'
 export EDITOR='vim'
 alias dea="/google/data/ro/users/ra/ranma/dea_client.par"
-xsetroot -solid "#FFFFFF"
 alias csa="cs $1 -f=apphosting"
 alias zgrep="grep -m 1 -P -o $1 | head -n 1"
 alias lifeguard="/google/data/ro/projects/apphosting/tools/lifeguard.par"
 alias admin_session=/google/data/ro/projects/tonic/admin_session
 function mkcdir {
-  mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
+	mkdir -p -- "$1" &&
+		cd -P -- "$1"
+	}
 alias prodaccess='prodaccess -g -s --ssh_on_security_key'
 alias gp='/usr/bin/python2.7     /google/src/head/depot/google3/apphosting/scripts/tools/gaepools.py'
 alias gae_spool_client=/google/data/ro/projects/apphosting/tools/gae_spool_client.sh
@@ -193,10 +200,6 @@ alias rc="vim ~/.bashrc"
 #
 #setxkbmap -option caps:swapescape
 
-alias ld="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') +5%"
-#alias ld=" pactl -- set-sink-volume 4 +10%"
-#alias q=" pactl -- set-sink-volume 4 -10%"
-alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
 # $Id: //depot/google3/googledata/corp/puppet/goobuntu/common/modules/shell/files/bash/skel.bashrc#5 $
 # xset r rate 250 40
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -205,8 +208,8 @@ alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+	*i*) ;;
+	*) return;;
 esac
 
 
@@ -223,12 +226,12 @@ esac
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|xterm-256color) color_prompt=yes;;
+	xterm-color|xterm-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -237,23 +240,23 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
+	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+		# We have color support; assume it's compliant with Ecma-48
+		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+		# a case would tend to support setf rather than setaf.)
+		color_prompt=yes
+	else
+		color_prompt=
+	fi
 fi
 
 #if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$\n¯\_(ツ)_/¯ '
-		## zsh breakage or at least weirdness
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$\n¯\_(ツ)_/¯ '
+## zsh breakage or at least weirdness
 #		PS1="¯\_(ツ)_/¯ "
 #else
-		#PS1="¯\_(ツ)_/¯ "
-    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$\n¯\_(ツ)_/¯ '
+#PS1="¯\_(ツ)_/¯ "
+#PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$\n¯\_(ツ)_/¯ '
 #fi
 #unset color_prompt force_color_prompt
 
@@ -263,19 +266,19 @@ fi
 #    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
 #    ;;
 #*)
-#    ;;
-#esac
+	#    ;;
+	#esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	#alias dir='dir --color=auto'
+	#alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=always'
-    alias fgrep='fgrep --color=always'
-    alias egrep='egrep --color=always'
+	alias grep='grep --color=always'
+	alias fgrep='fgrep --color=always'
+	alias egrep='egrep --color=always'
 fi
 
 # some more ls aliases
@@ -293,7 +296,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -316,7 +319,7 @@ alias appcfg_over_stubby='/google/data/ro/projects/apphosting/tools/appcfg_over_
 alias colab="/google/data/ro/teams/colab/notebook"
 alias siscli="/google/data/ro/buildstatic/projects/production/sisyphus/siscli.par"
 mycurl () {
-        curl -v -H "$(/google/data/ro/projects/perftools/dapper/dapperget)" "$@"
+	curl -v -H "$(/google/data/ro/projects/perftools/dapper/dapperget)" "$@"
 }
 alias gaia-to-email='/home/build/static/projects/gaia/gaiaclient/GaiaClient.par --gaia_instance=prod LookupUserByID 0x$(printf "%x" $1)'
 alias btcfg=/google/data/ro/projects/bigtable/contrib/btcfg/btcfg
@@ -335,23 +338,21 @@ export PATH=$GOROOT/bin:$PATH
 fpath=($HOME/.zsh-functions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /etc/bash.bashrc.d/shell_history_forwarder.sh
 
 alias -s {go,py,proto}=vim
-unalias d
 function d {
-  #p4 diff --since_commit "$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n {print $3}')";
-  commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
-  p4 diff --since_commit "$(echo $commit_line | awk '{print $3}')";
-  printf "\n"
-  echo $commit_line
+	#p4 diff --since_commit "$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n {print $3}')";
+	commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
+	p4 diff --since_commit "$(echo $commit_line | awk '{print $3}')";
+	printf "\n"
+	echo $commit_line
 }
 
 
 # Function to switch and save the current path
 function cd() {
-  builtin cd "$@";
-  echo "$PWD" >! ~/.cwd;
+	builtin cd "$@";
+	echo "$PWD" >! ~/.cwd;
 }
 export cd
 alias cwd='cd "$(cat ~/.cwd)"'
@@ -362,9 +363,6 @@ cwd
 
 alias hm="(nohup unclutter -idle 0.01 -root & disown) > /dev/null 2>&1"
 
-alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
-fpath=($(realpath /google/src/files/head/depot/google3/devtools/blaze/scripts/zsh_completion) $fpath)
-unalias gcl
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH:$PATH
@@ -374,10 +372,24 @@ export PATH=$PATH:$GOPATH/bin
 function mc() {
 	cp $(g4 g4d -u davidlerner $1)/$2 $2
 }
-unalias s
 function s() {
 	echo "s/$1/$2/eg"
 	perl -p -i -e "s/$1/$2/eg" *
 }
 alias f1=/google/data/ro/projects/storage/f1/tools/f1-sql
 alias cdd=/google/data/ro/projects/chubby/cdd/cdd
+alias o='cmd.exe /C start'
+function get_citc() {
+	if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
+		print -n "${match[1]}"
+	fi
+}
+
+function get_path() {
+	if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
+		print -n "${match[2]}"
+	fi
+	if [[ $PWD =~ '/usr/local/google/home/davidlerner(.*)' ]]; then
+		print -n "~${match[1]}"
+	fi
+}

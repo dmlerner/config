@@ -1,4 +1,37 @@
+if !empty(glob("~/google-desktop"))
+	" Use the 'google' package by default (see http://go/vim/packages).
+	source /usr/share/vim/google/google.vim
+	source /usr/share/vim/google/glug/bootstrap.vim
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'Kythe Language Server',
+				\ 'cmd': {server_info->['/google/bin/releases/grok/tools/kythe_languageserver', '--google3']},
+				\ 'whitelist': ['python', 'go', 'java', 'cpp', 'proto'],
+				\})
+	Glug codefmt-google
+	Glug syntastic-google checkers=`{'go': ['gofmt', 'golint']}`
+	Glug codefmt-google auto_filetypes+=blazebuild
+	Glug syntastic-google 
+	Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
+	Glug corpweb plugin[mappings]
+	Glug youcompleteme-google
+	Glug codefmt plugin[mappings] gofmt_executable="goimports"
+	Glug codefmt gofmt_executable="goimports"
+	" Load the automated blaze dependency integration for Go.
+	" Note: for Go, blazedeps uses the Go team's glaze tool, which is fully
+	" supported by the Go team. The plugin is currently unsupported for other
+	" languages.
+	Glug blazedeps auto_filetypes=`['go']`
 
+	" Load piper integration (http://go/VimPerforce).
+	Glug piper plugin[mappings]
+
+	" Load Critique integration. Use :h critique for more details.
+	Glug critique plugin[mappings]
+
+	" Load blaze integration (http://go/blazevim).
+	Glug blaze !alerts plugin[mappings] 
+	let g:blazevim_quickfix_autoopen = 1
+endif
 " Enable modern Vim features not compatible with Vi spec.
 set nocompatible
 "set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
@@ -17,11 +50,6 @@ Plug 'mileszs/ack.vim'
 "Plug 'thaerkh/vim-workspace'
 Plug 'pboettch/vim-highlight-cursor-words'
 
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'Kythe Language Server',
-    \ 'cmd': {server_info->['/google/bin/releases/grok/tools/kythe_languageserver', '--google3']},
-    \ 'whitelist': ['python', 'go', 'java', 'cpp', 'proto'],
-    \})
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 " Leader is the backslash key by default.
 nnoremap <Leader>] :LspDefinition<CR>
@@ -35,18 +63,15 @@ let g:go_gocode_bin = 'gocode'
 
 """ coc for kythe
 let g:coc_global_extensions = [
-      \ 'coc-tsserver',
-      \ 'coc-json',
-      \ 'coc-html',
-      \ 'coc-css',
-      \ 'coc-python',
-      \ 'coc-ultisnips' ]
+			\ 'coc-tsserver',
+			\ 'coc-json',
+			\ 'coc-html',
+			\ 'coc-css',
+			\ 'coc-python',
+			\ 'coc-ultisnips' ]
 let g:lsp_signs_enabled = 1         " enable signs
 let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 
-" Use the 'google' package by default (see http://go/vim/packages).
-source /usr/share/vim/google/google.vim
-source /usr/share/vim/google/glug/bootstrap.vim
 
 " Plugin configuration.
 " See http://google3/devtools/editors/vim/examples/ for example configurations
@@ -65,11 +90,7 @@ source /usr/share/vim/google/glug/bootstrap.vim
 " To bind :FormatLines to the same key in insert and normal mode, add:
 "   noremap <C-K> :FormatLines<CR>
 "   inoremap <C-K> <C-O>:FormatLines<CR>
-Glug codefmt plugin[mappings] gofmt_executable="goimports"
-Glug codefmt gofmt_executable="goimports"
-Glug codefmt-google
 autocmd FileType go AutoFormatBuffer gofmt
-Glug codefmt-google auto_filetypes+=blazebuild
 
 " Enable autoformatting on save for the languages at Google that enforce
 " formatting, and for which all checked-in code is already conforming (thus,
@@ -77,33 +98,14 @@ Glug codefmt-google auto_filetypes+=blazebuild
 " Note formatting changed lines only isn't supported yet
 " (see https://github.com/google/vim-codefmt/issues/9).
 augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType go AutoFormatBuffer gofmt
-"  autocmd FileType go AutoFormatBuffer golint
-"  See go/vim/plugins/codefmt-google, :help codefmt-google and :help codefmt
-"  for details about other available formatters.
+	autocmd FileType bzl AutoFormatBuffer buildifier
+	autocmd FileType go AutoFormatBuffer gofmt
+	"  autocmd FileType go AutoFormatBuffer golint
+	"  See go/vim/plugins/codefmt-google, :help codefmt-google and :help codefmt
+	"  for details about other available formatters.
 augroup END
 
-" Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
-" error checking. Pulls in a google3-enabled version of YCM itself and
-" a google3-specific default configuration.
-Glug youcompleteme-google
 
-" Load the automated blaze dependency integration for Go.
-" Note: for Go, blazedeps uses the Go team's glaze tool, which is fully
-" supported by the Go team. The plugin is currently unsupported for other
-" languages.
-Glug blazedeps auto_filetypes=`['go']`
-
-" Load piper integration (http://go/VimPerforce).
-Glug piper plugin[mappings]
-
-" Load Critique integration. Use :h critique for more details.
-Glug critique plugin[mappings]
-
-" Load blaze integration (http://go/blazevim).
-Glug blaze !alerts plugin[mappings] 
-let g:blazevim_quickfix_autoopen = 1
 set autowriteall
 set termwinscroll=1000000
 
@@ -111,9 +113,6 @@ set termwinscroll=1000000
 " Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
 " Note: this requires installing the upstream syntastic plugin from
 " https://github.com/vim-syntastic/syntastic.
-Glug syntastic-google 
-Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
-Glug corpweb plugin[mappings]
 
 " Load the ultisnips plugin (http://go/ultisnips).
 " Note: this requires installing the upstream ultisnips plugin from
@@ -191,7 +190,6 @@ let g:go_def_mode='godef' "works between files!
 "let g:go_info_mode='gopls'  "doesn't work
 "let g:go_info_mode='guru' 
 au FileType go nmap gd <Plug>(go-def)
-Glug youcompleteme-google
 nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
 "let g:ycm_godef_binary_path='~/go/bin/godef'
 "let g:ycm_godef_binary_path='/usr/local/google/home/davidlerner/go-vim/godef.google3' set ignorecase
@@ -211,11 +209,10 @@ let g:HiCursorWords_delay = 400
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+			\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 set completeopt-=preview
 let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype']
 "let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype', 'govet']
 "Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
-Glug syntastic-google checkers=`{'go': ['gofmt', 'golint']}`
 
 set autowriteall
