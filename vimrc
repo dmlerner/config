@@ -1,3 +1,4 @@
+filetype on
 if !empty(glob("~/google-desktop"))
 	" Use the 'google' package by default (see http://go/vim/packages).
 	source /usr/share/vim/google/google.vim
@@ -10,7 +11,7 @@ if !empty(glob("~/google-desktop"))
 	Glug codefmt-google
 	Glug syntastic-google checkers=`{'go': ['gofmt', 'golint']}`
 	Glug codefmt-google auto_filetypes+=blazebuild
-	Glug syntastic-google 
+	Glug syntastic-google
 	Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
 	Glug corpweb plugin[mappings]
 	Glug youcompleteme-google
@@ -29,8 +30,18 @@ if !empty(glob("~/google-desktop"))
 	Glug critique plugin[mappings]
 
 	" Load blaze integration (http://go/blazevim).
-	Glug blaze !alerts plugin[mappings] 
+	Glug blaze !alerts plugin[mappings]
 	let g:blazevim_quickfix_autoopen = 1
+endif
+if !empty(glob("~/.asdfx1"))
+	if executable('pyls')
+		" pip install python-language-server
+		au User lsp_setup call lsp#register_server({
+					\ 'name': 'pyls',
+					\ 'cmd': {server_info->['pyls']},
+					\ 'whitelist': ['python'],
+					\ })
+	endif
 endif
 " Enable modern Vim features not compatible with Vi spec.
 set nocompatible
@@ -38,17 +49,25 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
+Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
-"Plug 'thaerkh/vim-workspace'
-Plug 'pboettch/vim-highlight-cursor-words'
+Plug 'kien/ctrlp.vim'
+"Plug 'Vimjas/vim-python-pep8-indent'
+"Plug 'nvie/vim-flake8'
+"Plug 'dense-analysis/ale'
+Plug 'thaerkh/vim-workspace'
+"Plug 'tell-k/vim-autopep8'
+"Plug 'pboettch/vim-highlight-cursor-words'
 
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 " Leader is the backslash key by default.
@@ -56,6 +75,7 @@ nnoremap <Leader>] :LspDefinition<CR>
 nnoremap <Leader>[ :LspReferences<CR>
 nnoremap <Leader>i :LspHover<CR>
 call plug#end()
+filetype plugin indent on
 """""""""""""""Gocode with vim-go
 let g:go_disable_autoinstall = 1
 let g:go_gocode_bin = 'gocode'
@@ -69,8 +89,8 @@ let g:coc_global_extensions = [
 			\ 'coc-css',
 			\ 'coc-python',
 			\ 'coc-ultisnips' ]
-let g:lsp_signs_enabled = 1         " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+"let g:lsp_signs_enabled = 1         " enable signs
+"let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 
 
 " Plugin configuration.
@@ -106,8 +126,6 @@ augroup autoformat_settings
 augroup END
 
 
-set autowriteall
-set termwinscroll=1000000
 
 
 " Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
@@ -131,28 +149,14 @@ set termwinscroll=1000000
 " You can also use a plugin to:
 " - enter insert mode with paste (https://github.com/tpope/vim-unimpaired)
 " - auto-detect pasting (https://github.com/ConradIrwin/vim-bracketed-paste)
-filetype plugin indent on
 syntax on
 
 
 """""""""""""""""
-"syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0 
-let g:syntastic_check_on_open = 0
-"let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype', 'govet']
-"let g:syntastic_go_checkers = ['golangci_lint', 'gofmt', 'golint', 'gotype']
-"let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype']"
-"let g:syntastic_go_checkers = ['golangci_lint']
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_wq = 1
 "
 "
-set clipboard^=unnamedplus,unnamed
+"set clipboard^=unnamedplus,unnamed
+set clipboard^=unnamedplus
 set number
 set undofile
 set undodir=~/.vim/undo
@@ -160,8 +164,6 @@ set nowrap
 set textwidth=0
 set wrapmargin=0
 "set tabstop=2
-set cursorline
-set cursorcolumn
 set tw=0
 "set shiftwidth=2
 
@@ -175,32 +177,32 @@ nnoremap Y y$
 "set statusline+=%F:
 "set statusline+=%c
 
-let g:airline_theme='solarized'
+let g:airline_theme='dark'
 let g:airline_sectionc='%F'
-set statusline+='%F'
+"set statusline+='%F'
 "let g:go_godef_bin='/usr/local/google/home/davidlerner/go-vim/godef.google3'
 "nmap gd <Plug>(go-def)
-let g:go_def_mode='guru' "works within file
+"let g:go_def_mode='guru' "works within file
 "let g:go_info_mode='guru'
 "let g:go_def_mode='gopls' "does nothing at all
 "let g:go_info_mode='gopls'
-let g:go_def_mode='godef' "works between files!
+"let g:go_def_mode='godef' "works between files!
 "let g:go_info_mode='godef' "doesn't work
 "let g:go_info_mode='gocode'  "doesn't work
 "let g:go_info_mode='gopls'  "doesn't work
-"let g:go_info_mode='guru' 
+"let g:go_info_mode='guru'
 au FileType go nmap gd <Plug>(go-def)
-nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
+"nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
 "let g:ycm_godef_binary_path='~/go/bin/godef'
 "let g:ycm_godef_binary_path='/usr/local/google/home/davidlerner/go-vim/godef.google3' set ignorecase
 set ignorecase
 set smartcase
 
 nmap af :w<CR>
-nmap ad :SyntasticCheck<CR>:lw<CR>
+"nmap ad :SyntasticCheck<CR>:lw<CR>
 "autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
-let HlUnderCursor=0
-let g:HiCursorWords_delay = 400
+"let HlUnderCursor=0
+"let g:HiCursorWords_delay = 400
 
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
@@ -208,11 +210,40 @@ let g:HiCursorWords_delay = 400
 "autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-			\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-set completeopt-=preview
-let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype']
+"autocmd FileChangedShellPost *
+"			\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+"set completeopt-=preview
 "let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype', 'govet']
 "Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
 
-set autowriteall
+"set autowriteall
+autocmd FileType text setlocal wrap linebreak
+filetype plugin indent on
+command! -nargs=1 -range=% Py py3do vim.current.buffer[linenr - 1] = str(<args>)
+let g:ctrlp_working_path_mode = ''
+let g:ctrlp_custom_ignore = {
+			\ 'dir': '\v(pycache|log)',
+			\ 'file': 'pyc$',
+			\ 'link': '',
+			\}
+hi Visual ctermfg=blue
+hi Comment ctermfg=yellow
+hi DiffChange ctermbg=blue
+
+set list listchars=trail:.,extends:>
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+autocmd FileType python set equalprg=autopep8\ -
+
+set completeopt=menuone,noinsert
+autocmd FileType python setlocal completeopt-=preview
+
+hi SpellBad ctermbg=red
+nnoremap <leader>s :ToggleWorkspace<CR>
+"let g:autopep8_max_line_length=120
+"let g:autopep8_disable_show_diff=1
+"let g:autopep8_aggressive=2
+"let g:autopep8_indent_size=4
+"let g:workspace_session_disable_on_args = 1
+
+let g:jedi#show_call_signatures=1
+let g:jedishow_call_signatures_delay=0

@@ -1,7 +1,13 @@
+
+
 ZSH_DISABLE_COMPFIX=true
+export PATH=~/.local/bin:$PATH
+export WORKON_HOME=~/.envs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source ~/.local/bin/virtualenvwrapper.sh
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='100'
 ZSH_THEME="powerlevel9k/powerlevel9k"
-if test -f ~/google-desktop; then
+if test -f ~/.google-desktop; then
 	echo 'loading google-desktop'
 	unalias zz
 	unalias d
@@ -16,10 +22,24 @@ if test -f ~/google-desktop; then
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 fi
 
+if test -f ~/.x1; then
+	alias d="cd ~/Dropbox"
+	alias h='python3 ~/Dropbox/habit3/habit.py'
+	alias H='cd ~/Dropbox/habit3'
+	alias vh='vim ~/Dropbox/habit3/*.csv'
+	alias s='/mnt/c/Program\ Files/SumatraPDF/SumatraPDF.exe'
+	export PATH=$PATH:~/Dropbox/scripts
+	alias t='python3 ~/scripts/nest.py'
+	alias c='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
+	alias y='cd /mnt/c/Users/david/Dropbox/scripts/ynab-amazon-parser/ynabamazonparser/'
+fi
+
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 set -o vi
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
+export DISPLAY=localhost:0.0
+
 
 
 POWERLEVEL9K_CUSTOM_CITC='get_citc'
@@ -53,8 +73,9 @@ POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='208'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:~/.local/bin
 
-plugins=(git alias-tips common-aliases extract fasd history fzf vi-mode)
+plugins=(git common-aliases extract fasd history fzf vi-mode)
 ### todo: make zsh-completions work especially for google
 #plugins=(git alias-tips common-aliases extract fasd history zsh-completions fzf vi-mode)
 # Path to your oh-my-zsh installation.
@@ -154,7 +175,7 @@ function kp {
 alias willitfit=/google/data/ro/projects/quota_tools/willitfit.par
 #alias g="grep -ir --color=always $1 | sort"
 function g {
-	grep -ir --color=always $1 | sort; 
+	grep -ir --color=always $1 | sort;
 }
 function gn { cd;
 	cd 'Notes/2019';
@@ -194,9 +215,12 @@ alias ...="cd ../.."
 alias ..="cd .."
 alias py=" /google/data/ro/projects/g3python/g3python --deps //pyglib --deps //pyglib:gfile --deps //third_party/py/matplotlib --deps //third_party/py/Tkinter --deps //third_party/py/numpy --deps //third_party/py/pandas --deps //third_party/py/scipy --deps //third_party/py/sklearn --deps //third_party/py/statsmodels --deps //analysis/common/pandas:bigtable --deps //analysis/common/pandas:borgmon --deps //analysis/common/pandas:columnio --deps //analysis/common/pandas:dremel --deps //analysis/common/pandas:materialize --deps //bigtable/contrib/python --deps //concurrent/futures:concurrent_futures  $@"
 alias b="xcalib -i -a"
+alias vz="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias sp="source ~/.profile"
-alias rc="vim ~/.bashrc"
+alias vv="vim ~/.vimrc"
+alias vi="vim ~/.config/i3/config"
+alias df="cd ~/Dropbox/dotfiles"
 #
 #setxkbmap -option caps:swapescape
 
@@ -303,7 +327,7 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 # broken because zsh
-# 
+#
 #if ! setopt -oq posix; then
 #  if [ -f /usr/share/bash-completion/bash_completion ]; then
 #    . /usr/share/bash-completion/bash_completion
@@ -393,3 +417,33 @@ function get_path() {
 		print -n "~${match[1]}"
 	fi
 }
+
+
+
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
+bindkey "^[[A" up-line-or-local-history
+bindkey "^[[B" down-line-or-local-history
+bindkey "^[[1;5A" up-line-or-history    # [CTRL] + Cursor up
+bindkey "^[[1;5B" down-line-or-history  # [CTRL] + Cursor down
+
+alias gr="git remote add origin git@github.com:dmlerner/$1.git; git push -u origin master"
+alias yp='python3 -m ynabamazonparser'
+#alias c='"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
+PYTHONDONTWRITEBYTECODE=1
+alias t="tree -I '__pycache__|log|*pyc'"
+
+HISTTIMEFORMAT="%d/%m/%y %T "
+
+export PYTHONPATH=$PYTHONPATH:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/usr/lib/python3.8/site-packages
+
