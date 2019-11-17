@@ -1,0 +1,13 @@
+map u scrollFullPageUp
+map d scrollFullPageDown
+map U scrollUp
+map D scrollDown
+let fullpagescrollpercent=99.5
+set nosmoothscroll
+unmap h j k l
+set sortlinkhints
+set nativelinkorder
+set noautofocus
+set smartcase
+set incsearch
+
