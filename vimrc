@@ -1,4 +1,10 @@
+If empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 if !empty(glob("~/google-desktop"))
+
 	" Use the 'google' package by default (see http://go/vim/packages).
 	source /usr/share/vim/google/google.vim
 	source /usr/share/vim/google/glug/bootstrap.vim
@@ -48,6 +54,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
 "Plug 'thaerkh/vim-workspace'
+Plug 'ayu-theme/ayu-vim'
+Plug 'gregsexton/Atom'
+set termguicolors
+let ayucolor="light"
+colorscheme ayu
 Plug 'pboettch/vim-highlight-cursor-words'
 
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
@@ -216,3 +227,5 @@ let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype']
 "Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
 
 set autowriteall
+
+colorscheme ayu
