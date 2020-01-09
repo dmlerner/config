@@ -1,6 +1,12 @@
 ZSH_DISABLE_COMPFIX=true
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='100'
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# cache-path muth must exist
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+# If you only want to complete local directories in git5, uncomment the next line
+# export BLAZE_COMPLETION_PACKAGE_PATH=%workspace%nalias zz
 if test -f ~/google-desktop; then
 	echo 'loading google-desktop'
 	unalias zz
@@ -15,6 +21,18 @@ if test -f ~/google-desktop; then
 	source /etc/bash.bashrc.d/shell_history_forwarder.sh
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 fi
+if test -f ~/google-x1; then
+	echo 'loading google-x1'
+	alias ld="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') +5%"
+	alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
+	xsetroot -solid "#FFFFFF"
+	unalias gcl
+	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
+	# don't swap if laptop pl.ugged in; todo: automate
+	#setxkbmap -option caps:noswapescape
+fi
+alias vim=nvim
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -54,7 +72,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-plugins=(git alias-tips common-aliases extract fasd history fzf vi-mode)
+plugins=(git common-aliases extract fasd history fzf vi-mode)
 ### todo: make zsh-completions work especially for google
 #plugins=(git alias-tips common-aliases extract fasd history zsh-completions fzf vi-mode)
 # Path to your oh-my-zsh installation.
@@ -198,7 +216,6 @@ alias sz="source ~/.zshrc"
 alias sp="source ~/.profile"
 alias rc="vim ~/.bashrc"
 #
-#setxkbmap -option caps:swapescape
 
 # $Id: //depot/google3/googledata/corp/puppet/goobuntu/common/modules/shell/files/bash/skel.bashrc#5 $
 # xset r rate 250 40
@@ -392,4 +409,11 @@ function get_path() {
 	if [[ $PWD =~ '/usr/local/google/home/davidlerner(.*)' ]]; then
 		print -n "~${match[1]}"
 	fi
+}
+
+unalias gc
+function gc() {
+	pkill ssh-agent
+	eval $(ssh-agent -s)
+	gcert
 }
