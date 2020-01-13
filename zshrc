@@ -1,6 +1,6 @@
 ZSH_DISABLE_COMPFIX=true
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='100'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k" # using 10k now lol
 
 # cache-path muth must exist
 zstyle ':completion:*' use-cache on
@@ -417,3 +417,4 @@ function gc() {
 	eval $(ssh-agent -s)
 	gcert
 }
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme

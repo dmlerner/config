@@ -118,7 +118,7 @@ augroup END
 
 
 set autowriteall
-set termwinscroll=1000000
+"set termwinscroll=1000000
 
 
 " Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
