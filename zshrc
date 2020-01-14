@@ -418,3 +418,10 @@ function gc() {
 	gcert
 }
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+
+alias m='g4d; cd./attribution/midtier' # todo: preserve pushd
+alias vm='m; vim'
+alias jm='g4d; cd ./java/com/google/attribution/midtier'
+alias vjm='jm; vim'
+alias vz='vim ~/.zshrc'
+alias vv='vim ~/.vimrc'

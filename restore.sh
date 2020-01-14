@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils
+sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff
 mkdir -p ~/.config/i3
 ln -s ~/dotfiles/i3config ~/.config/i3/config
 ln -s ~/dotfiles/zshenv ~/.zshenv
