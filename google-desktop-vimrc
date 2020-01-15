@@ -12,8 +12,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -24,10 +22,18 @@ Plug 'mhinz/vim-signify'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'Kythe Language Server',
+    \ 'cmd': {server_info->['/google/bin/releases/grok/tools/kythe_languageserver', '--google3']},
+    \ 'whitelist': ['python', 'go', 'java', 'cpp', 'proto'],
+    \})
+
+nnoremap gd :<C-u>LspDefinition<CR>
+
 " Let CtrlP not go all the way up to the root of the client. Instead, consider a
 " METADATA file to delimit a project.
-"let g:ctrlp_root_markers = ['METADATA']
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_root_markers = ['METADATA']
+"let g:ctrlp_working_path_mode = 0
 
 " Use AG for CtrlP
 if executable('ag')
@@ -53,16 +59,6 @@ set background=light
 let mapleader = " "
 map <Leader>v  :source ~/.vimrc<CR> :e<CR>
 
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'CiderLSP',
-    \ 'cmd': {server_info->[
-    \   '/google/bin/releases/editor-devtools/ciderlsp',
-    \   '--tooltag=vim-lsp',
-    \   '--noforward_sync_responses',
-    \ ]},
-    \ 'whitelist': ['c', 'cpp', 'proto', 'textproto', 'go', 'java'],
-    \})
-
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 " Leader is the backslash key by default.
 nnoremap <Leader>d :LspDefinition<CR>
@@ -86,6 +82,7 @@ augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType proto AutoFormatBuffer clang-format
 augroup END
 
 " Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
@@ -99,14 +96,14 @@ Glug blaze !alerts plugin[mappings]
 let g:blazevim_quickfix_autoopen = 1
 set autowriteall
 Glug syntastic-google 
-Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
+Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
 Glug corpweb plugin[mappings]
 filetype plugin indent on
 syntax on
 
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0 
+let g:syntastic_auto_loc_list = 1 
 let g:syntastic_check_on_open = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_wq = 1
@@ -157,3 +154,8 @@ let g:signify_skip_filename_pattern = ['\.pipertmp.*']
 Glug google-csimporter
 nnoremap <leader>ci :CSImporter<CR>
 nnoremap <leader>cs :CSImporterSort<CR>
+tnoremap <leader><Esc> <C-\><C-n><CR>
+noremap <C-j> <C-w><C-j>
+noremap <C-k> <C-w><C-k>
+noremap <C-h> <C-w><C-h>
+noremap <C-l> <C-w><C-l>
