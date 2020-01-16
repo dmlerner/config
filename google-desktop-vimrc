@@ -60,6 +60,7 @@ let mapleader = " "
 map <Leader>v  :source ~/.vimrc<CR> :e<CR>
 
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_autosave = 0
 " Leader is the backslash key by default.
 nnoremap <Leader>d :LspDefinition<CR>
 nnoremap <Leader>f :LspReferences<CR>
@@ -121,9 +122,6 @@ set incsearch
 set nohlsearch
 nnoremap Y y$
 
-let g:airline_theme='solarized'
-let g:airline_sectionc='%F'
-set statusline+='%F'
 nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
 set ignorecase
 set smartcase
@@ -159,3 +157,21 @@ noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-h> <C-w><C-h>
 noremap <C-l> <C-w><C-l>
+
+set formatoptions-=cro
+":FZFPiperActiveFiles or :FZFPiperActiveFiles?
+" Install plugin
+nnoremap <Leader>p :FZFPiperActiveFiles<Cr>
+Glug fzf-piper
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts=1
+let g:airline_sectionc='%F'
+let g:airline_section_y=''
+let g:airline_section_x=''
+let g:airline_section_a=''
+set statusline+='%F'
+set cmdheight=2
+set noshowmode
