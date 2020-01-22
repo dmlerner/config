@@ -61,8 +61,8 @@ bindsym $mod+b exec xcalib -i -a
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+t exec i3-sensible-terminal --window -e vim -c "term" -c "res"
-bindsym $mod+Shift+v exec i3-sensible-terminal --window -e vim 
+bindsym $mod+Shift+v exec i3-sensible-terminal --window -e nvim -c 'pwd'
+bindsym $mod+Shift+t exec i3-sensible-terminal --window -e nvim -c 'term' -c 'star' 
 bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec vim -c "term" -c "res"
 #bindsym $mod+Return exec sh ~/Scripts/open-terminal-at-pwd.sh
