@@ -1,8 +1,5 @@
-set nocompatible
-
-" Use the 'google' package by default (see http://go/vim/packages).
-source /usr/share/vim/google/google.vim
 source /usr/share/vim/google/glug/bootstrap.vim
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'chrisbra/changesPlugin'
@@ -14,38 +11,47 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
-Plug 'thaerkh/vim-workspace'
-"Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'mhinz/vim-signify'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-ctrlspace/vim-ctrlspace'
 call plug#end()
 
+Glug codefmt
+Glug codefmt-google
+Glug codefmt-google auto_filetypes+=blazebuild
 
-" Let CtrlP not go all the way up to the root of the client. Instead, consider a
-" METADATA file to delimit a project.
-let g:ctrlp_root_markers = ['METADATA']
-let g:ctrlp_working_path_mode = 1
+" Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
+" error checking. Pulls in a google3-enabled version of YCM itself and
+" a google3-specific default configuration.
+" todo: replace with a:coc_global_extensions? in CocConfig or here...?
+"Glug youcompleteme-google
+Glug blazedeps auto_filetypes=`['go']`
+Glug piper plugin[mappings]
+Glug critique plugin[mappings]
+Glug blaze !alerts plugin[mappings]
+let g:blazevim_quickfix_autoopen = 1
+set autowriteall
+Glug syntastic-google
+Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
+Glug corpweb plugin[mappings]
 
-" Use AG for CtrlP
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+Glug fzf-piper
+nnoremap <C-p> :FZFPiperActiveFiles<Cr>
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = '/usr/bin/ag %s -i --nocolor --nogroup --hidden
-    \ --ignore .git
-    \ --ignore .svn
-    \ --ignore .hg
-    \ --ignore .DS_Store
-    \ --ignore "**/*.pyc"
-    \ --ignore .git5_specs
-    \ --ignore review
-    \ -g ""'
+" uses <Leader>r
+Glug relatedfiles plugin[mappings]
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 1
-endif
+Glug google-csimporter
+
+" Keep this after glugs...
+" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
+source /usr/share/vim/google/google.vim
+
+nnoremap <leader>ci :CSImporter<CR>
+nnoremap <leader>cs :CSImporterSort<CR>
+
+filetype plugin indent on
+syntax on
 
 set background=light
 let mapleader = " "
@@ -134,7 +140,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+    nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -194,7 +200,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 """"
 
-nnoremap <Leader>w :ToggleWorkspace<CR>
 
 let g:lsp_async_completion = 1
 let g:lsp_signs_enabled = 1         " enable signs
@@ -203,9 +208,6 @@ let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
 
 
-Glug codefmt
-Glug codefmt-google
-Glug codefmt-google auto_filetypes+=blazebuild
 
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
@@ -214,41 +216,13 @@ augroup autoformat_settings
   autocmd FileType proto AutoFormatBuffer clang-format
 augroup END
 
-" Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
-" error checking. Pulls in a google3-enabled version of YCM itself and
-" a google3-specific default configuration.
-" todo: replace with a:coc_global_extensions? in CocConfig or here...?
-"Glug youcompleteme-google 
-Glug blazedeps auto_filetypes=`['go']`
-Glug piper plugin[mappings]
-Glug critique plugin[mappings]
-Glug blaze !alerts plugin[mappings] 
-let g:blazevim_quickfix_autoopen = 1
-set autowriteall
-Glug syntastic-google 
-Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
-Glug corpweb plugin[mappings]
-filetype plugin indent on
-syntax on
 
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1 
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_wq = 1
-set clipboard^=unnamedplus,unnamed
-set number
-set undofile
-set undodir=~/.vim/undo
-set nowrap
-set textwidth=0
-set wrapmargin=0
-set cursorline
-set cursorcolumn
-set tw=0
-set incsearch
-set nohlsearch
 nnoremap Y y$
 
 "nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
@@ -267,20 +241,15 @@ let g:HiCursorWords_delay = 400
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 set completeopt-=preview
 
 set autowriteall
 
 autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
 
-" uses <Leader>r
-Glug relatedfiles plugin[mappings] 
 
 let g:signify_skip_filename_pattern = ['\.pipertmp.*']
-Glug google-csimporter
-nnoremap <leader>ci :CSImporter<CR>
-nnoremap <leader>cs :CSImporterSort<CR>
 tnoremap <leader><Esc> <C-\><C-n><CR>
 noremap <C-w>j <C-w><C-j>
 noremap <C-w>k <C-w><C-k>
@@ -291,13 +260,13 @@ tnoremap <C-w>k <C-\><C-n><CR><C-w><C-k>
 tnoremap <C-w>h <C-\><C-n><CR><C-w><C-h>
 tnoremap <C-w>l <C-\><C-n><CR><C-w><C-l>
 
-set formatoptions-=cro
-":FZFPiperActiveFiles or :FZFPiperActiveFiles?
-" Install plugin
-nnoremap <C-p> :FZFPiperActiveFiles<Cr>
-Glug fzf-piper
 
-let g:airline#extensions#tabline#enabled = 1
+":FZFPiperActiveFiles or :FZFPiperActiveFiles?
+
+" Install plugin
+
+
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_theme='solarized'
 let g:airline#extensions#tabline#show_buffers = 1
@@ -316,8 +285,47 @@ set noshowmode
 "tmap <c-w><c-l> <c-\><c-n><c-w><c-l>i<c-l>
 "
 "automatically use path of current file as pwd
-autocmd BufNewFile,BufEnter * silent! lcd %:p:h 
+autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 nnoremap <Leader>d :SignifyHunkDiff<Cr><C-w>
-nnoremap <Leader>pb :CtrlPBuffer<Cr>
-nnoremap <Leader>pm :CtrlPMixed<Cr>
-nnoremap <Leader>pp :CtrlP<Cr>
+
+augroup settings
+  autocmd!
+  autocmd FileType * set
+        \ clipboard^=unnamedplus,unnamed
+        \   number
+        \   undofile
+        \   undodir=~/.vim/undo
+        \   nowrap
+        \   textwidth=0
+        \   wrapmargin=0
+        \   cursorline
+        \   cursorcolumn
+        \   tw=0
+        \   incsearch
+        \   nohlsearch
+        \   fo-=cro
+augroup END
+autocmd BufWritePre * %s/\s\+$//e
+
+"let g:CtrlSpaceDefaultMappingKey = '<C-Space>'
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+let s:vimfiles = '~/.vim'
+let s:os = 'linux'
+
+let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
+let g:CtrlSpaceGlobCommand = 'ack --nocolor -g ""'
+let g:CtrlSpaceSearchTiming = 500
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 0
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+let g:CtrlSpaceProjectRootMarkers = [
+      \ "BUILD"
+      \]
+set showtabline=0
+let g:airline_exclude_preview = 1
+let g:CtrlSpaceUseTabline = 1
+
+set encoding=utf-8
+let g:CtrlSpaceUseUnicode = 0
+
+au BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
