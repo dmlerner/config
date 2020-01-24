@@ -16,7 +16,7 @@ if !empty(glob("~/google-desktop"))
 	Glug codefmt-google
 	Glug syntastic-google checkers=`{'go': ['gofmt', 'golint']}`
 	Glug codefmt-google auto_filetypes+=blazebuild
-	Glug syntastic-google 
+	Glug syntastic-google
 	Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
 	Glug corpweb plugin[mappings]
 	Glug youcompleteme-google
@@ -35,7 +35,7 @@ if !empty(glob("~/google-desktop"))
 	Glug critique plugin[mappings]
 
 	" Load blaze integration (http://go/blazevim).
-	Glug blaze !alerts plugin[mappings] 
+	Glug blaze !alerts plugin[mappings]
 	let g:blazevim_quickfix_autoopen = 1
 endif
 " Enable modern Vim features not compatible with Vi spec.
@@ -53,7 +53,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
-"Plug 'thaerkh/vim-workspace'
 Plug 'ayu-theme/ayu-vim'
 Plug 'gregsexton/Atom'
 set termguicolors
@@ -61,7 +60,6 @@ let ayucolor="light"
 colorscheme ayu
 Plug 'pboettch/vim-highlight-cursor-words'
 
-let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 " Leader is the backslash key by default.
 nnoremap <Leader>] :LspDefinition<CR>
 nnoremap <Leader>[ :LspReferences<CR>
@@ -153,7 +151,7 @@ syntax on
 "set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0 
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 "let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype', 'govet']
 "let g:syntastic_go_checkers = ['golangci_lint', 'gofmt', 'golint', 'gotype']
@@ -199,7 +197,7 @@ let g:go_def_mode='godef' "works between files!
 "let g:go_info_mode='godef' "doesn't work
 "let g:go_info_mode='gocode'  "doesn't work
 "let g:go_info_mode='gopls'  "doesn't work
-"let g:go_info_mode='guru' 
+"let g:go_info_mode='guru'
 au FileType go nmap gd <Plug>(go-def)
 nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
 "let g:ycm_godef_binary_path='~/go/bin/godef'

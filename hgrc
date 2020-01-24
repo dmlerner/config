@@ -1,0 +1,21 @@
+[ui]
+merge = vimdiff
+[extensions]
+beautifygraph =
+[ui]
+graphnodetemplate = {label("graphnode.{graphnode}", graphnode)}
+
+[color]
+graphnode.@ = brightred
+[ui]
+graphnodetemplate = {ifeq(graphnode, "@", "🠺", graphnode)}
+[color]
+desc.here = green bold
+[templatealias]
+google_compact_desc_text = '{if(outsidenarrow, "", GOOG_trim_desc(desc))}'
+[experimental]
+graphshorten = True
+[templatealias]
+google_compact_uniq_id = '{GOOG_rev_and_node}'
+[pager]
+pager = less -FRX

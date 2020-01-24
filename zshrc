@@ -172,10 +172,10 @@ function kp {
 alias willitfit=/google/data/ro/projects/quota_tools/willitfit.par
 #alias g="grep -ir --color=always $1 | sort"
 function g {
-	grep -ir --color=always $1 | sort; 
+	grep -ir --color=always $1 | sort;
 }
 function gn { cd;
-	cd 'Notes/2020';
+	cd "gdrive/notes/2020";
 	#grep -ir --color=always $1 | sort;
 	ack --smart-case $1 --sort-files;
 }
@@ -199,7 +199,7 @@ alias prodaccess='prodaccess -g -s --ssh_on_security_key'
 alias gp='/usr/bin/python2.7     /google/src/head/depot/google3/apphosting/scripts/tools/gaepools.py'
 alias gae_spool_client=/google/data/ro/projects/apphosting/tools/gae_spool_client.sh
 alias sandman=/google/data/ro/projects/sandman/sandman.par
-alias n='vim ~/Notes/$(python ~/Notes/misc/utils.py)'
+alias n='python ~/gdrive/scripts/todays-notes.py'
 #alias N='vim ~/Notes/$(python ~/Notes/utils.py $1)'
 alias z='python ~/Notes/utils.py $1'
 alias dirs="dirs -v"
@@ -320,7 +320,7 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 # broken because zsh
-# 
+#
 #if ! setopt -oq posix; then
 #  if [ -f /usr/share/bash-completion/bash_completion ]; then
 #    . /usr/share/bash-completion/bash_completion

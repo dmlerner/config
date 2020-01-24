@@ -44,7 +44,7 @@ bindsym $mod+shift+o exec xcalib -i -a && xset dpms force off && i3lock -c 00000
 #default_border normal 3
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 12
+font pango:monospace 8
 bindsym $mod+b exec xcalib -i -a
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -61,9 +61,9 @@ bindsym $mod+b exec xcalib -i -a
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+v exec i3-sensible-terminal --window -e nvim -c 'pwd'
-bindsym $mod+Shift+t exec i3-sensible-terminal --window -e nvim -c 'term' -c 'star' 
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+v exec alacritty --window -e nvim -c 'pwd'
+bindsym $mod+Shift+t exec alacritty --window -e nvim -c 'term' -c 'star'
+bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec vim -c "term" -c "res"
 #bindsym $mod+Return exec sh ~/Scripts/open-terminal-at-pwd.sh
 
@@ -204,6 +204,37 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+	colors {
+		background #ffffff
+		statusline #000000
+		separator #000000
+	}
+	status_command i3status
+		bindsym button4 nop # mouse scroll up/down
+		bindsym button5 nop
+
+		colors {
+				background #ffffff
+				statusline #000000
+				separator #000000
+				#                  border  backgr. text
+				focused_workspace  #ffffff #ffffff #000000
+				active_workspace   #ffffff #ffffff #999999
+				inactive_workspace #ffffff #ffffff #aaaaaa
+				urgent_workspace   #2f343a #900000 #000000
+
+				focused_background #ffffff #ffffff #000000
+				focused_statusline #ffffff #ffffff #000000
+				focused_separator  #ffffff #ffffff #000000
+		}
+
 }
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #000000 #ffffff #000000 #000000   #666666
+client.focused_inactive #ffffff #ffffff #000000 #dddddd   #aaaaaa
+client.unfocused        #ffffff #ffffff #aaaaaa #292d2e   #ffffff
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff

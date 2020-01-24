@@ -3,6 +3,7 @@ source /usr/share/vim/google/glug/bootstrap.vim
 
 call plug#begin('~/.vim/plugged')
 Plug 'chrisbra/changesPlugin'
+Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
@@ -47,8 +48,8 @@ Glug google-csimporter
 " https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
 source /usr/share/vim/google/google.vim
 
-nnoremap <leader>ci :CSImporter<CR>
-nnoremap <leader>cs :CSImporterSort<CR>
+nnoremap <leader>ci :CsImporter<CR>
+nnoremap <leader>cs :CsImporterSort<CR>
 
 filetype plugin indent on
 syntax on
@@ -57,10 +58,6 @@ set background=light
 let mapleader = " "
 map <Leader>v  :source ~/.vimrc<CR> :e<CR>
 
-let g:workspace_session_directory = $HOME . '/.vim/sessions/'
-let g:workspace_autosave = 0
-let g:workspace_autocreate = 1
-let g:workspace_session_disable_on_args = 1
 """" CoC settings
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
