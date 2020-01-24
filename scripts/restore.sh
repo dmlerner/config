@@ -1,7 +1,8 @@
 #!/bin/bash
 cd $HOME
-DOTFILES=$HOME/gdrive/dotfiles
-SCRIPTS=$HOME/gdrive/scripts
+CONFIG=$HOME/gdrive/config
+DOTFILES=$CONFIG/dotfiles
+SCRIPTS=$CONFIG/scripts
 sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff google-rebaser ranger ack-grep nodejs npm yarn vim-google-config python3-pip
 mkdir -p $HOME/.config/i3
 sudo rm -rf $HOME/.config/i3/config
