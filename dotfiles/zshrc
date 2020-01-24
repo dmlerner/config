@@ -8,7 +8,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # If you only want to complete local directories in git5, uncomment the next line
 # export BLAZE_COMPLETION_PACKAGE_PATH=%workspace%nalias zz
 if test -f ~/google-desktop; then
-	echo 'loading google-desktop'
+	# echo 'loading google-desktop'
 	unalias zz
 	unalias d
 	unalias s
@@ -22,11 +22,10 @@ if test -f ~/google-desktop; then
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 fi
 if test -f ~/google-x1; then
-	echo 'loading google-x1'
+	# echo 'loading google-x1'
 	alias ld="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') +5%"
 	alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
 	xsetroot -solid "#FFFFFF"
-	unalias gcl
 	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 	# don't swap if laptop pl.ugged in; todo: automate
@@ -389,10 +388,6 @@ export PATH=$PATH:$GOPATH/bin
 function mc() {
 	cp $(g4 g4d -u davidlerner $1)/$2 $2
 }
-function s() {
-	echo "s/$1/$2/eg"
-	perl -p -i -e "s/$1/$2/eg" *
-}
 alias f1=/google/data/ro/projects/storage/f1/tools/f1-sql
 alias cdd=/google/data/ro/projects/chubby/cdd/cdd
 alias o='cmd.exe /C start'
@@ -411,7 +406,6 @@ function get_path() {
 	fi
 }
 
-unalias gc
 function gc() {
 	pkill ssh-agent
 	eval $(ssh-agent -s)
@@ -428,3 +422,5 @@ alias vv='vim ~/.vimrc'
 alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
 alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
 alias vt='vim --cmd term --cmd star'
+alias s='ssh davidlerner1.irv.corp.google.com'
+alias sc='ssh davidlerner.c.googlers.com'

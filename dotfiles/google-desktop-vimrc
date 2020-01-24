@@ -1,4 +1,5 @@
 source /usr/share/vim/google/glug/bootstrap.vim
+source /usr/share/vim/google/core.vim
 
 
 call plug#begin('~/.vim/plugged')
