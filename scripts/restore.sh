@@ -3,7 +3,7 @@ cd $HOME
 CONFIG=$HOME/gdrive/config
 DOTFILES=$CONFIG/dotfiles
 SCRIPTS=$CONFIG/scripts
-sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff google-rebaser ranger ack-grep nodejs npm yarn vim-google-config python3-pip
+sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff google-rebaser ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool
 mkdir -p $HOME/.config/i3
 sudo rm -rf $HOME/.config/i3/config
 ln -sf $DOTFILES/i3config $HOME/.config/i3/config
@@ -26,7 +26,7 @@ ln -sf $DOTFILES/alacritty.yml $HOME/.config/alacritty
 sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 chmod +x $DOTFILES/.git/hooks/*
 chmod +x $SCRIPTS/.git/hooks/*
-pip3 install --user pynvim
+pip3 install --user pynvim jedi numpy pandas matplotlib
 vim -c ':PlugInstall' -c ':q' -c ':q'
 sudo rm -rf $HOME/.config/i3status/config
 mkdir -p $HOME/.config/i3status
