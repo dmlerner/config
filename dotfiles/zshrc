@@ -15,10 +15,10 @@ if test -f ~/google-desktop; then
 	alias ld="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') +5%"
 	alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
 	xsetroot -solid "#FFFFFF"
-	unalias gcl
 	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
 	fpath=($(realpath /google/src/files/head/depot/google3/devtools/blaze/scripts/zsh_completion) $fpath)
 	source /etc/bash.bashrc.d/shell_history_forwarder.sh
+	source /etc/bash_completion.d/g4d
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 fi
 if test -f ~/google-x1; then
@@ -71,7 +71,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-plugins=(git common-aliases extract fasd history fzf vi-mode)
+plugins=(common-aliases extract fasd history fzf vi-mode)
 ### todo: make zsh-completions work especially for google
 #plugins=(git alias-tips common-aliases extract fasd history zsh-completions fzf vi-mode)
 # Path to your oh-my-zsh installation.

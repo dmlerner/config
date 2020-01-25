@@ -1,213 +1,237 @@
-If empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-if !empty(glob("~/google-desktop"))
+source /usr/share/vim/google/glug/bootstrap.vim
+source /usr/share/vim/google/core.vim
 
-	" Use the 'google' package by default (see http://go/vim/packages).
-	source /usr/share/vim/google/google.vim
-	source /usr/share/vim/google/glug/bootstrap.vim
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'Kythe Language Server',
-				\ 'cmd': {server_info->['/google/bin/releases/grok/tools/kythe_languageserver', '--google3']},
-				\ 'whitelist': ['python', 'go', 'java', 'cpp', 'proto'],
-				\})
-	Glug codefmt-google
-	Glug syntastic-google checkers=`{'go': ['gofmt', 'golint']}`
-	Glug codefmt-google auto_filetypes+=blazebuild
-	Glug syntastic-google
-	Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
-	Glug corpweb plugin[mappings]
-	Glug youcompleteme-google
-	Glug codefmt plugin[mappings] gofmt_executable="goimports"
-	Glug codefmt gofmt_executable="goimports"
-	" Load the automated blaze dependency integration for Go.
-	" Note: for Go, blazedeps uses the Go team's glaze tool, which is fully
-	" supported by the Go team. The plugin is currently unsupported for other
-	" languages.
-	Glug blazedeps auto_filetypes=`['go']`
 
-	" Load piper integration (http://go/VimPerforce).
-	Glug piper plugin[mappings]
-
-	" Load Critique integration. Use :h critique for more details.
-	Glug critique plugin[mappings]
-
-	" Load blaze integration (http://go/blazevim).
-	Glug blaze !alerts plugin[mappings]
-	let g:blazevim_quickfix_autoopen = 1
-endif
-" Enable modern Vim features not compatible with Vi spec.
-set nocompatible
-"set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'chrisbra/changesPlugin'
+Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'gregsexton/Atom'
-set termguicolors
-let ayucolor="light"
-colorscheme ayu
-Plug 'pboettch/vim-highlight-cursor-words'
-
-" Leader is the backslash key by default.
-nnoremap <Leader>] :LspDefinition<CR>
-nnoremap <Leader>[ :LspReferences<CR>
-nnoremap <Leader>i :LspHover<CR>
+Plug 'mhinz/vim-signify'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-ctrlspace/vim-ctrlspace'
 call plug#end()
-"""""""""""""""Gocode with vim-go
-let g:go_disable_autoinstall = 1
-let g:go_gocode_bin = 'gocode'
-"let g:go_autodetect_gopath = 0
 
-""" coc for kythe
-let g:coc_global_extensions = [
-			\ 'coc-tsserver',
-			\ 'coc-json',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-python',
-			\ 'coc-ultisnips' ]
-let g:lsp_signs_enabled = 1         " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+Glug codefmt
+Glug codefmt-google
+Glug codefmt-google auto_filetypes+=blazebuild
 
-
-" Plugin configuration.
-" See http://google3/devtools/editors/vim/examples/ for example configurations
-" and http://go/vim/plugins for more information about vim plugins at Google.
-
-" Plugin loading is commented out below - uncomment the plugins you'd like to
-" load.
-
-" Load google's formatting plugins (http://go/vim/plugins/codefmt-google).
-" The default mapping is \= (or <leader>= if g:mapleader has a custom value),
-" with
-" - \== formatting the current line or selected lines in visual mode
-"   (:FormatLines).
-" - \=b formatting the full buffer (:FormatCode).
-"
-" To bind :FormatLines to the same key in insert and normal mode, add:
-"   noremap <C-K> :FormatLines<CR>
-"   inoremap <C-K> <C-O>:FormatLines<CR>
-autocmd FileType go AutoFormatBuffer gofmt
-
-" Enable autoformatting on save for the languages at Google that enforce
-" formatting, and for which all checked-in code is already conforming (thus,
-" autoformatting will never change unrelated lines in a file).
-" Note formatting changed lines only isn't supported yet
-" (see https://github.com/google/vim-codefmt/issues/9).
-augroup autoformat_settings
-	autocmd FileType bzl AutoFormatBuffer buildifier
-	autocmd FileType go AutoFormatBuffer gofmt
-	"  autocmd FileType go AutoFormatBuffer golint
-	"  See go/vim/plugins/codefmt-google, :help codefmt-google and :help codefmt
-	"  for details about other available formatters.
-augroup END
-
-
+" Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
+" error checking. Pulls in a google3-enabled version of YCM itself and
+" a google3-specific default configuration.
+" todo: replace with a:coc_global_extensions? in CocConfig or here...?
+"Glug youcompleteme-google
+Glug blazedeps auto_filetypes=`['go']`
+Glug piper plugin[mappings]
+Glug critique plugin[mappings]
+Glug blaze !alerts plugin[mappings]
+let g:blazevim_quickfix_autoopen = 1
 set autowriteall
-"set termwinscroll=1000000
+Glug syntastic-google
+Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
+Glug corpweb plugin[mappings]
 
+Glug fzf-piper
+nnoremap <C-p> :FZFPiperActiveFiles<Cr>
 
-" Load the syntastic plugin (http://go/vim/plugins/syntastic-google).
-" Note: this requires installing the upstream syntastic plugin from
-" https://github.com/vim-syntastic/syntastic.
+" uses <Leader>r
+Glug relatedfiles plugin[mappings]
 
-" Load the ultisnips plugin (http://go/ultisnips).
-" Note: this requires installing the upstream ultisnips plugin from
-" https://github.com/SirVer/ultisnips.
-"Glug ultisnips-google
+Glug google-csimporter
 
-" All of your plugins must be added before the following line.
-" See go/vim-plugin-manager if you need help picking a plugin manager and
-" setting it up.
+" Keep this after glugs...
+" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
+source /usr/share/vim/google/google.vim
 
-" Enable file type based indent configuration and syntax highlighting.
-" Note that when code is pasted via the terminal, vim by default does not detect
-" that the code is pasted (as opposed to when using vim's paste mappings), which
-" leads to incorrect indentation when indent mode is on.
-" To work around this, use ":set paste" / ":set nopaste" to toggle paste mode.
-" You can also use a plugin to:
-" - enter insert mode with paste (https://github.com/tpope/vim-unimpaired)
-" - auto-detect pasting (https://github.com/ConradIrwin/vim-bracketed-paste)
+nnoremap <leader>ci :CsImporter<CR>
+nnoremap <leader>cs :CsImporterSort<CR>
+
 filetype plugin indent on
 syntax on
 
+set background=light
+let mapleader = " "
+map <Leader>v  :source ~/.vimrc<CR> :e<CR>
 
-"""""""""""""""""
-"syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+"""" CoC settings
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-python',
+      \ 'coc-java',
+      \ 'coc-ultisnips' ]
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+    nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+""""
+
+
+let g:lsp_async_completion = 1
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+
+
+
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType proto AutoFormatBuffer clang-format
+augroup END
+
+
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
-"let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype', 'govet']
-"let g:syntastic_go_checkers = ['golangci_lint', 'gofmt', 'golint', 'gotype']
-"let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype']"
-"let g:syntastic_go_checkers = ['golangci_lint']
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_wq = 1
-"
-"
-set clipboard^=unnamedplus,unnamed
-set number
-set undofile
-set undodir=~/.vim/undo
-set nowrap
-set textwidth=0
-set wrapmargin=0
-"set tabstop=2
-set cursorline
-set cursorcolumn
-set tw=0
-"set shiftwidth=2
 
-set incsearch
-"unset hlsearch=0
-set nohlsearch
-"nnoremap <Enter> :noh<cr><Esc>
+" disable this for go; use an aucommand some day
+let g:syntastic_check_on_wq = 0
+
 nnoremap Y y$
 
-"set laststatus=2
-"set statusline+=%F:
-"set statusline+=%c
-
-let g:airline_theme='solarized'
-let g:airline_sectionc='%F'
-set statusline+='%F'
-"let g:go_godef_bin='/usr/local/google/home/davidlerner/go-vim/godef.google3'
-"nmap gd <Plug>(go-def)
-let g:go_def_mode='guru' "works within file
-"let g:go_info_mode='guru'
-"let g:go_def_mode='gopls' "does nothing at all
-"let g:go_info_mode='gopls'
-let g:go_def_mode='godef' "works between files!
-"let g:go_info_mode='godef' "doesn't work
-"let g:go_info_mode='gocode'  "doesn't work
-"let g:go_info_mode='gopls'  "doesn't work
-"let g:go_info_mode='guru'
-au FileType go nmap gd <Plug>(go-def)
-nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
-"let g:ycm_godef_binary_path='~/go/bin/godef'
-"let g:ycm_godef_binary_path='/usr/local/google/home/davidlerner/go-vim/godef.google3' set ignorecase
+"nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
 set ignorecase
 set smartcase
 
 nmap af :w<CR>
 nmap ad :SyntasticCheck<CR>:lw<CR>
-"autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
 let HlUnderCursor=0
 let g:HiCursorWords_delay = 400
 
@@ -218,12 +242,91 @@ let g:HiCursorWords_delay = 400
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
-			\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 set completeopt-=preview
-let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype']
-"let g:syntastic_go_checkers = ['gofmt', 'golint', 'gotype', 'govet']
-"Glug syntastic-google checkers=`{'go': ['go','gofmt', 'golint']}`
 
 set autowriteall
 
-colorscheme ayu
+autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
+
+
+let g:signify_skip_filename_pattern = ['\.pipertmp.*']
+tnoremap <leader><Esc> <C-\><C-n><CR>
+noremap <C-w>j <C-w><C-j>
+noremap <C-w>k <C-w><C-k>
+noremap <C-w>h <C-w><C-h>
+noremap <C-w>l <C-w><C-l>
+tnoremap <C-w>j <C-\><C-n><CR><C-w><C-j>
+tnoremap <C-w>k <C-\><C-n><CR><C-w><C-k>
+tnoremap <C-w>h <C-\><C-n><CR><C-w><C-h>
+tnoremap <C-w>l <C-\><C-n><CR><C-w><C-l>
+
+
+":FZFPiperActiveFiles or :FZFPiperActiveFiles?
+
+" Install plugin
+
+
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_theme='solarized'
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#fnametruncate = 8
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts=1
+let g:airline_sectionc='%F'
+let g:airline_section_y=''
+let g:airline_section_x=''
+let g:airline_section_a=''
+set statusline+='%F'
+set noshowmode
+
+" todo better buffer clearing using magic like this
+"nmap <c-w><c-l> :set scrollback=1 \| sleep 100m \| set scrollback=10000<cr>
+"tmap <c-w><c-l> <c-\><c-n><c-w><c-l>i<c-l>
+"
+"automatically use path of current file as pwd
+autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+nnoremap <Leader>d :SignifyHunkDiff<Cr><C-w>
+
+augroup settings
+  autocmd!
+  autocmd FileType * set
+        \ clipboard^=unnamedplus,unnamed
+        \   number
+        \   undofile
+        \   undodir=~/.vim/undo
+        \   nowrap
+        \   textwidth=0
+        \   wrapmargin=0
+        \   cursorline
+        \   cursorcolumn
+        \   tw=0
+        \   incsearch
+        \   nohlsearch
+        \   fo-=cro
+augroup END
+autocmd BufWritePre * %s/\s\+$//e
+
+"let g:CtrlSpaceDefaultMappingKey = '<C-Space>'
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+let s:vimfiles = '~/.vim'
+let s:os = 'linux'
+
+let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
+let g:CtrlSpaceGlobCommand = 'ack --nocolor -g ""'
+let g:CtrlSpaceSearchTiming = 500
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 0
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+let g:CtrlSpaceProjectRootMarkers = [
+      \ "BUILD"
+      \]
+set showtabline=0
+let g:airline_exclude_preview = 1
+let g:CtrlSpaceUseTabline = 1
+
+set encoding=utf-8
+let g:CtrlSpaceUseUnicode = 0
+
+au BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
