@@ -8,10 +8,12 @@ echo
 cd $HOME
 
 GDRIVE=$HOME/gdrive
-DOTFILES=$GDRIVE/config/dotfiles
 SOURCE_CONFIG=$GDRIVE/config
+DOTFILES=$SOURCE_CONFIG/dotfiles
+SCRIPTS=$SOURCE_CONFIG/scripts
 DEST_CONFIG=$HOME/.config
 chmod +x $SOURCE_CONFIG/.git/hooks/*
+chmod +x $SCRIPTS/*
 
 link () {
   local from=$DOTFILES/$1

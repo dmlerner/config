@@ -28,8 +28,8 @@ if test -f ~/google-x1; then
 	xsetroot -solid "#FFFFFF"
 	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
-	# don't swap if laptop pl.ugged in; todo: automate
-	#setxkbmap -option caps:noswapescape
+	# don't swap if keyboard plugged in; todo: automate
+	setxkbmap -option caps:swapescape
 fi
 alias vim=nvim
 
