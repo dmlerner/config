@@ -4,7 +4,7 @@ import sys
 import os
 import glob
 
-prefix = os.path.expanduser('~') + '/gdrive/notes'
+prefix = os.path.realpath(os.path.expanduser('~') + '/gdrive/notes')
 
 
 def get_todays_filename():

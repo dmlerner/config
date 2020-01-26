@@ -1,13 +1,16 @@
 #!/bin/bash
 
-sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff google-rebaser ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool
+sudo apt install neovim i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff google-rebaser ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox
 echo
 pip3 install --user pynvim jedi numpy pandas matplotlib
+pip3 install -e $SCRIPTS/mawk
 echo
 
 cd $HOME
 
 GDRIVE=$HOME/gdrive
+ln -sf $HOME/DriveFileStream/My\ Drive $GDRIVE
+
 SOURCE_CONFIG=$GDRIVE/config
 DOTFILES=$SOURCE_CONFIG/dotfiles
 SCRIPTS=$SOURCE_CONFIG/scripts
@@ -25,8 +28,6 @@ link () {
 link_home() { link $1 $HOME/$2; }
 link_config() { link $1 $DEST_CONFIG/$2; }
 
-link_config drivefs Google/DriveFS/preferences.json
-
 if [[ ! -a $HOME/.oh-my-zsh ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's/exec/#exec/')"
   rm -f $HOME/install.sh
@@ -36,6 +37,7 @@ if [[ ! -a $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]]; then
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
+link_home ackrc .ackrc
 link_home xsessionrc .xsessionrc
 link_home zshenv .zshenv
 link_home zshrc .zshrc
@@ -49,3 +51,6 @@ i3-msg restart
 link_home vimrc .vimrc
 link_config nvimrc nvim/init.vim
 vim -c ':PlugInstall' -c ':q' -c ':q'
+
+link_config inputrc .inputrc
+

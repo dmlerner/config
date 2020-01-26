@@ -1,11 +1,11 @@
 source /usr/share/vim/google/glug/bootstrap.vim
 source /usr/share/vim/google/core.vim
 
-
 call plug#begin('~/.vim/plugged')
 Plug 'chrisbra/changesPlugin'
 Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'tpope/vim-unimpaired'
+" Isn't syntastic redundant with coc.nvim lsp?
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -22,13 +22,7 @@ Glug codefmt
 Glug codefmt-google
 Glug codefmt-google auto_filetypes+=blazebuild
 
-" Load YCM (http://go/ycm) for semantic auto-completion and quick syntax
-" error checking. Pulls in a google3-enabled version of YCM itself and
-" a google3-specific default configuration.
-" todo: replace with a:coc_global_extensions? in CocConfig or here...?
-"Glug youcompleteme-google
 Glug blazedeps auto_filetypes=`['go']`
-Glug piper plugin[mappings]
 Glug critique plugin[mappings]
 Glug blaze !alerts plugin[mappings]
 let g:blazevim_quickfix_autoopen = 1
@@ -37,17 +31,21 @@ Glug syntastic-google
 Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
 Glug corpweb plugin[mappings]
 
-Glug fzf-piper
-nnoremap <C-p> :FZFPiperActiveFiles<Cr>
 
 " uses <Leader>r
 Glug relatedfiles plugin[mappings]
 
 Glug google-csimporter
+if filereadable("~/google-desktop")
+	":FZFPiperActiveFiles or :FZFPiperActiveFiles?
+	Glug fzf-piper
+	nnoremap <C-p> :FZFPiperActiveFiles<Cr>
 
-" Keep this after glugs...
-" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
-source /usr/share/vim/google/google.vim
+	Glug piper plugin[mappings]
+	" Keep this after glugs...
+	" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
+	source /usr/share/vim/google/google.vim
+endif
 
 nnoremap <leader>ci :CsImporter<CR>
 nnoremap <leader>cs :CsImporterSort<CR>
@@ -164,8 +162,10 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" disabled because tab is apparently ctrl i lol
+" https://github.com/neoclide/coc.nvim/issues/1089
+"nmap <silent> <TAB> <Plug>(coc-range-select)
+"xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -226,7 +226,6 @@ let g:syntastic_check_on_wq = 0
 
 nnoremap Y y$
 
-"nnoremap <silent> <C-]> :YcmCompleter GoTo<CR>
 set ignorecase
 set smartcase
 
@@ -247,7 +246,6 @@ set completeopt-=preview
 
 set autowriteall
 
-autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
 
 
 let g:signify_skip_filename_pattern = ['\.pipertmp.*']
@@ -262,9 +260,6 @@ tnoremap <C-w>h <C-\><C-n><CR><C-w><C-h>
 tnoremap <C-w>l <C-\><C-n><CR><C-w><C-l>
 
 
-":FZFPiperActiveFiles or :FZFPiperActiveFiles?
-
-" Install plugin
 
 
 "let g:airline#extensions#tabline#enabled = 1
@@ -307,20 +302,25 @@ augroup settings
         \   fo-=cro
 augroup END
 autocmd BufWritePre * %s/\s\+$//e
+autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
 
-"let g:CtrlSpaceDefaultMappingKey = '<C-Space>'
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+" feels like I should not need this, but appranetly for non-bookmarked...
+nnoremap <silent><leader>,  :CtrlSpace<CR>
 let s:vimfiles = '~/.vim'
 let s:os = 'linux'
 
 let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
 let g:CtrlSpaceGlobCommand = 'ack --nocolor -g ""'
 let g:CtrlSpaceSearchTiming = 500
-let g:CtrlSpaceLoadLastWorkspaceOnStart = 0
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceProjectRootMarkers = [
-      \ "BUILD"
+      \ "BUILD",
+      \ "davidlerner",
+      \ "__init__.py",
+      \ "__main__.py",
       \]
 set showtabline=0
 let g:airline_exclude_preview = 1

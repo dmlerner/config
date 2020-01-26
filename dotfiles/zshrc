@@ -35,7 +35,6 @@ alias vim=nvim
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-set -o vi
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
 
 
@@ -169,16 +168,8 @@ function kp {
 	kill -9 "$(lsof -i | grep 8898 | awk 'NR==1 {print $2}')";
 }
 alias willitfit=/google/data/ro/projects/quota_tools/willitfit.par
-#alias g="grep -ir --color=always $1 | sort"
-function g {
-	grep -ir --color=always $1 | sort;
-}
 function gn { cd;
-	cd "gdrive/notes/2020";
-	#grep -ir --color=always $1 | sort;
-	ack --smart-case $1 --sort-files;
-}
-function a {
+	cd "$GDRIVE/notes/2020";
 	ack --smart-case $1 --sort-files;
 }
 alias bbcp-fileutil=/google/data/ro/teams/bbcp/fileutil
@@ -198,7 +189,7 @@ alias prodaccess='prodaccess -g -s --ssh_on_security_key'
 alias gp='/usr/bin/python2.7     /google/src/head/depot/google3/apphosting/scripts/tools/gaepools.py'
 alias gae_spool_client=/google/data/ro/projects/apphosting/tools/gae_spool_client.sh
 alias sandman=/google/data/ro/projects/sandman/sandman.par
-alias n='python ~/gdrive/config/scripts/todays-notes.py'
+alias n='python "$GDRIVE/config/scripts/todays-notes.py"'
 alias dirs="dirs -v"
 alias ........="cd ../../../../../../.."
 alias .......="cd ../../../../../.."
@@ -355,7 +346,6 @@ fpath=($HOME/.zsh-functions $fpath)
 
 alias -s {go,py,proto}=vim
 function d {
-	#p4 diff --since_commit "$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n {print $3}')";
 	commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
 	p4 diff --since_commit "$(echo $commit_line | awk '{print $3}')";
 	printf "\n"
@@ -411,7 +401,7 @@ function gc() {
 }
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
-alias m='g4d; cd ./attribution/midtier' # todo: preserve pushd
+alias mt='g4d; cd ./attribution/midtier' # todo: preserve pushd
 alias vm='m; vim'
 alias jm='g4d; cd ./java/com/google/attribution/midtier'
 alias vjm='jm; vim'
@@ -422,3 +412,12 @@ alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = F
 alias vt='vim --cmd term --cmd star'
 alias s='ssh davidlerner1.irv.corp.google.com'
 alias sc='ssh davidlerner.c.googlers.com'
+GDRIVE="$(realpath ~/gdrive)"
+alias scripts='cd "$GDRIVE/config/scripts"'
+alias dotfiles='cd "$GDRIVE/config/dotfiles"'
+alias config='cd "$GDRIVE/config"'
+alias host="cat /proc/sys/kernel/hostname"
+alias m='python -m mawk'
+function hdn() { # hg diff names only
+	hg diff -c . | m - -r 'diff --git' -f '\n' -fp '"+++" in V' -ft 'V[V.index("google3"):]'
+}

@@ -1,0 +1,6 @@
+--smart-case
+--sort-files
+--ignore-dir=match:/^\./
+--ignore-dir=is:studio
+--ignore-dir=is:bin
+--ignore-dir=is:google-cloud-sdk
