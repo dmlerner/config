@@ -1,7 +1,7 @@
 
 
 ZSH_DISABLE_COMPFIX=true
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/Dropbox/scripts/cli:$PATH
 export WORKON_HOME=~/.envs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source ~/.local/bin/virtualenvwrapper.sh
@@ -28,10 +28,8 @@ if test -f ~/.x1; then
 	alias H='cd ~/Dropbox/habit3'
 	alias vh='vim ~/Dropbox/habit3/*.csv'
 	alias s='/mnt/c/Program\ Files/SumatraPDF/SumatraPDF.exe'
-	export PATH=$PATH:~/Dropbox/scripts
-	alias t='python3 ~/scripts/nest.py'
+	export PATH=$PATH:~/Dropbox/scripts:~/Dropbox/scripts/cli
 	alias c='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
-	alias y='cd /mnt/c/Users/david/Dropbox/scripts/ynab-amazon-parser/ynabamazonparser/'
 fi
 
 export ZSH=$HOME/.oh-my-zsh
@@ -124,7 +122,7 @@ DISABLE_UPDATE_PROMPT="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -140,7 +138,7 @@ DISABLE_UPDATE_PROMPT="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -182,9 +180,6 @@ function gn { cd;
 	#grep -ir --color=always $1 | sort;
 	ack --smart-case $1 --sort-files;
 }
-function a {
-	ack --smart-case $1 --sort-files;
-}
 alias bbcp-fileutil=/google/data/ro/teams/bbcp/fileutil
 alias prodspec='/google/data/ro/teams/prodspec/prodspec'
 alias print_prodspec='/google/data/ro/teams/prodspec/print_prodspec'
@@ -218,7 +213,8 @@ alias b="xcalib -i -a"
 alias vz="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias sp="source ~/.profile"
-alias vv="vim ~/.vimrc"
+#alias vv="vim ~/.vimrc"
+alias vv="vim ~/.config/nvim/init.vim"
 alias vi="vim ~/.config/i3/config"
 alias df="cd ~/Dropbox/dotfiles"
 #
@@ -363,7 +359,7 @@ fpath=($HOME/.zsh-functions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias -s {go,py,proto}=vim
+#alias -s {go,py,proto}=vim
 function d {
 	#p4 diff --since_commit "$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n {print $3}')";
 	commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
@@ -441,9 +437,34 @@ alias gr="git remote add origin git@github.com:dmlerner/$1.git; git push -u orig
 alias yp='python3 -m ynabamazonparser'
 #alias c='"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
 PYTHONDONTWRITEBYTECODE=1
-alias t="tree -I '__pycache__|log|*pyc'"
+alias t="tree -I '__pycache__|log|*pyc|backups'"
 
 HISTTIMEFORMAT="%d/%m/%y %T "
 
-export PYTHONPATH=$PYTHONPATH:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/usr/lib/python3.8/site-packages
+export PYTHONPATH=~/Dropbox/scripts/mawk/src/:$PYTHONPATH:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/usr/lib/python3.8/site-packages
 
+alias y='cd ~/Dropbox/scripts/assistantforynab'
+alias ll='ls -1 -d ~/Dropbox/scripts/assistantforynab/src/assistantforynab/log/* | tail -n 1'
+alias vl='vim "$(ll)"'
+alias cl='cat "$(ll)"'
+alias sl='cat "$(ll)" | ack'
+alias vim='/bin/squashfs-root/usr/bin/nvim'
+alias pi='pip3 install --user'
+alias ai='sudo apt-get install'
+alias p='python3'
+alias P='python3 -i'
+alias a='python3 -u ~/Dropbox/scripts/cli/my-awk.py'
+function poop() {
+	awk
+}
+alias f1='ls | head -n 1'
+alias c1='cd $(f1); ls'
+alias d1='rm -rf $(f1); popd'
+alias dd='pushd; d1'
+alias o1='c1; o $(f1)'
+alias z1='pushd; mv $(f1) zzz$(f1)'
+alias python=python3
+alias mawk='python3 -m mawk'
+alias m='mawk'
+alias mt='python3 ~/Dropbox/scripts/mawk/tests/test.py'
+alias mi='python3 -i -m mawk'
