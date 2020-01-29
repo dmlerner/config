@@ -322,7 +322,11 @@ function fs {
 #function jjj {
 	#iff '"javatests" in dV' jj jt
 #}
-alias jj='g4d; cd java/com/google/analytics/config/flume/jobs/attributionprojectsync'
-alias jt='g4d; cd javatests/com/google/analytics/config/flume/jobs/attributionprojectsync'
+#alias jj='g4d; cd java/com/google/analytics/config/flume/jobs/attributionprojectsync'
+#alias jt='g4d; cd javatests/com/google/analytics/config/flume/jobs/attributionprojectsync'
 unsetopt beep
 alias python=python3
+function jt {
+	cmd='V&"/java(?:tests)*"& ?"javatests" in V : "/java" : "/javatests":&'
+	cd "$(pwd | m - -r10 $cmd)"
+}

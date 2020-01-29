@@ -74,6 +74,8 @@ let g:CtrlSpaceProjectRootMarkers = [
       \ "BUILD",
       \ "davidlerner",
       \ "__init__.py",
+      \ ".gitignore",
+      \ ".git",
       \]
 
 " Some servers have issues with backup files, see #649
