@@ -4,7 +4,6 @@ if !empty(glob('~/google'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tweekmonster/startuptime.vim'
 Plug 'chrisbra/changesPlugin'
 Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'tpope/vim-unimpaired'
@@ -131,14 +130,17 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup Highlight
+	autocmd!
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup End
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -210,6 +212,7 @@ let g:asyncomplete_auto_popup = 1
 
 
 augroup autoformat_settings
+  autocmd!
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType java AutoFormatBuffer google-java-format
@@ -242,8 +245,11 @@ let g:HiCursorWords_delay = 400
 "autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup Reload
+	autocmd!
+	autocmd FileChangedShellPost *
+	      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup END
 set completeopt-=preview
 
 set autowriteall
@@ -283,7 +289,10 @@ set noshowmode
 "tmap <c-w><c-l> <c-\><c-n><c-w><c-l>i<c-l>
 "
 "automatically use path of current file as pwd
-autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+augroup PWD
+	autocmd!
+	autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+augroup END
 nnoremap <Leader>d :SignifyHunkDiff<Cr><C-w>
 
 augroup settings
@@ -303,8 +312,12 @@ augroup settings
         \   nohlsearch
         \   fo-=cro
 augroup END
-autocmd BufWritePre * %s/\s\+$//e
-autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
+
+augroup Blah
+	autocmd!
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
+augroup END
 
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 " feels like I should not need this, but appranetly for non-bookmarked...
@@ -331,4 +344,7 @@ let g:CtrlSpaceUseTabline = 1
 set encoding=utf-8
 let g:CtrlSpaceUseUnicode = 0
 
-au BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
+augroup SetText
+	autocmd!
+	autocmd BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
+augroup END
