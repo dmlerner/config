@@ -325,3 +325,4 @@ function fs {
 alias jj='g4d; cd java/com/google/analytics/config/flume/jobs/attributionprojectsync'
 alias jt='g4d; cd javatests/com/google/analytics/config/flume/jobs/attributionprojectsync'
 unsetopt beep
+alias python=python3
