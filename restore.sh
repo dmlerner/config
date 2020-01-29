@@ -75,3 +75,4 @@ if [[ ! -a $HOME/.local/share/nvim/site/autoload/plug.vim ]]; then
 fi
 
 link_home inputrc .inputrc
+link_config profile .profile
