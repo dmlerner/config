@@ -1,5 +1,7 @@
-source /usr/share/vim/google/glug/bootstrap.vim
-source /usr/share/vim/google/core.vim
+if !empty(glob('~/google'))
+	source /usr/share/vim/google/glug/bootstrap.vim
+	source /usr/share/vim/google/core.vim
+endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'chrisbra/changesPlugin'
@@ -19,37 +21,36 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 "Plug 'yehuohan/vim-ctrlspace'
 call plug#end()
 
-Glug codefmt
-Glug codefmt-google
-Glug codefmt-google auto_filetypes+=blazebuild
+if !empty(glob('~/google'))
+	Glug codefmt-google
+	Glug codefmt-google auto_filetypes+=blazebuild
+	Glug blazedeps auto_filetypes=`['go']`
+	Glug critique plugin[mappings]
+	Glug blaze !alerts plugin[mappings]
+	let g:blazevim_quickfix_autoopen = 1
+	Glug syntastic-google
+	Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
+	Glug corpweb plugin[mappings]
+	" uses <Leader>r
+	Glug relatedfiles plugin[mappings]
+	Glug google-csimporter
+	nnoremap <leader>ci :CsImporter<CR>
+	nnoremap <leader>cs :CsImporterSort<CR>
+endif
 
-Glug blazedeps auto_filetypes=`['go']`
-Glug critique plugin[mappings]
-Glug blaze !alerts plugin[mappings]
-let g:blazevim_quickfix_autoopen = 1
 set autowriteall
-Glug syntastic-google
-Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
-Glug corpweb plugin[mappings]
 
-
-" uses <Leader>r
-Glug relatedfiles plugin[mappings]
-
-Glug google-csimporter
-if filereadable("~/google-desktop")
+if !empty(glob("~/google-desktop"))
 	":FZFPiperActiveFiles or :FZFPiperActiveFiles?
 	Glug fzf-piper
 	nnoremap <C-p> :FZFPiperActiveFiles<Cr>
 
 	Glug piper plugin[mappings]
-	" Keep this after glugs...
+	" Keep sourcing this after glugs...
 	" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
 	source /usr/share/vim/google/google.vim
 endif
 
-nnoremap <leader>ci :CsImporter<CR>
-nnoremap <leader>cs :CsImporterSort<CR>
 
 filetype plugin indent on
 syntax on
@@ -135,7 +136,10 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup Highlight
+	autocmd!
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup End
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -214,6 +218,7 @@ let g:asyncomplete_auto_popup = 1
 
 
 augroup autoformat_settings
+  autocmd!
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType java AutoFormatBuffer google-java-format
@@ -246,8 +251,11 @@ let g:HiCursorWords_delay = 400
 "autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup Reload
+	autocmd!
+	autocmd FileChangedShellPost *
+	      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup END
 set completeopt-=preview
 
 set autowriteall
@@ -285,9 +293,12 @@ set noshowmode
 " todo better buffer clearing using magic like this
 "nmap <c-w><c-l> :set scrollback=1 \| sleep 100m \| set scrollback=10000<cr>
 "tmap <c-w><c-l> <c-\><c-n><c-w><c-l>i<c-l>
-"
-"automatically use path of current file as pwd
-"autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+
+augroup PWD
+	autocmd!
+	"automatically use path of current file as pwd
+	autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+augroup END
 nnoremap <Leader>d :SignifyHunkDiff<Cr><C-w>
 
 augroup settings
@@ -307,8 +318,12 @@ augroup settings
         \   nohlsearch
         \   fo-=cro
 augroup END
-autocmd BufWritePre * %s/\s\+$//e
-autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
+
+augroup Blah
+	autocmd!
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd Filetype text setlocal wrap linebreak nolist ts=2 sw=2 nocursorline nocursorcolumn
+augroup END
 
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 " feels like I should not need this, but appranetly for non-bookmarked...
@@ -329,7 +344,6 @@ let g:CtrlSpaceUseTabline = 1
 set encoding=utf-8
 let g:CtrlSpaceUseUnicode = 0
 
-au BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
 if ! has('gui_running')
 	set ttimeoutlen=10
 	augroup FastEscape
@@ -341,3 +355,7 @@ endif
 
 let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
 let g:LanguageClient_loggingLevel = 'DEBUG'
+augroup SetText
+	autocmd!
+	autocmd BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
+augroup END

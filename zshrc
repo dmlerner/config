@@ -28,7 +28,8 @@ if test -f ~/google-x1; then
 	# don't swap if keyboard plugged in; todo: automate
 	setxkbmap -option caps:swapescape
 fi
-alias vim=nvim
+
+alias vim=$(which nvim)
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
 
@@ -123,10 +124,6 @@ setopt prompt_subst  # enable command substitution (and other expansions) in PRO
 
 alias rv='rm ~/.vim/cache/*.sw*'
 
-function kp {
-	kill -9 "$(lsof -i | grep 8898 | awk 'NR==1 {print $2}')";
-}
-alias willitfit=/google/data/ro/projects/quota_tools/willitfit.par
 function gn { cd;
 	cd "$GDRIVE/notes/2020";
 	ack --smart-case $1 --sort-files;
@@ -135,19 +132,12 @@ alias bbcp-fileutil=/google/data/ro/teams/bbcp/fileutil
 alias prodspec='/google/data/ro/teams/prodspec/prodspec'
 alias print_prodspec='/google/data/ro/teams/prodspec/print_prodspec'
 export EDITOR='vim'
-alias dea="/google/data/ro/users/ra/ranma/dea_client.par"
-alias csa="cs $1 -f=apphosting"
-alias zgrep="grep -m 1 -P -o $1 | head -n 1"
-alias lifeguard="/google/data/ro/projects/apphosting/tools/lifeguard.par"
 alias admin_session=/google/data/ro/projects/tonic/admin_session
 function mkcdir {
 	mkdir -p -- "$1" &&
 		cd -P -- "$1"
 	}
 alias prodaccess='prodaccess -g -s --ssh_on_security_key'
-alias gp='/usr/bin/python2.7     /google/src/head/depot/google3/apphosting/scripts/tools/gaepools.py'
-alias gae_spool_client=/google/data/ro/projects/apphosting/tools/gae_spool_client.sh
-alias sandman=/google/data/ro/projects/sandman/sandman.par
 alias n='python "$GDRIVE/config/scripts/todays-notes.py"'
 alias dirs="dirs -v"
 alias ........="cd ../../../../../../.."
@@ -162,24 +152,12 @@ alias b="xcalib -i -a"
 alias sz="source ~/.zshrc"
 alias sp="source ~/.profile"
 alias rc="vim ~/.bashrc"
-#
-
-# $Id: //depot/google3/googledata/corp/puppet/goobuntu/common/modules/shell/files/bash/skel.bashrc#5 $
-# xset r rate 250 40
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
 	*) return;;
 esac
-
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-# setopt -s checkwinsize # broken because zsh, was shopt
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -214,54 +192,18 @@ if [ -n "$force_color_prompt" ]; then
 	fi
 fi
 
-#if [ "$color_prompt" = yes ]; then
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$\n¯\_(ツ)_/¯ '
-## zsh breakage or at least weirdness
-#		PS1="¯\_(ツ)_/¯ "
-#else
-#PS1="¯\_(ツ)_/¯ "
-#PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$\n¯\_(ツ)_/¯ '
-#fi
-#unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-#case "$TERM" in
-#xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-#    ;;
-#*)
-	#    ;;
-	#esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
-	#alias dir='dir --color=auto'
-	#alias vdir='vdir --color=auto'
-
-	alias grep='grep --color=always'
-	alias fgrep='fgrep --color=always'
-	alias egrep='egrep --color=always'
+	alias vdir='vdir --color=auto'
 fi
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -279,38 +221,22 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias appcfg_over_stubby='/google/data/ro/projects/apphosting/tools/appcfg_over_stubby.par'
-alias colab="/google/data/ro/teams/colab/notebook"
-alias siscli="/google/data/ro/buildstatic/projects/production/sisyphus/siscli.par"
-mycurl () {
-	curl -v -H "$(/google/data/ro/projects/perftools/dapper/dapperget)" "$@"
-}
-alias gaia-to-email='/home/build/static/projects/gaia/gaiaclient/GaiaClient.par --gaia_instance=prod LookupUserByID 0x$(printf "%x" $1)'
-alias btcfg=/google/data/ro/projects/bigtable/contrib/btcfg/btcfg
-#export DIFF="colordiff -u"
 export P4DIFF='colordiff -u'
-alias contracts_cli=/google/data/ro/teams/resource-management/contracts_cli.par
 export G4MULTIDIFF=0 g4 diff
-alias auto_tls="/google/data/ro/projects/apphosting/tools/auto_tls.par"
-alias annealing="/google/data/ro/teams/annealing/live/annealing"
 eval $(thefuck --alias)
 alias get_mint="/google/data/ro/projects/gaiamint/bin/get_mint"
-alias vscli='/google/data/ro/teams/annealing/versionstore/live/cli'
-alias flex=/usr/bin/flex.par
 
-export PATH=$GOROOT/bin:$PATH
 fpath=($HOME/.zsh-functions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias -s {go,py,proto}=vim
+alias -s {go,py,proto,txt}=vim
 function d {
 	commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
 	p4 diff --since_commit "$(echo $commit_line | awk '{print $3}')";
 	printf "\n"
 	echo $commit_line
 }
-
 
 # Function to switch and save the current path
 function cd() {
@@ -320,24 +246,16 @@ function cd() {
 export cd
 alias cwd='cd "$(cat ~/.cwd)"'
 cwd
-#export GOENV=/usr/local/google/home/davidlerner/.config/go/env
-#export GOTOOLDIR="/usr/lib/google-golang/pkg/tool/linux_amd64"
-#export GOENV=""
 
 alias hm="(nohup unclutter -idle 0.01 -root & disown) > /dev/null 2>&1"
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=$GOPATH:$PATH
-export PATH=$PATH:$GOPATH/bin
-# move citc; args are source workspace, absolute filepath
-# todo: if file deleted in source, delete in target
-function mc() {
-	cp $(g4 g4d -u davidlerner $1)/$2 $2
-}
+export PATH=$GOPATH:$GOBIN:$PATH
+
 alias f1=/google/data/ro/projects/storage/f1/tools/f1-sql
-alias cdd=/google/data/ro/projects/chubby/cdd/cdd
 alias o='cmd.exe /C start'
+
 function get_citc() {
 	if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
 		print -n "${match[1]}"
@@ -366,8 +284,8 @@ alias jm='g4d; cd ./java/com/google/attribution/midtier'
 alias vjm='jm; vim'
 alias vz='vim ~/.zshrc'
 alias vv='vim ~/.vimrc'
-alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
-alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
+"alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
+"alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
 alias vt='vim --cmd term --cmd star'
 alias sd='ssh davidlerner1.irv.corp.google.com'
 alias sc='ssh davidlerner.c.googlers.com'
@@ -406,3 +324,4 @@ function fs {
 #}
 alias jj='g4d; cd java/com/google/analytics/config/flume/jobs/attributionprojectsync'
 alias jt='g4d; cd javatests/com/google/analytics/config/flume/jobs/attributionprojectsync'
+unsetopt beep
