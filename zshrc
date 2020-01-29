@@ -422,4 +422,3 @@ alias m='python -m mawk'
 function hdn() { # hg diff names only
 	hg diff -c . | m - -r 'diff --git' -f '\n' -fp '"+++" in V' -ft 'V[V.index("google3"):]'
 }
-

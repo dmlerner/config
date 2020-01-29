@@ -1,7 +1,10 @@
-source /usr/share/vim/google/glug/bootstrap.vim
-source /usr/share/vim/google/core.vim
+if !empty(glob('~/google'))
+	source /usr/share/vim/google/glug/bootstrap.vim
+	source /usr/share/vim/google/core.vim
+endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'tweekmonster/startuptime.vim'
 Plug 'chrisbra/changesPlugin'
 Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'tpope/vim-unimpaired'
@@ -18,37 +21,36 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-ctrlspace/vim-ctrlspace'
 call plug#end()
 
-Glug codefmt
-Glug codefmt-google
-Glug codefmt-google auto_filetypes+=blazebuild
+if !empty(glob('~/google'))
+	Glug codefmt-google
+	Glug codefmt-google auto_filetypes+=blazebuild
+	Glug blazedeps auto_filetypes=`['go']`
+	Glug critique plugin[mappings]
+	Glug blaze !alerts plugin[mappings]
+	let g:blazevim_quickfix_autoopen = 1
+	Glug syntastic-google
+	Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
+	Glug corpweb plugin[mappings]
+	" uses <Leader>r
+	Glug relatedfiles plugin[mappings]
+	Glug google-csimporter
+	nnoremap <leader>ci :CsImporter<CR>
+	nnoremap <leader>cs :CsImporterSort<CR>
+endif
 
-Glug blazedeps auto_filetypes=`['go']`
-Glug critique plugin[mappings]
-Glug blaze !alerts plugin[mappings]
-let g:blazevim_quickfix_autoopen = 1
 set autowriteall
-Glug syntastic-google
-Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
-Glug corpweb plugin[mappings]
 
-
-" uses <Leader>r
-Glug relatedfiles plugin[mappings]
-
-Glug google-csimporter
-if filereadable("~/google-desktop")
+if !empty(glob("~/google-desktop"))
 	":FZFPiperActiveFiles or :FZFPiperActiveFiles?
 	Glug fzf-piper
 	nnoremap <C-p> :FZFPiperActiveFiles<Cr>
 
 	Glug piper plugin[mappings]
-	" Keep this after glugs...
+	" Keep sourcing this after glugs...
 	" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
 	source /usr/share/vim/google/google.vim
 endif
 
-nnoremap <leader>ci :CsImporter<CR>
-nnoremap <leader>cs :CsImporterSort<CR>
 
 filetype plugin indent on
 syntax on

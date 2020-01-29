@@ -74,4 +74,4 @@ if [[ ! -a $HOME/.local/share/nvim/site/autoload/plug.vim ]]; then
   vim -c ':PlugInstall' -c ':q' -c ':q'
 fi
 
-link_config inputrc .inputrc
+link_home inputrc .inputrc
