@@ -6,7 +6,7 @@ Plug 'chrisbra/changesPlugin'
 Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'tpope/vim-unimpaired'
 " Isn't syntastic redundant with coc.nvim lsp?
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -16,6 +16,7 @@ Plug 'mileszs/ack.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'yehuohan/vim-ctrlspace'
 call plug#end()
 
 Glug codefmt
@@ -68,6 +69,11 @@ let g:coc_global_extensions = [
       \ 'coc-ultisnips' ]
 " if hidden is not set, TextEdit might fail.
 set hidden
+let g:CtrlSpaceProjectRootMarkers = [
+      \ "BUILD",
+      \ "davidlerner",
+      \ "__init__.py",
+      \]
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -136,7 +142,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -281,7 +287,7 @@ set noshowmode
 "tmap <c-w><c-l> <c-\><c-n><c-w><c-l>i<c-l>
 "
 "automatically use path of current file as pwd
-autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+"autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 nnoremap <Leader>d :SignifyHunkDiff<Cr><C-w>
 
 augroup settings
@@ -316,12 +322,6 @@ let g:CtrlSpaceSearchTiming = 500
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceProjectRootMarkers = [
-      \ "BUILD",
-      \ "davidlerner",
-      \ "__init__.py",
-      \ "__main__.py",
-      \]
 set showtabline=0
 let g:airline_exclude_preview = 1
 let g:CtrlSpaceUseTabline = 1
@@ -330,3 +330,14 @@ set encoding=utf-8
 let g:CtrlSpaceUseUnicode = 0
 
 au BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
+if ! has('gui_running')
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
+endif
+
+let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
+let g:LanguageClient_loggingLevel = 'DEBUG'

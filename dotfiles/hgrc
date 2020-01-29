@@ -1,9 +1,10 @@
-[ui]
-merge = vimdiff
 [extensions]
 beautifygraph =
 [ui]
 graphnodetemplate = {label("graphnode.{graphnode}", graphnode)}
+merge = initial:merge3
+origbackuppath = google3/.tmp/hg/orig
+editor = vim
 
 [color]
 graphnode.@ = brightred
@@ -17,5 +18,6 @@ google_compact_desc_text = '{if(outsidenarrow, "", GOOG_trim_desc(desc))}'
 graphshorten = True
 [templatealias]
 google_compact_uniq_id = '{GOOG_rev_and_node}'
+
 [pager]
 pager = less -FRX
