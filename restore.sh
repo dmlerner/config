@@ -7,6 +7,7 @@ if [[ ! /usr/bin/nvim ]]; then
 	mv $HOME/Downloads/nvim.appimage /usr/bin/nvim
 fi
 
+sudo apt autoremove
 for i in i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox; do
 	sudo apt-get install -y $i
 done
@@ -16,10 +17,9 @@ echo
 echo
 
 
-[[ $HOME/home ]] && CLOUD_ROOT=$HOME/Dropbox || CLOUD_ROOT=$HOME/gdrive
+[[ $HOME/Dropbox ]] && CLOUD_ROOT=$HOME/Dropbox || CLOUD_ROOT=$HOME/gdrive
 
 SOURCE_CONFIG=$CLOUD_ROOT/config
-DOTFILES=$SOURCE_CONFIG/dotfiles
 SCRIPTS=$CLOUD_ROOT/scripts
 DEST_CONFIG=$HOME/.config
 chmod -R +x $SOURCE_CONFIG/.git/hooks/*
@@ -42,7 +42,7 @@ fi
 
 
 link () {
-  local from=$DOTFILES/$1
+  local from=$SOURCE_CONFIG/$1
   local to=$2
   echo $from $to
   mkdir -p $(dirname $to)

@@ -32,7 +32,7 @@ if test -f ~/google-x1; then
 	setxkbmap -option caps:swapescape
 fi
 
-alias vim=nvim
+alias vim=$(which nvim)
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -423,9 +423,3 @@ function hdn() { # hg diff names only
 	hg diff -c . | m - -r 'diff --git' -f '\n' -fp '"+++" in V' -ft 'V[V.index("google3"):]'
 }
 
-
-if [[ ~/home ]]; then
-	export EDITOR=~/neovim/squashfs-root/usr/bin/nvim
-	export VIM=~/neovim/squashfs-root/usr/bin/nvim
-	alias vim=$VIM
-fi
