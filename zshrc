@@ -31,6 +31,7 @@ if test -f ~/google-x1; then
 	# don't swap if keyboard plugged in; todo: automate
 	setxkbmap -option caps:swapescape
 fi
+
 alias vim=nvim
 
 export ZSH=$HOME/.oh-my-zsh
@@ -421,3 +422,10 @@ alias m='python -m mawk'
 function hdn() { # hg diff names only
 	hg diff -c . | m - -r 'diff --git' -f '\n' -fp '"+++" in V' -ft 'V[V.index("google3"):]'
 }
+
+
+if [[ ~/home ]]; then
+	export EDITOR=~/neovim/squashfs-root/usr/bin/nvim
+	export VIM=~/neovim/squashfs-root/usr/bin/nvim
+	alias vim=$VIM
+fi
