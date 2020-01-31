@@ -2,7 +2,7 @@
 beautifygraph =
 [ui]
 graphnodetemplate = {label("graphnode.{graphnode}", graphnode)}
-merge = initial:merge3
+merge = vim_1pane
 origbackuppath = google3/.tmp/hg/orig
 editor = vim
 
@@ -21,3 +21,10 @@ google_compact_uniq_id = '{GOOG_rev_and_node}'
 
 [pager]
 pager = less -FRX
+
+
+[merge-tools]
+vim_1pane.executable=vim
+vim_1pane.args=-f $output
+vim_1pane.premerge=keep-merge3
+vim_1pane.check = conflicts
