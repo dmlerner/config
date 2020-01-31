@@ -1,0 +1,14 @@
+add history forwarder
+tmux.conf
+all the fig magic
+aliases for grep/sed mawk; or improve mawk
+mawk streaming
+workspaces/ctrlspace
+slow vim startup
+filter email spam
+	zen of gmail?
+	critique spam
+logs
+	autoreload
+	open all log names out put by test
+	grep them
