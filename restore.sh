@@ -7,19 +7,43 @@ if [[ ! -a /usr/bin/nvim ]]; then
 	mv $HOME/Downloads/nvim.appimage /usr/bin/nvim
 fi
 
-sudo apt autoremove
+INSTALL_APT=${1:-''}
+INSTALL_PYTHON=${2:-''}
 
-for i in i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox; do
-#	sudo apt-get install -y $i
-done
+if [[ $INSTALL_APT ]]; then
+	echo "installing from apt"
+	sudo apt autoremove
 
-echo
-#pip3 install --user pynvim jedi numpy pandas matplotlib
-echo
+	for i in i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff \
+		ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox\
+		; do
+		sudo apt-get install -y $i
+	done
+	if [[ -a $HOME/google ]]; then
+		sudo apt install google-rebaser
+	fi
+fi
+
+if [[ $INSTALL_PYTHON ]]; then
+	echo 
+	echo "installing from pip"
+	pip3 install --user pynvim jedi numpy pandas matplotlib
+	echo
+fi
 
 
-[[ -a $HOME/Dropbox ]] && CLOUD_ROOT=$HOME/Dropbox || CLOUD_ROOT=$HOME/gdrive
-echo 'cloud_root' $CLOUD_ROOT
+if [[ -a $HOME/Dropbox ]]; then
+	CLOUD_ROOT=$HOME/Dropbox 
+	_CLOUD_ROOT=$HOME/Dropbox
+else
+	CLOUD_ROOT=$HOME/gdrive
+	_CLOUD_ROOT=$HOME/DriveFileStream/My\ Drive
+fi
+
+if [[ -a "$CLOUD_ROOT" ]]; then
+	rm -f "$CLOUD_ROOT"
+fi
+ln -sf "$_CLOUD_ROOT" "$CLOUD_ROOT"
 
 SOURCE_CONFIG=$CLOUD_ROOT/config
 SCRIPTS=$CLOUD_ROOT/scripts
@@ -45,8 +69,6 @@ if [[ ! -a $SCRIPTS/mawk ]]; then
 fi
 
 if [[ -a $HOME/google ]]; then
-	sudo apt install google-rebaser
-	ln -sf $HOME/DriveFileStream/My\ Drive $CLOUD_ROOT
 	link_config alacritty.yml alacritty/alacritty.yml
 	link_config i3status i3status/config
 	link_config i3config i3/config
