@@ -284,8 +284,8 @@ alias jm='g4d; cd ./java/com/google/attribution/midtier'
 alias vjm='jm; vim'
 alias vz='vim ~/.zshrc'
 alias vv='vim ~/.vimrc'
-"alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
-"alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
+#"alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
+#"alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
 alias vt='vim --cmd term --cmd star'
 alias sd='ssh davidlerner1.irv.corp.google.com'
 alias sc='ssh davidlerner.c.googlers.com'
