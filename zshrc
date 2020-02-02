@@ -138,7 +138,7 @@ function mkcdir {
 		cd -P -- "$1"
 	}
 alias prodaccess='prodaccess -g -s --ssh_on_security_key'
-alias n='python "$GDRIVE/config/scripts/todays-notes.py"'
+alias n='python "$GDRIVE/config/todays-notes.py"'
 alias dirs="dirs -v"
 alias ........="cd ../../../../../../.."
 alias .......="cd ../../../../../.."
@@ -240,7 +240,7 @@ function d {
 
 # Function to switch and save the current path
 function cd() {
-	builtin cd "$@";
+	builtin pushd "$@";
 	echo "$PWD" >! ~/.cwd;
 }
 export cd
@@ -284,45 +284,32 @@ alias jm='g4d; cd ./java/com/google/attribution/midtier'
 alias vjm='jm; vim'
 alias vz='vim ~/.zshrc'
 alias vv='vim ~/.vimrc'
-#"alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
-#"alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
+#alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
+#alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
 alias vt='vim --cmd term --cmd star'
 alias sd='ssh davidlerner1.irv.corp.google.com'
 alias sc='ssh davidlerner.c.googlers.com'
 GDRIVE="$(realpath ~/gdrive)"
-alias scripts='cd "$GDRIVE/config/scripts"'
-alias dotfiles='cd "$GDRIVE/config/dotfiles"'
+alias scripts='cd "$GDRIVE/scripts"'
 alias config='cd "$GDRIVE/config"'
 alias host="cat /proc/sys/kernel/hostname"
 alias m='python -m mawk'
 function hdn() { # hg diff names only
-	hg diff -c . | m - -r 'diff --git' -f '\n' -fp '"+++" in V' -ft 'V&"google3/(.*)"&'
+	hg diff -c ${1:-.} | no
+}
+function no() {
+	m - -rm 'V&r"diff.*?google3/(.*)"&' -R '\n'
 }
 alias hgr='hg resolve --tool vim_1pane --all'
 alias pastebin='/google/src/head/depot/eng/tools/pastebin'
-function jt {
-	cd $(pwd | s 'java(.*)' 'javatests$1')
-}
-function jj {
-	cd $(pwd | s 'javatests(.*)' 'java$1')
-}
-function s {
-	m - "dV&'$1'&'$2'&" -rx -fx
-	#m - -rp "V&'$1'&" -rt "V&'$1'&'$2'&"
-}
-function f {
-	m - "dV&'$1'&" -rx -fx
-}
-function fs {
-	f $1 | s $1 $2
-}
-#function iff {
-	#m - "'$1' and '$2' or '$3'"
-#}
-#function jjj {
-	#iff '"javatests" in dV' jj jt
-#}
-alias jj='g4d; cd java/com/google/analytics/config/flume/jobs/attributionprojectsync'
-alias jt='g4d; cd javatests/com/google/analytics/config/flume/jobs/attributionprojectsync'
 unsetopt beep
 alias python=python3
+function jt {
+	cmd='V&"/java(?:tests)*"& ?"javatests" in V : "/java" : "/javatests":&'
+	cd "$(pwd | m - -r10 $cmd)"
+}
+function log {
+	cmd=$(cat testlog | col -b | m - -r 'total actions' -ri 0 -rx -fx | m - -rp '"see" in V' -fp '"test.log" in V'  -ft 'V[:-1]')
+	vim $cmd
+}
+alias t="vim $CONFIG/todo.txt"

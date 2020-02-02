@@ -18,7 +18,7 @@ Plug 'mileszs/ack.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-ctrlspace/vim-ctrlspace'
-"Plug 'yehuohan/vim-ctrlspace'
+Plug 'thaerkh/vim-indentguides'
 call plug#end()
 
 if !empty(glob('~/google'))
@@ -74,6 +74,8 @@ let g:CtrlSpaceProjectRootMarkers = [
       \ "BUILD",
       \ "davidlerner",
       \ "__init__.py",
+      \ ".gitignore",
+      \ ".git",
       \]
 
 " Some servers have issues with backup files, see #649
@@ -245,16 +247,20 @@ nmap ad :SyntasticCheck<CR>:lw<CR>
 let HlUnderCursor=0
 let g:HiCursorWords_delay = 400
 
-" Triger `autoread` when files changes on disk
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
-"autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 augroup Reload
-	autocmd!
-	autocmd FileChangedShellPost *
-	      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+  autocmd!
+  " Triger `autoread` when files changes on disk
+  " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+  " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+    \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+  " eg logs chanignng make this annoying
+  " Notification after file change
+  " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+  "+autocmd FileChangedShellPost *
+   " \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 augroup END
 set completeopt-=preview
 
@@ -297,7 +303,7 @@ set noshowmode
 augroup PWD
 	autocmd!
 	"automatically use path of current file as pwd
-	autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+	"autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 augroup END
 nnoremap <Leader>d :SignifyHunkDiff<Cr><C-w>
 
