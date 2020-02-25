@@ -17,8 +17,9 @@ Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'thaerkh/vim-indentguides'
+Plug 'vim-scripts/tabmerge'
 call plug#end()
 
 if !empty(glob('~/google'))
@@ -39,6 +40,7 @@ if !empty(glob('~/google'))
 endif
 
 set autowriteall
+
 
 if !empty(glob("~/google-desktop"))
 	":FZFPiperActiveFiles or :FZFPiperActiveFiles?
@@ -365,3 +367,13 @@ augroup SetText
 	autocmd!
 	autocmd BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
 augroup END
+
+augroup AutoSave
+  " consider instead w or w!
+"  au FocusLost * :wa
+"Ignore warnings from untitled buffersEdit
+"The above command will complain if you have untitled buffers open. The command below will cause those warnings to be ignored.
+
+  au FocusLost * silent! wa
+augroup END
+

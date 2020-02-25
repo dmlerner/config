@@ -313,3 +313,5 @@ function log {
 	vim $cmd
 }
 alias t="vim $CONFIG/todo.txt"
+alias ide='/opt/intellij-ce-stable/bin/idea.sh'
+alias vim='/usr/bin/nvim'

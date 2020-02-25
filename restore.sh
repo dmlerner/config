@@ -25,7 +25,7 @@ if [[ $INSTALL_APT ]]; then
 fi
 
 if [[ $INSTALL_PYTHON ]]; then
-	echo 
+	echo
 	echo "installing from pip"
 	pip3 install --user pynvim jedi numpy pandas matplotlib
 	echo
@@ -33,12 +33,15 @@ fi
 
 
 if [[ -a $HOME/Dropbox ]]; then
-	CLOUD_ROOT=$HOME/Dropbox 
+	CLOUD_ROOT=$HOME/Dropbox
 	_CLOUD_ROOT=$HOME/Dropbox
 else
 	CLOUD_ROOT=$HOME/gdrive
 	_CLOUD_ROOT=$HOME/DriveFileStream/My\ Drive
 fi
+
+echo $CLOUD_ROOT
+echo $_CLOUD_ROOT
 
 if [[ -a "$CLOUD_ROOT" ]]; then
 	rm -f "$CLOUD_ROOT"
