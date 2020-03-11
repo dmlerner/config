@@ -11,7 +11,8 @@ focus_follows_mouse false
 #mouse_follows_focus true
 hide_edge_borders vertical
 for_window [class="^.*"] border pixel 3
-set $mod Mod4
+# super
+set $mod Mod4 # for laptop
 #set $mod Mod1
 bindsym $mod+Control+l workspace next
 bindsym $mod+Control+h workspace prev
