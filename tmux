@@ -1,4 +1,5 @@
 # Config that is very close to a i3 window manager's keybinding.
+set -g default-terminal screen-256color
 
 set -s escape-time 0
 setw -g aggressive-resize on
@@ -25,11 +26,11 @@ setw -g pane-base-index 1
 # Set new prefix
 # Note : you can press super key by set M.
 # (tested with tty only)
-set -g prefix M-Space
-bind-key Space send-prefix
+# set -g prefix M-Space
+# bind-key Space send-prefix
 
 # Clock
-setw -g clock-mode-style 24
+setw -g clock-mode-style 12
 
 # Config Reloads
 bind R source-file ~/.tmux.conf \; display-message "Config reloaded"
@@ -45,10 +46,10 @@ bind-key v split-window -v
 bind-key -n M-o rotate-window
 
 # Swap pane
-bind-key -r H swap-pane -L
+# bind-key -r H swap-pane -L
 bind-key -r J swap-pane -D
 bind-key -r K swap-pane -U
-bind-key -r L swap-pane -R
+# bind-key -r L swap-pane -R
 
 # Move pane with Alt (no prefix)
 bind-key -n M-h select-pane -L
@@ -98,14 +99,86 @@ bind-key -n M-0 if-shell 'tmux select-window -t 10' '' 'new-window -t 10'
 
 
 # Change current pane to next window
-bind-key 1 if-shell 'tmux join-pane -t :1' '' 'new-window -d -t 1; join-pane -t :1 ; kill-pane -a'
-bind-key 2 if-shell 'tmux join-pane -t :2' '' 'new-window -d -t 2; join-pane -t :2 ; kill-pane -a'
-bind-key 3 if-shell 'tmux join-pane -t :3' '' 'new-window -d -t 3; join-pane -t :3 ; kill-pane -a'
-bind-key 4 if-shell 'tmux join-pane -t :4' '' 'new-window -d -t 4; join-pane -t :4 ; kill-pane -a'
-bind-key 5 if-shell 'tmux join-pane -t :5' '' 'new-window -d -t 5; join-pane -t :5 ; kill-pane -a'
-bind-key 6 if-shell 'tmux join-pane -t :6' '' 'new-window -d -t 6; join-pane -t :6 ; kill-pane -a'
-bind-key 7 if-shell 'tmux join-pane -t :7' '' 'new-window -d -t 7; join-pane -t :7 ; kill-pane -a'
-bind-key 8 if-shell 'tmux join-pane -t :8' '' 'new-window -d -t 8; join-pane -t :8 ; kill-pane -a'
-bind-key 9 if-shell 'tmux join-pane -t :9' '' 'new-window -d -t 9; join-pane -t :9 ; kill-pane -a'
-bind-key 0 if-shell 'tmux join-pane -t :10' '' 'new-window -d -t 10; join-pane -t :10 ; kill-pane -a'
+# bind-key 1 if-shell 'tmux join-pane -t :1' '' 'new-window -d -t 1; join-pane -t :1 ; kill-pane -a'
+# bind-key 2 if-shell 'tmux join-pane -t :2' '' 'new-window -d -t 2; join-pane -t :2 ; kill-pane -a'
+# bind-key 3 if-shell 'tmux join-pane -t :3' '' 'new-window -d -t 3; join-pane -t :3 ; kill-pane -a'
+# bind-key 4 if-shell 'tmux join-pane -t :4' '' 'new-window -d -t 4; join-pane -t :4 ; kill-pane -a'
+# bind-key 5 if-shell 'tmux join-pane -t :5' '' 'new-window -d -t 5; join-pane -t :5 ; kill-pane -a'
+# bind-key 6 if-shell 'tmux join-pane -t :6' '' 'new-window -d -t 6; join-pane -t :6 ; kill-pane -a'
+# bind-key 7 if-shell 'tmux join-pane -t :7' '' 'new-window -d -t 7; join-pane -t :7 ; kill-pane -a'
+# bind-key 8 if-shell 'tmux join-pane -t :8' '' 'new-window -d -t 8; join-pane -t :8 ; kill-pane -a'
+# bind-key 9 if-shell 'tmux join-pane -t :9' '' 'new-window -d -t 9; join-pane -t :9 ; kill-pane -a'
+# bind-key 0 if-shell 'tmux join-pane -t :10' '' 'new-window -d -t 10; join-pane -t :10 ; kill-pane -a'
 
+set-window-option -g mode-keys vi
+set-option -g default-shell /usr/bin/zsh
+# # Make it not make noise
+set-option -g visual-activity off
+set-option -g visual-bell off
+set-option -g visual-silence off
+set-window-option -g monitor-activity off
+set-option -g bell-action none
+
+# Colors for the pane Borders. (Active for the pane you are currently in)
+set -g pane-border-style bg=colour56,fg=colour14
+set -g pane-active-border-style bg=colour13,fg=colour51
+
+# todo: change color formatting like above for new tmux.
+# # Colors for the message bar
+# set -g message-fg colour13
+# set -g message-bg colour6
+# set -g message-attr bold
+# set -g message-command-fg colour15
+# set -g message-command-bg colour56
+#
+# # Colors for the window selection screen currently selected line
+# setw -g mode-bg colour6
+# setw -g mode-fg colour13
+#
+# # Set the placement of the Status Bar (Setting it to top makes it looks like tabs)
+# set -g status-position top
+#
+# # Colors for the status bar
+# set -g status-bg black
+# set -g status-attr bold
+#
+# # Set the date and time to the right side and your windows to the left
+# set -g status-left ''
+# set -g status-right '#[fg=colour15,bg=colour56,bold] %m/%d #[fg=colour13,bg=colour6,bold] %I:%M:%S '
+# set -g status-right-length 50
+# set -g status-left-length 0
+#
+# # Set the colors for the current "tab"
+# setw -g window-status-current-fg colour13
+# setw -g window-status-current-bg colour6
+# setw -g window-status-current-attr bold
+# setw -g window-status-current-format ' #I#[fg=colour13]:#[fg=colour13]#W#[fg=colour57]#F '
+#
+# # Set the colors for the inactive "tabs"
+# setw -g window-status-fg colour15
+# setw -g window-status-bg colour56
+# setw -g window-status-attr bold
+# setw -g window-status-format ' #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour255]#F '
+
+# resurrect on restart
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+set -g @continuum-restore 'on'
+set -g @continuum-boot 'on'
+
+set -g @resurrect-save-shell-history 'on'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-strategy-vim 'session'
+
+run '~/.tmux/plugins/tpm/tpm'
+
+# Clock
+set -g clock-mode-style 12
+
+# pane movement
+#bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
+#bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+bind-key @ join-pane -h -s !
