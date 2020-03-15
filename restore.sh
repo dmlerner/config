@@ -16,16 +16,18 @@ if [[ $INSTALL_APT ]]; then
 
 	for i in i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff \
 		ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox\
+		tmux \
 		; do
 		sudo apt-get install -y $i
 	done
 	if [[ -a $HOME/google ]]; then
 		sudo apt install google-rebaser
 	fi
+
 fi
 
 if [[ $INSTALL_PYTHON ]]; then
-	echo 
+	echo
 	echo "installing from pip"
 	pip3 install --user pynvim jedi numpy pandas matplotlib
 	echo
@@ -33,12 +35,15 @@ fi
 
 
 if [[ -a $HOME/Dropbox ]]; then
-	CLOUD_ROOT=$HOME/Dropbox 
+	CLOUD_ROOT=$HOME/Dropbox
 	_CLOUD_ROOT=$HOME/Dropbox
 else
 	CLOUD_ROOT=$HOME/gdrive
 	_CLOUD_ROOT=$HOME/DriveFileStream/My\ Drive
 fi
+
+echo $CLOUD_ROOT
+echo $_CLOUD_ROOT
 
 if [[ -a "$CLOUD_ROOT" ]]; then
 	rm -f "$CLOUD_ROOT"
@@ -90,6 +95,7 @@ link_home xsessionrc .xsessionrc
 link_home zshenv .zshenv
 link_home zshrc .zshrc
 link_home hgrc .hgrc
+link_home tmux .tmux.conf
 
 link_home vimrc .vimrc
 link_config nvimrc nvim/init.vim

@@ -4,3 +4,4 @@
 --ignore-dir=is:studio
 --ignore-dir=is:bin
 --ignore-dir=is:google-cloud-sdk
+--ignore-dir=is:log

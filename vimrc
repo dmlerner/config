@@ -4,21 +4,27 @@ if !empty(glob('~/google'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'chrisbra/changesPlugin'
-Plug 'pboettch/vim-highlight-cursor-words'
-Plug 'tpope/vim-unimpaired'
 " Isn't syntastic redundant with coc.nvim lsp?
-"Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'vim-syntastic/syntastic'
+"Plug 'mhinz/vim-signify'
+Plug 'chrisbra/changesPlugin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pboettch/vim-highlight-cursor-words'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'shougo/echodoc.vim'
+"Plug 'thaerkh/vim-indentguides'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'mileszs/ack.vim'
-Plug 'mhinz/vim-signify'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'thaerkh/vim-indentguides'
+Plug 'tpope/vim-unimpaired'
+Plug 'valloric/matchtagalways'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/tabmerge'
 call plug#end()
 
 if !empty(glob('~/google'))
@@ -35,15 +41,28 @@ if !empty(glob('~/google'))
 	Glug relatedfiles plugin[mappings]
 	Glug google-csimporter
 	nnoremap <leader>ci :CsImporter<CR>
-	nnoremap <leader>cs :CsImporterSort<CR>
+        nnoremap <leader>cs :CsImporterSort<CR>
+        Glug outline-window
+
+        "Glug glug sources+=/google/src/head/depot/google3/experimental/users/jkolb/vim
+        "Glug simplegutter
+        " Add n or p to the map prefix to go the next or previous signgroup, or add l to view logs.
+        " Diff and lint autorun on save and load.
+        "Glug sg_diff plugin[mappings]='cd'
+        "Glug sg_lint plugin[mappings]='cx'
+
+        " Add b or t to the map prefix to build or test the current buffer.
+        " Note that auto_query=1 will blaze query every buffer ahead of time. I like this, but you might want to remove it.
+        "Glug sg_blaze plugin[mappings]='cz' auto_query=1
 endif
 
 set autowriteall
 
+
 if !empty(glob("~/google-desktop"))
 	":FZFPiperActiveFiles or :FZFPiperActiveFiles?
 	Glug fzf-piper
-	nnoremap <C-p> :FZFPiperActiveFiles<Cr>
+	nnoremap <Leader>p :FZFPiperActiveFiles<Cr>
 
 	Glug piper plugin[mappings]
 	" Keep sourcing this after glugs...
@@ -70,13 +89,18 @@ let g:coc_global_extensions = [
       \ 'coc-ultisnips' ]
 " if hidden is not set, TextEdit might fail.
 set hidden
-let g:CtrlSpaceProjectRootMarkers = [
+" let g:CtrlSpaceProjectRootMarkers = [
+let g:ctrlp_root_markers = [
       \ "BUILD",
       \ "davidlerner",
       \ "__init__.py",
       \ ".gitignore",
       \ ".git",
+      \ "METADATA",
       \]
+
+" Restrict CtrlP to searching only the directories from which we ran vim.
+let g:ctrlp_working_path_mode = 0
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -263,6 +287,7 @@ augroup Reload
 
 augroup END
 set completeopt-=preview
+set completeopt-=menu
 
 set autowriteall
 
@@ -313,7 +338,8 @@ augroup settings
         \ clipboard^=unnamedplus,unnamed
         \   number
         \   undofile
-        \   undodir=~/.vim/undo
+        \   undodir=/var/tmp//,.,~/tmp,/tmp
+        \   directory=/var/tmp//,.,~/tmp,/tmp
         \   nowrap
         \   textwidth=0
         \   wrapmargin=0
@@ -338,12 +364,12 @@ let s:vimfiles = '~/.vim'
 let s:os = 'linux'
 
 let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
-let g:CtrlSpaceGlobCommand = 'ack --nocolor -g ""'
+let g:CtrlSpaceGlobCommand = 'ag --nocolor -g ""'
 let g:CtrlSpaceSearchTiming = 500
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
-set showtabline=0
+set showtabline=1
 let g:airline_exclude_preview = 1
 let g:CtrlSpaceUseTabline = 1
 
@@ -365,3 +391,37 @@ augroup SetText
 	autocmd!
 	autocmd BufEnter,BufNewFile,BufRead * if &ft == '' | set ft=text | endif
 augroup END
+
+augroup AutoSave
+  " consider instead w or w!
+"  au FocusLost * :wa
+"Ignore warnings from untitled buffersEdit
+"The above command will complain if you have untitled buffers open. The command below will cause those warnings to be ignored.
+
+  au FocusLost * silent! wa
+augroup END
+
+" Use AG for CtrlP
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = '/usr/bin/ag %s -i --nocolor --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ --ignore "**/*.pyc"
+    \ --ignore review
+    \ -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 1
+endif
+
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack

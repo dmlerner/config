@@ -12,3 +12,6 @@ logs
 	autoreload
 	open all log names out put by test
 	grep them
+sz should not cd / open in same dir
+'r' should redo last action from current terminal
+	but history should know them all

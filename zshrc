@@ -26,7 +26,10 @@ if test -f ~/google-x1; then
 	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 	# don't swap if keyboard plugged in; todo: automate
-	setxkbmap -option caps:swapescape
+	# setting if no keybgoard plugged in
+	# setxkbmap -option caps:swapescape
+	# setting if plugged in
+	setxkbmap -option
 fi
 
 alias vim=$(which nvim)
@@ -66,7 +69,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-plugins=(common-aliases extract fasd history fzf vi-mode)
+plugins=(common-aliases extract fasd history fzf vi-mode )
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -122,7 +125,7 @@ function fv() {
 
 setopt prompt_subst  # enable command substitution (and other expansions) in PROMPT
 
-alias rv='rm ~/.vim/cache/*.sw*'
+alias rv='rm -f ~/.vim/cache/*.sw*; rm -f /var/tmp/*.swp'
 
 function gn { cd;
 	cd "$GDRIVE/notes/2020";
@@ -287,8 +290,8 @@ alias vv='vim ~/.vimrc'
 #alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
 #alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
 alias vt='vim --cmd term --cmd star'
-alias sd='ssh davidlerner1.irv.corp.google.com'
-alias sc='ssh davidlerner.c.googlers.com'
+alias sd='ssh davidlerner1.irv.corp.google.com -t "/usr/bin/zsh -l"'
+alias sc='ssh davidlerner.c.googlers.com  -t "/usr/bin/zsh -l"'
 GDRIVE="$(realpath ~/gdrive)"
 alias scripts='cd "$GDRIVE/scripts"'
 alias config='cd "$GDRIVE/config"'
@@ -297,8 +300,11 @@ alias m='python -m mawk'
 function hdn() { # hg diff names only
 	hg diff -c ${1:-.} | no
 }
+function hdpn() { # hg diff p4head names only
+	hg diff -r p4head | no
+}
 function no() {
-	m - -rm 'V&r"diff.*?google3/(.*)"&' -R '\n'
+	m - -rm 'V&r"diff.*?google3/([^ ]*)"&' -R '\n'
 }
 alias hgr='hg resolve --tool vim_1pane --all'
 alias pastebin='/google/src/head/depot/eng/tools/pastebin'
@@ -313,3 +319,5 @@ function log {
 	vim $cmd
 }
 alias t="vim $CONFIG/todo.txt"
+alias ide='/opt/intellij-ce-stable/bin/idea.sh'
+alias vim='/usr/bin/nvim'
