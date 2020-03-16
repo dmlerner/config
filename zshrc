@@ -318,6 +318,7 @@ function log {
 	cmd=$(cat testlog | col -b | m - -r 'total actions' -ri 0 -rx -fx | m - -rp '"see" in V' -fp '"test.log" in V'  -ft 'V[:-1]')
 	vim $cmd
 }
-alias t="vim $CONFIG/todo.txt"
+alias t='vim "$GDRIVE/config/todo.txt"'
 alias ide='/opt/intellij-ce-stable/bin/idea.sh'
 alias vim='/usr/bin/nvim'
+alias remote='zsh "$GDRIVE/config/remote.sh"'

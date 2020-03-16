@@ -28,3 +28,6 @@ vim_1pane.executable=vim
 vim_1pane.args=-f $output
 vim_1pane.premerge=keep-merge3
 vim_1pane.check = conflicts
+
+[google]
+presubmit.default-rev=chain
