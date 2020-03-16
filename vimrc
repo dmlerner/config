@@ -12,9 +12,10 @@ syntax on
 call plug#begin('~/.vim/plugged')
 " Isn't syntastic redundant with coc.nvim lsp?
 " Plug 'vim-syntastic/syntastic'
-Plug 'mhinz/vim-signify'
+" signify is causing errors
+"Plug 'mhinz/vim-signify'
 "Plug 'djoshea/vim-autoread'
-Plug 'chrisbra/changesPlugin'
+"Plug 'chrisbra/changesPlugin'
 Plug 'ctrlpvim/ctrlp.vim'
 " with set hidden, ctrlspace messes up syntax highlighting except for first and last buffer; lolwtf
 "Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -68,16 +69,16 @@ endif
 set autowriteall
 
 
-if !empty(glob("~/google-desktop"))
-	":FZFPiperActiveFiles or :FZFPiperActiveFiles?
-	Glug fzf-piper
-	nnoremap <Leader>p :FZFPiperActiveFiles<Cr>
+"if !empty(glob("~/google-desktop"))
+	"":FZFPiperActiveFiles or :FZFPiperActiveFiles?
+	"Glug fzf-piper
+	"nnoremap <Leader>p :FZFPiperActiveFiles<Cr>
 
-	Glug piper plugin[mappings]
-	" Keep sourcing this after glugs...
-	" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
-	source /usr/share/vim/google/google.vim
-endif
+	"Glug piper plugin[mappings]
+	"" Keep sourcing this after glugs...
+	"" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
+	"source /usr/share/vim/google/google.vim
+"endif
 
 
 filetype plugin indent on
@@ -108,8 +109,13 @@ let g:ctrlp_root_markers = [
       \ "METADATA",
       \]
 
-" Restrict CtrlP to searching only the directories from which we ran vim.
-let g:ctrlp_working_path_mode = 0
+" auto use current file directory
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_cmd = 'CtrlPBuffer'
+nnoremap <leader>pc :CtrlPChange<CR>
+nnoremap <leader>pC :CtrlPChangeAll<CR>
+nnoremap <leader>pu :CtrlPUndo<CR>
+nnoremap <leader>pb :CtrlPBuffer<CR>
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -439,4 +445,17 @@ let g:signify_vcs_cmds = {
   \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f',
   \ }
 
+function GenerateFigDiffs()
+  ! zsh ~/gdrive/config/hg-diffs.zsh
+endfunction
 
+function LoadFigDiffs()
+  tabnew | args ~/hgdiffs/* | vertical all
+endfunction
+
+function GenerateAndLoadFigDiffs()
+  call GenerateFigDiffs()
+  call LoadFigDiffs()
+endfunction
+
+nnoremap <leader>fd :silent! call GenerateAndLoadFigDiffs()<CR>
