@@ -5,6 +5,7 @@ graphnodetemplate = {label("graphnode.{graphnode}", graphnode)}
 merge = vim_1pane
 origbackuppath = google3/.tmp/hg/orig
 editor = vim
+#color=always
 
 [color]
 graphnode.@ = brightred

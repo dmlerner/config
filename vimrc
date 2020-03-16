@@ -2,14 +2,22 @@ if !empty(glob('~/google'))
 	source /usr/share/vim/google/glug/bootstrap.vim
 	source /usr/share/vim/google/core.vim
 endif
+"set autoread | au CursorHold * checktime | call feedkeys("lh")
+
+set expandtab
+set ts=2
+set sw=2
+syntax on
 
 call plug#begin('~/.vim/plugged')
 " Isn't syntastic redundant with coc.nvim lsp?
 " Plug 'vim-syntastic/syntastic'
-"Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
+"Plug 'djoshea/vim-autoread'
 Plug 'chrisbra/changesPlugin'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-ctrlspace/vim-ctrlspace'
+" with set hidden, ctrlspace messes up syntax highlighting except for first and last buffer; lolwtf
+"Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -25,6 +33,7 @@ Plug 'valloric/matchtagalways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/tabmerge'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 
 if !empty(glob('~/google'))
@@ -271,6 +280,7 @@ nmap ad :SyntasticCheck<CR>:lw<CR>
 let HlUnderCursor=0
 let g:HiCursorWords_delay = 400
 
+
 augroup Reload
   autocmd!
   " Triger `autoread` when files changes on disk
@@ -421,7 +431,12 @@ if executable('ag')
 endif
 
 let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
+
+let g:signify_vcs_list=['hg', 'git', 'perforce']
+let g:signify_vcs_cmds = {
+  \ 'hg': 'hg diff -r .^ --config extensions.color=! --config defaults.diff= --nodates -U0 -- %f',
+  \ 'git': 'git diff --no-color --no-ext-diff -U0 -- %f',
+  \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f',
+  \ }
+
+
