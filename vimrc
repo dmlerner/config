@@ -95,8 +95,7 @@ let g:coc_global_extensions = [
       \ 'coc-html',
       \ 'coc-css',
       \ 'coc-python',
-      \ 'coc-java',
-      \ 'coc-ultisnips' ]
+      \ 'coc-java' ]
 " if hidden is not set, TextEdit might fail.
 set hidden
 " let g:CtrlSpaceProjectRootMarkers = [
@@ -458,4 +457,12 @@ function GenerateAndLoadFigDiffs()
   call LoadFigDiffs()
 endfunction
 
-nnoremap <leader>fd :silent! call GenerateAndLoadFigDiffs()<CR>
+nnoremap <leader>fld :silent! call GenerateAndLoadFigDiffs()<CR>
+nnoremap <leader>fd :silent! call GenerateFigDiffs()<CR>
+
+function! JavaSucks()
+  let terse = shellescape(getline("."))
+  let cmd = 'echo ' . terse . '| python3 ~/DriveFileStream/My\ Drive/scripts/suball/suball.py | tee ~/out.txt'
+  let output = system(cmd)
+  call setline(".", split(output, '\n'))
+endfunction
