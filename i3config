@@ -8,7 +8,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #focus_follows_mouse false
-focus_follows_mouse yes
+focus_follows_mouse no
 hide_edge_borders vertical
 mouse_warping output
 for_window [class="^.*"] border pixel 3
@@ -79,30 +79,19 @@ bindsym $mod+d exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-set $movemouse "sh -c 'eval `xdotool getactivewindow getwindowgeometry --shell`; xdotool mousemove $((X+WIDTH/2)) $((Y+HEIGHT/2))'"
+# set $movemouse "sh -c 'eval `xdotool getactivewindow getwindowgeometry --shell`; xdotool mousemove $((X+WIDTH/2)) $((Y+HEIGHT/2))'"
+bindsym $mod+m exec xdotool mousemove 0 0
 # change focus
-bindsym $mod+h focus left; exec $movemouse
-bindsym $mod+j focus down; exec $movemouse
-bindsym $mod+k focus up; exec $movemouse
-bindsym $mod+l focus right; exec $movemouse
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h focus left; exec xdotool mousemove 0 0
+bindsym $mod+j focus down; exec xdotool mousemove 0 0
+bindsym $mod+k focus up; exec xdotool mousemove 0 0
+bindsym $mod+l focus right; exec xdotool mousemove 0 0
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left;; exec xdotool mousemove 0 0
+bindsym $mod+Shift+j move down;; exec xdotool mousemove 0 0
+bindsym $mod+Shift+k move up;; exec xdotool mousemove 0 0
+bindsym $mod+Shift+l move right;; exec xdotool mousemove 0 0
 
 # split in horizontal orientation
 bindsym $mod+semicolon split h

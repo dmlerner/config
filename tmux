@@ -14,5 +14,6 @@ set -g default-terminal "screen-256color"
 bind v swap-pane -s '!' -t $TMUX_PANE
 setw -g mode-keys vi
 set -g focus-events on
+set-option -sa terminal-overrides ',zsh:RGB'
 
 run -b '~/.tmux/plugins/tpm/tpm'

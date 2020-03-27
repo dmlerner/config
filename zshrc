@@ -27,9 +27,10 @@ if test -f ~/google-x1; then
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 	# don't swap if keyboard plugged in; todo: automate
 	# setting if no keybgoard plugged in
-	# setxkbmap -option caps:swapescape
+	setxkbmap -option caps:swapescape
 	# setting if plugged in
-	setxkbmap -option
+	# setxkbmap -option
+  # zsh ~/gdrive/config/wfh-monitor.zsh
 fi
 
 alias vim=$(which nvim)
@@ -321,5 +322,14 @@ function log {
 alias t='vim "$GDRIVE/config/todo.txt"'
 alias ide='/opt/intellij-ce-stable/bin/idea.sh'
 alias vim='/usr/bin/nvim'
-alias remote='zsh "$GDRIVE/config/remote.sh"'
+alias remote='zsh "$GDRIVE/config/remote.zsh"'
 alias hv='vim $(hdpn)'
+export PATH="${PATH}:/google/data/ro/teams/devtools/editors/live"
+alias i='sudo apt install'
+
+# better zz from fasd
+unalias zz
+function zz() {
+  local dir
+  dir="$(fasd -Rdl "$*" | fzf --query="$*" -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+}

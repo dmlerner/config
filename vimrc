@@ -466,3 +466,6 @@ function! JavaSucks()
   let output = system(cmd)
   call setline(".", split(output, '\n'))
 endfunction
+
+nnoremap <leader>dj :call JavaSucks()<CR>
+nnoremap <leader>di :CsImporter<CR>
