@@ -251,7 +251,7 @@ export cd
 alias cwd='cd "$(cat ~/.cwd)"'
 cwd
 
-alias hm="(nohup unclutter -idle 0.01 -root & disown) > /dev/null 2>&1"
+alias hm="(nohup unclutter -idle 1 -root -grab & disown) > /dev/null 2>&1"
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin

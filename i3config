@@ -217,5 +217,7 @@ client.placeholder      #000000 #0c0c0c #000000 #000000   #0c0c0c
 client.background       #ffffff
 
 #bindsym $mod+z exec "i3-input -F '%s' -P 'go to workspace: '"
-#bindsym $mod+y exec "i3-input -F 'move container to workspace %s' -P 'move to workspace: '"
+#bindsym $mod+y exec "i3-input -F 'move container to workspace %s' -P 'move to workspace: ndsym XF86MonBrightnessDown exec "/usr/local/bin/light -U 5; notify-send 'brightness down'"
+bindsym XF86MonBrightnessDown exec "/usr/local/bin/light -U 10"
+bindsym XF86MonBrightnessUp exec "/usr/local/bin/light -A 10"
 
