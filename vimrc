@@ -477,3 +477,4 @@ nnoremap <leader>df :norm 0f(F lyt(oSystem.out.println("");F(lp?"n
 nnoremap <leader>dfa :norm 0f(f wywoSystem.out.println("pA");yyp:s/"//g0f(F lyt(oSystem.out.println("");F(lp?"n
 " print [v]ariable under cursor
 nnoremap <leader>dv :norm yawOiSystem.out.println("pA");F"i=yyp:s/"//gf=xjdd
+source /google/data/ro/projects/vigor/vigor.vim
