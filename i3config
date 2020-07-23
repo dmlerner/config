@@ -102,8 +102,8 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+Control+w exec "pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') +5%"
-bindsym $mod+Control+q exec "pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
+bindsym $mod+Control+w exec "pactl -- set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym $mod+Control+q exec "pactl -- set-sink-volume @DEFAULT_SINK@ -5%"
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -209,7 +209,7 @@ bar {
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #000000 #ffffff #000000 #000000   #666666
-client.focused_inactive #ffffff #ffffff #000000 #dddddd   #aaaaaa
+client.focused_inactive #000000 #ffffff #000000 #dddddd   #aaaaaa
 client.unfocused        #ffffff #ffffff #000000 #292d2e   #ffffff
 client.urgent           #2f343a #900000 #000000 #900000   #900000
 client.placeholder      #000000 #0c0c0c #000000 #000000   #0c0c0c

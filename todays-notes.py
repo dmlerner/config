@@ -4,7 +4,7 @@ import sys
 import os
 import glob
 
-prefix = os.path.realpath(os.path.expanduser('~') + '/gdrive/notes')
+prefix = os.path.realpath(os.path.expanduser('~') + '/gdrive/notes/2020')
 
 
 def get_todays_filename():
@@ -22,7 +22,7 @@ def get_todays_path(filename):
 
 def match_path():
     arg = sys.argv[1]
-    realpath = os.path.realpath(prefix + '/**/*')
+    realpath = os.path.realpath(prefix + '/*')
     paths = glob.glob(realpath)
     paths.sort(reverse=True)
     for path in paths:

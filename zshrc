@@ -1,6 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ZSH_DISABLE_COMPFIX=true
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='100'
-ZSH_THEME="powerlevel10k/powerlevel10k" # using 10k now lol
+#ZSH_THEME="powerlevel10k/powerlevel10k" # using 10k now lol
+ZSH_THEME="robbyrussell"
 
 # cache-path muth must exist
 zstyle ':completion:*' use-cache on
@@ -16,7 +24,6 @@ if test -f ~/google-desktop; then
 	fpath=($(realpath /google/src/files/head/depot/google3/devtools/blaze/scripts/zsh_completion) $fpath)
 	source /etc/bash.bashrc.d/shell_history_forwarder.sh
 	source /etc/bash_completion.d/g4d
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 fi
 if test -f ~/google-x1; then
 	# echo 'loading google-x1'
@@ -24,49 +31,26 @@ if test -f ~/google-x1; then
 	alias q="pactl -- set-sink-volume $(pactl list sinks | grep Sink | sed 's/.*#\(.*\)/\1/') -5%"
 	xsetroot -solid "#FFFFFF"
 	alias blaze-run='/home/build/nonconf/google3/devtools/blaze/scripts/blaze-run.sh'
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_citc custom_path)
 	# don't swap if keyboard plugged in; todo: automate
 	# setting if no keybgoard plugged in
-	setxkbmap -option caps:swapescape
+	#   setxkbmap -option caps:swapescape
 	# setting if plugged in
-	# setxkbmap -option
+	  # :setxkbmap -option
   # zsh ~/gdrive/config/wfh-monitor.zsh
 fi
 
+setxkbmap -option
 alias vim=$(which nvim)
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
 
 
-POWERLEVEL9K_CUSTOM_CITC='get_citc'
-POWERLEVEL9K_CUSTOM_CITC_BACKGROUND='255'
-POWERLEVEL9K_CUSTOM_CITC_FOREGROUND='208'
 
-POWERLEVEL9K_TIME_BACKGROUND='255'
-POWERLEVEL9K_TIME_FOREGROUND='232'
 
-POWERLEVEL9K_CUSTOM_PATH='get_path'
-POWERLEVEL9K_CUSTOM_PATH_BACKGROUND='255'
-POWERLEVEL9K_CUSTOM_PATH_FOREGROUND='232'
-POWERLEVEL9K_DIR_HOME_BACKGROUND='255'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='255'
-POWERLEVEL9K_DIR_ETC_BACKGROUND='255'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='255'
 
 
 # What to show in the tail of prompt
 # Will show command status and time
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_COLOR_SCHEME='dark'
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='255'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='255'
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='232'
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='208'
-#POWERLEVEL9K_DIR_BACKGROUND='208'
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -120,7 +104,7 @@ function zz() {
 function fv() {
 	local file
 	file="$(fzf --exact --height 40% --reverse --query="$1"  --select-1 --exit-0)"
-	[[ -n "$file" ]] && vim "$file"
+	[[ -n "$file" ]] && nvim "$file"
 }
 
 
@@ -135,7 +119,7 @@ function gn { cd;
 alias bbcp-fileutil=/google/data/ro/teams/bbcp/fileutil
 alias prodspec='/google/data/ro/teams/prodspec/prodspec'
 alias print_prodspec='/google/data/ro/teams/prodspec/print_prodspec'
-export EDITOR='vim'
+export EDITOR='nvim'
 alias admin_session=/google/data/ro/projects/tonic/admin_session
 function mkcdir {
 	mkdir -p -- "$1" &&
@@ -155,7 +139,7 @@ alias py=" /google/data/ro/projects/g3python/g3python --deps //pyglib --deps //p
 alias b="xcalib -i -a"
 alias sz="source ~/.zshrc"
 alias sp="source ~/.profile"
-alias rc="vim ~/.bashrc"
+alias rc="nvim ~/.bashrc"
 
 # If not running interactively, don't do anything
 case $- in
@@ -234,7 +218,8 @@ fpath=($HOME/.zsh-functions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias -s {go,py,proto,txt}=vim
+alias -s {go,py,proto,txt}=nvim
+unalias d
 function d {
 	commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
 	p4 diff --since_commit "$(echo $commit_line | awk '{print $3}')";
@@ -283,14 +268,14 @@ function gc() {
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 alias mt='g4d; cd ./attribution/midtier' # todo: preserve pushd
-alias vm='m; vim'
+alias vm='m; nvim'
 alias jm='g4d; cd ./java/com/google/attribution/midtier'
-alias vjm='jm; vim'
-alias vz='vim ~/.zshrc'
-alias vv='vim ~/.vimrc'
+alias vjm='jm; nvim'
+alias vz='nvim ~/.zshrc'
+alias vv='nvim ~/.vimrc'
 #alias builditall="blaze build \$(g4 pending -l | grep '//depot' | sed 's:.*//depot/google3/::' | sed 's:#.*::' | grep -v BUILD) --compile_one_dependency"
 #alias testitall="g4 status | awk -F'#' '{print \$1}' | awk -F'/' 'BEGIN {OFS = FS} NF{NF--};{\$1=\$2=\$3=\$4=\"\"; sub(\"////\",\"\"); print"
-alias vt='vim --cmd term --cmd star'
+alias vt='nvim --cmd term --cmd star'
 alias sd='ssh davidlerner1.irv.corp.google.com -t "/usr/bin/zsh -l"'
 alias sc='ssh davidlerner.c.googlers.com  -t "/usr/bin/zsh -l"'
 GDRIVE="$(realpath ~/gdrive)"
@@ -307,23 +292,19 @@ function hdpn() { # hg diff p4head names only
 function no() {
 	m - -rm 'V&r"diff.*?google3/([^ ]*)"&' -R '\n'
 }
-alias hgr='hg resolve --tool vim_1pane --all'
+alias hgr='hg resolve --tool nvim_1pane --all'
 alias pastebin='/google/src/head/depot/eng/tools/pastebin'
 unsetopt beep
 alias python=python3
-function jt {
-	cmd='V&"/java(?:tests)*"& ?"javatests" in V : "/java" : "/javatests":&'
-	cd "$(pwd | m - -r10 $cmd)"
-}
 function log {
 	cmd=$(cat testlog | col -b | m - -r 'total actions' -ri 0 -rx -fx | m - -rp '"see" in V' -fp '"test.log" in V'  -ft 'V[:-1]')
-	vim $cmd
+	nvim $cmd
 }
-alias t='vim "$GDRIVE/config/todo.txt"'
+alias t='nvim "$GDRIVE/config/todo.txt"'
 alias ide='/opt/intellij-ce-stable/bin/idea.sh'
 alias vim='/usr/bin/nvim'
 alias remote='zsh "$GDRIVE/config/remote.zsh"'
-alias hv='vim $(hdpn)'
+alias hv='nvim $(hdpn)'
 export PATH="${PATH}:/google/data/ro/teams/devtools/editors/live"
 alias i='sudo apt install'
 
@@ -333,3 +314,32 @@ function zz() {
   local dir
   dir="$(fasd -Rdl "$*" | fzf --query="$*" -1 -0 --no-sort +m)" && cd "${dir}" || return 1
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+function va() {
+  echo "$@"
+  nvim $("$@")
+}
+
+function hdn() {
+  hg diff -c . | rg '\+\+\+.*google3/(.*)' -r '$1'
+}
+
+function hdnv() {
+  hdn | xargs vim
+}
+
+function jt() {
+  p=$(pwd)
+  [[ $p =~ javatests ]] && cd $(pwd | rg '/(javatests)/' -r '/java/')
+  [[ $p =~ java/ ]] && cd $(pwd | rg '/(java)/' -r '/javatests/')
+}
+
+function g4cl() {
+  stubby --proto2 call blade:codereview-rpc CodereviewRpcService.GetChangelist "changelist_number: $1" \
+}
+
+unalias s
+alias s='python3 ~/gdrive/config/s.py'

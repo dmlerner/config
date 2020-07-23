@@ -110,7 +110,9 @@ let g:ctrlp_root_markers = [
 
 " auto use current file directory
 let g:ctrlp_working_path_mode = 'c'
-let g:ctrlp_cmd = 'CtrlPBuffer'
+"let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_cmd = 'CtrlP'
+nnoremap <leader><leader> :CtrlP<CR>
 nnoremap <leader>pc :CtrlPChange<CR>
 nnoremap <leader>pC :CtrlPChangeAll<CR>
 nnoremap <leader>pu :CtrlPUndo<CR>
@@ -478,3 +480,11 @@ nnoremap <leader>dfa :norm 0f(f wywoSystem.out.println("pA");yyp:s/"//g0f(F l
 " print [v]ariable under cursor
 nnoremap <leader>dv :norm yawOiSystem.out.println("pA");F"i=yyp:s/"//gf=xjdd
 source /google/data/ro/projects/vigor/vigor.vim
+
+if &term =~ "screen"
+        let &t_BE = "\e[?2004h"
+        let &t_BD = "\e[?2004l"
+        exec "set t_PS=\e[200~"
+        exec "set t_PE=\e[201~"
+endif
+
