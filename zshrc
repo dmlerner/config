@@ -84,7 +84,8 @@ DISABLE_UPDATE_PROMPT="true"
 
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# THIS IS TERRIBLE DO NOT TURNIT ON
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -237,6 +238,7 @@ alias cwd='cd "$(cat ~/.cwd)"'
 cwd
 
 alias hm="(nohup unclutter -idle 1 -root -grab & disown) > /dev/null 2>&1"
+hm
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -337,9 +339,22 @@ function jt() {
   [[ $p =~ java/ ]] && cd $(pwd | rg '/(java)/' -r '/javatests/')
 }
 
-function g4cl() {
-  stubby --proto2 call blade:codereview-rpc CodereviewRpcService.GetChangelist "changelist_number: $1" \
-}
-
 unalias s
 alias s='python3 ~/gdrive/config/s.py'
+
+function parsecl() {
+  echo "$1" | s '(.*cl/)?(\d+)' '$2'
+}
+
+function g4cl() {
+  clnum=$(parsecl $1)
+  stubby --proto2 call blade:codereview-rpc CodereviewRpcService.GetChangelist "changelist_number: $clnum"
+}
+
+function clws() {
+  g4d $(g4cl $1 | s 'client: (.*?):(.*?):' '@2')
+}
+alias cm='hg commit --same-cl -m'
+alias bb='blaze build :all -k'
+alias bt='blaze test :all '
+alias vl='cat out | s "(/usr.*test.log)" | xargs nvim'

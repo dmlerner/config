@@ -32,3 +32,6 @@ vim_1pane.check = conflicts
 
 [google]
 presubmit.default-rev=chain
+
+[trainingwheels]
+prevent-push-dirty=false
