@@ -3,7 +3,7 @@
 cd $HOME
 
 if [[ ! -a /usr/bin/nvim ]]; then
-	wget https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage
+	wget https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
 	mv $HOME/Downloads/nvim.appimage /usr/bin/nvim
 fi
 
@@ -15,7 +15,7 @@ if [[ $INSTALL_APT ]]; then
 	sudo apt autoremove
 
 	for i in i3 fonts-powerline zsh xcalib thefuck python3-distutils colordiff \
-		ranger ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox\
+		ranger ripgrep ack-grep nodejs npm yarn vim-google-config python3-pip xdotool tox\
 		tmux \
 		; do
 		sudo apt-get install -y $i

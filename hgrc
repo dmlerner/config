@@ -35,3 +35,4 @@ presubmit.default-rev=chain
 
 [trainingwheels]
 prevent-push-dirty=false
+allow-push-incomplete-cl=true

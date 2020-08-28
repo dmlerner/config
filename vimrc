@@ -33,6 +33,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'valloric/matchtagalways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" for search count
+"Plug 'osyo-manga/vim-anzu'
+"Plug 'emilyst/match-count-statusline'
+
 Plug 'vim-scripts/tabmerge'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
@@ -50,7 +55,7 @@ if !empty(glob('~/google'))
 	" uses <Leader>r
 	Glug relatedfiles plugin[mappings]
 	Glug google-csimporter
-	nnoremap <leader>ci :CsImporter<CR>
+	nnoremap <leader>i :CsImporter<CR>
         nnoremap <leader>cs :CsImporterSort<CR>
         Glug outline-window
 
@@ -132,7 +137,7 @@ set updatetime=300
 set shortmess+=c
 
 " always show signcolumns
-set signcolumn=yes
+"set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -282,7 +287,7 @@ nnoremap Y y$
 set ignorecase
 set smartcase
 
-nmap af :w<CR>
+nmap af :wa<CR>
 nmap ad :SyntasticCheck<CR>:lw<CR>
 let HlUnderCursor=0
 let g:HiCursorWords_delay = 400
@@ -479,7 +484,7 @@ nnoremap <leader>df :norm 0f(F lyt(oSystem.out.println("");F(lp?"n
 nnoremap <leader>dfa :norm 0f(f wywoSystem.out.println("pA");yyp:s/"//g0f(F lyt(oSystem.out.println("");F(lp?"n
 " print [v]ariable under cursor
 nnoremap <leader>dv :norm yawOiSystem.out.println("pA");F"i=yyp:s/"//gf=xjdd
-source /google/data/ro/projects/vigor/vigor.vim
+"source /google/data/ro/projects/vigor/vigor.vim
 
 if &term =~ "screen"
         let &t_BE = "\e[?2004h"
@@ -487,4 +492,7 @@ if &term =~ "screen"
         exec "set t_PS=\e[200~"
         exec "set t_PE=\e[201~"
 endif
+nnoremap <leader>dc :'<,'>s/\S\+//gn<CR>
+
+set shortmess-=S
 

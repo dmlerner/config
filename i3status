@@ -12,9 +12,10 @@ general {
 }
 
 order += "tztime local"
-order += "battery all"
-battery all {
-}
+
+#order += "battery all"
+#battery all {
+#}
 
 tztime local {
         format = "%m-%d %H:%M"

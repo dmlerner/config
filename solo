@@ -1,0 +1,11 @@
+carbon=''
+foxconn=''
+lg=''
+verbose=''
+
+verbose='--verbose'
+carbon='--output eDP-1 --primary '
+
+cmd="xrandr $carbon $foxconn $lg $verbose"
+echo $cmd
+$cmd

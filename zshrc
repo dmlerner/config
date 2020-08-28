@@ -235,7 +235,7 @@ function cd() {
 }
 export cd
 alias cwd='cd "$(cat ~/.cwd)"'
-cwd
+cwd > /dev/null
 
 alias hm="(nohup unclutter -idle 1 -root -grab & disown) > /dev/null 2>&1"
 hm
@@ -285,15 +285,18 @@ alias scripts='cd "$GDRIVE/scripts"'
 alias config='cd "$GDRIVE/config"'
 alias host="cat /proc/sys/kernel/hostname"
 alias m='python -m mawk'
-function hdn() { # hg diff names only
-	hg diff -c ${1:-.} | no
-}
-function hdpn() { # hg diff p4head names only
-	hg diff -r p4head | no
-}
-function no() {
-	m - -rm 'V&r"diff.*?google3/([^ ]*)"&' -R '\n'
-}
+
+#function hdn() { # hg diff names only
+	#hg diff -c ${1:-.} | no
+#}
+#function hdpn() { # hg diff p4head names only
+	#hg diff -r p4head | no
+#}
+#function no() {
+	#m - -rm 'V&r"diff.*?google3/([^ ]*)"&' -R '\n'
+#}
+#
+
 alias hgr='hg resolve --tool nvim_1pane --all'
 alias pastebin='/google/src/head/depot/eng/tools/pastebin'
 unsetopt beep
@@ -302,7 +305,7 @@ function log {
 	cmd=$(cat testlog | col -b | m - -r 'total actions' -ri 0 -rx -fx | m - -rp '"see" in V' -fp '"test.log" in V'  -ft 'V[:-1]')
 	nvim $cmd
 }
-alias t='nvim "$GDRIVE/config/todo.txt"'
+alias t='nvim "$GDRIVE/notes/todo.txt"'
 alias ide='/opt/intellij-ce-stable/bin/idea.sh'
 alias vim='/usr/bin/nvim'
 alias remote='zsh "$GDRIVE/config/remote.zsh"'
@@ -326,11 +329,11 @@ function va() {
 }
 
 function hdn() {
-  hg diff -c . | rg '\+\+\+.*google3/(.*)' -r '$1'
+  hg diff -r p4head | rg '\+\+\+.*google3/(.*)' -r '$1'
 }
 
 function hdnv() {
-  hdn | xargs vim
+  hdn | xargs nvim
 }
 
 function jt() {
@@ -354,7 +357,8 @@ function g4cl() {
 function clws() {
   g4d $(g4cl $1 | s 'client: (.*?):(.*?):' '@2')
 }
-alias cm='hg commit --same-cl -m'
-alias bb='blaze build :all -k'
+alias cm='hg commit --same-cl -m '
+alias bb='blaze build :all '
+alias bbk='blaze build :all -k '
 alias bt='blaze test :all '
 alias vl='cat out | s "(/usr.*test.log)" | xargs nvim'

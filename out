@@ -1,0 +1,6210 @@
+changelist {
+  changelist_id {
+    changelist: 320684349
+    perforce_server: 1
+  }
+  author: "davidlerner"
+  client: "davidlerner:fig-export-podforattribution-change-21-6f3db0617235:1112:citc"
+  description: "remove ads-attribution-midtier mdb user from adwords-authserver/api-client-authorization-config as part of pod migration cleanup\n\nCC=adsapi-auth-reviews,adwords-api-changes,adwordsapi-pushmaster-notify+changes\nDELTA=30 (0 added, 30 deleted, 0 changed)\nDELTA_BY_EXTENSION=txt=0\nFIG_CHANGESET=9c186f5f4518c8300d7bf963c774aaeead9ac36d\nFIG_WORKSPACE=davidlerner/1038:\nPRESUBMIT=passed\nR=abrahamkang,manveen,pensadov\nWANT_LGTM=all\n"
+  reviewer: "abrahamkang"
+  reviewer: "manveen"
+  reviewer: "pensadov"
+  cc: "adsapi-auth-reviews"
+  cc: "adwords-api-changes"
+  cc: "adwordsapi-pushmaster-notify+changes"
+  status: PENDING
+  creation_time: 1594418960
+  depot_file {
+    depot_path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 31
+      content_size: 9404
+      file_type: "text"
+      md5: "090148B588186048CCBD993217917244"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 180
+        first_line_right: 0
+        last_line_right: 180
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 180
+        last_line_left: 182
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 182
+        last_line_left: 239
+        first_line_right: 180
+        last_line_right: 237
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 239
+        last_line_left: 241
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 241
+        last_line_left: 308
+        first_line_right: 237
+        last_line_right: 304
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 9404
+        md5: "090148B588186048CCBD993217917244"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/configs/security/ganpati/contrib/ganpaticfg/attribution/templates/exporter-googleads.gcl"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 28
+      content_size: 5618
+      file_type: "text"
+      md5: "F6FF3A6795EFAE825DFC9F2400E65ECE"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 87
+        first_line_right: 0
+        last_line_right: 87
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 87
+        last_line_left: 89
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 89
+        last_line_left: 117
+        first_line_right: 87
+        last_line_right: 115
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 117
+        last_line_left: 119
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 119
+        last_line_left: 146
+        first_line_right: 115
+        last_line_right: 142
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 146
+        last_line_left: 148
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 148
+        last_line_left: 171
+        first_line_right: 142
+        last_line_right: 165
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 5618
+        md5: "F6FF3A6795EFAE825DFC9F2400E65ECE"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/production/security/data_access/policy/analytics/prod.dapolicy"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 239
+      content_size: 77365
+      file_type: "text"
+      md5: "4C44CD45C6083DED47756095A5F089F1"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 1478
+        first_line_right: 0
+        last_line_right: 1478
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1478
+        last_line_left: 1482
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1482
+        last_line_left: 1644
+        first_line_right: 1478
+        last_line_right: 1640
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1644
+        last_line_left: 1648
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1648
+        last_line_left: 1677
+        first_line_right: 1640
+        last_line_right: 1669
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1677
+        last_line_left: 1683
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1683
+        last_line_left: 1871
+        first_line_right: 1669
+        last_line_right: 1857
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1871
+        last_line_left: 1875
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1875
+        last_line_left: 2001
+        first_line_right: 1857
+        last_line_right: 1983
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 77365
+        md5: "4C44CD45C6083DED47756095A5F089F1"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config-qa.txt"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 667
+      content_size: 165183
+      file_type: "text"
+      md5: "EEAEFA721AC64692E67F5E1B22EFCCE1"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 390
+        first_line_right: 0
+        last_line_right: 390
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 390
+        last_line_left: 432
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 432
+        last_line_left: 8657
+        first_line_right: 390
+        last_line_right: 8615
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 165183
+        md5: "EEAEFA721AC64692E67F5E1B22EFCCE1"
+      }
+    }
+    snapshot {
+      snapshot_number: 3
+      timestamp: 1594673236
+      base_perforce_revision: 669
+      content_size: 165509
+      file_type: "text"
+      md5: "4E7A87C09964B44FAECA0F9D1C4AD803"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 390
+        first_line_right: 0
+        last_line_right: 390
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 390
+        last_line_left: 432
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 432
+        last_line_left: 8673
+        first_line_right: 390
+        last_line_right: 8631
+      }
+      timestamp_modified: 1594673235
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594673235
+        file_type: "text"
+        size: 165509
+        md5: "4E7A87C09964B44FAECA0F9D1C4AD803"
+      }
+    }
+    snapshot {
+      snapshot_number: 4
+      timestamp: 1594847399
+      base_perforce_revision: 674
+      content_size: 166302
+      file_type: "text"
+      md5: "6F7B8DB4E1959FFB3095CEC694E1286B"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 390
+        first_line_right: 0
+        last_line_right: 390
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 390
+        last_line_left: 432
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 432
+        last_line_left: 8704
+        first_line_right: 390
+        last_line_right: 8662
+      }
+      timestamp_modified: 1594847397
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594847397
+        file_type: "text"
+        size: 166302
+        md5: "6F7B8DB4E1959FFB3095CEC694E1286B"
+      }
+    }
+    snapshot {
+      snapshot_number: 5
+      timestamp: 1595026530
+      base_perforce_revision: 677
+      content_size: 166589
+      file_type: "text"
+      md5: "AD11B44C9B00C42B601C6446C7146A5C"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 390
+        first_line_right: 0
+        last_line_right: 390
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 390
+        last_line_left: 432
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 432
+        last_line_left: 8718
+        first_line_right: 390
+        last_line_right: 8676
+      }
+      timestamp_modified: 1595026523
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1595026523
+        file_type: "text"
+        size: 166589
+        md5: "AD11B44C9B00C42B601C6446C7146A5C"
+      }
+    }
+    snapshot {
+      snapshot_number: 6
+      timestamp: 1595027196
+      base_perforce_revision: 679
+      content_size: 167048
+      file_type: "text"
+      md5: "46FBDAE52F2889AA18B9026DFC92331B"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 390
+        first_line_right: 0
+        last_line_right: 390
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 390
+        last_line_left: 432
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 432
+        last_line_left: 8738
+        first_line_right: 390
+        last_line_right: 8696
+      }
+      timestamp_modified: 1595027195
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1595027195
+        file_type: "text"
+        size: 167048
+        md5: "46FBDAE52F2889AA18B9026DFC92331B"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/production/security/data_access/policy/other/prod.dapolicy"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 1141
+      content_size: 269838
+      file_type: "text"
+      md5: "25BDE61C6A53A44222E03E64F7F09DD1"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 6027
+        first_line_right: 0
+        last_line_right: 6027
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 6027
+        last_line_left: 6030
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 6030
+        last_line_left: 6581
+        first_line_right: 6027
+        last_line_right: 6578
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 269838
+        md5: "25BDE61C6A53A44222E03E64F7F09DD1"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config.txt"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 677
+      content_size: 237311
+      file_type: "text"
+      md5: "5F74945CCDE966AE65890BFC5B798A54"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 932
+        first_line_right: 0
+        last_line_right: 932
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 932
+        last_line_left: 962
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 962
+        last_line_left: 12253
+        first_line_right: 932
+        last_line_right: 12223
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 237311
+        md5: "5F74945CCDE966AE65890BFC5B798A54"
+      }
+    }
+    snapshot {
+      snapshot_number: 3
+      timestamp: 1594673236
+      base_perforce_revision: 678
+      content_size: 237347
+      file_type: "text"
+      md5: "65D3C5148C22D49949B0B3BF2B3F86CD"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 932
+        first_line_right: 0
+        last_line_right: 932
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 932
+        last_line_left: 962
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 962
+        last_line_left: 12255
+        first_line_right: 932
+        last_line_right: 12225
+      }
+      timestamp_modified: 1594673235
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594673235
+        file_type: "text"
+        size: 237347
+        md5: "65D3C5148C22D49949B0B3BF2B3F86CD"
+      }
+    }
+    snapshot {
+      snapshot_number: 4
+      timestamp: 1594847399
+      base_perforce_revision: 681
+      content_size: 237802
+      file_type: "text"
+      md5: "9055D3C94A9D875AFFDFED7E894E7735"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 932
+        first_line_right: 0
+        last_line_right: 932
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 932
+        last_line_left: 962
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 962
+        last_line_left: 12277
+        first_line_right: 932
+        last_line_right: 12247
+      }
+      timestamp_modified: 1594847397
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594847397
+        file_type: "text"
+        size: 237802
+        md5: "9055D3C94A9D875AFFDFED7E894E7735"
+      }
+    }
+    snapshot {
+      snapshot_number: 5
+      timestamp: 1595026530
+      base_perforce_revision: 683
+      content_size: 237991
+      file_type: "text"
+      md5: "5652D1D5E4C33A9D24AB0AB267D7764F"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 932
+        first_line_right: 0
+        last_line_right: 932
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 932
+        last_line_left: 962
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 962
+        last_line_left: 12286
+        first_line_right: 932
+        last_line_right: 12256
+      }
+      timestamp_modified: 1595026523
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1595026523
+        file_type: "text"
+        size: 237991
+        md5: "5652D1D5E4C33A9D24AB0AB267D7764F"
+      }
+    }
+    snapshot {
+      snapshot_number: 7
+      timestamp: 1595366004
+      base_perforce_revision: 688
+      content_size: 239053
+      file_type: "text"
+      md5: "597E31212161CC72922285CD1B1567CA"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 932
+        first_line_right: 0
+        last_line_right: 932
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 932
+        last_line_left: 962
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 962
+        last_line_left: 12333
+        first_line_right: 932
+        last_line_right: 12303
+      }
+      timestamp_modified: 1595366001
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1595366001
+        file_type: "text"
+        size: 239053
+        md5: "597E31212161CC72922285CD1B1567CA"
+      }
+    }
+    snapshot {
+      snapshot_number: 8
+      timestamp: 1595439024
+      base_perforce_revision: 689
+      content_size: 239534
+      file_type: "text"
+      md5: "E180DED52D838510FD0A86394A7AE21E"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 932
+        first_line_right: 0
+        last_line_right: 932
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 932
+        last_line_left: 962
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 962
+        last_line_left: 12359
+        first_line_right: 932
+        last_line_right: 12329
+      }
+      timestamp_modified: 1595439022
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1595439022
+        file_type: "text"
+        size: 239534
+        md5: "E180DED52D838510FD0A86394A7AE21E"
+      }
+    }
+    reverted: false
+    action: "edit"
+    base_perforce_revision: 689
+    working_copy {
+      snapshot_number: 27
+      timestamp: 1595542966
+      base_perforce_revision: 689
+      content_size: 239534
+      file_type: "text"
+      md5: "E180DED52D838510FD0A86394A7AE21E"
+      action: "edit"
+      timestamp_modified: 1595439022
+      file_properties {
+        timestamp_modified_sec: 1595439022
+        file_type: "text"
+        size: 239534
+        md5: "E180DED52D838510FD0A86394A7AE21E"
+      }
+    }
+  }
+  depot_file {
+    depot_path: "//depot/google3/configs/security/ganpati/contrib/ganpaticfg/analytics/config/clients/attribution.gcl"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 12
+      content_size: 12023
+      file_type: "text"
+      md5: "F16C6791BA1022C706280EB567C95C0D"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 178
+        first_line_right: 0
+        last_line_right: 178
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 178
+        last_line_left: 208
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 208
+        last_line_left: 226
+        first_line_right: 178
+        last_line_right: 196
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 226
+        last_line_left: 249
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 249
+        last_line_left: 461
+        first_line_right: 196
+        last_line_right: 408
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 12023
+        md5: "F16C6791BA1022C706280EB567C95C0D"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/production/security/data_access/policy/analytics/dev.dapolicy"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 188
+      content_size: 60861
+      file_type: "text"
+      md5: "3973BCE6FAE46C53BF0BC0CD8B249452"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 1231
+        first_line_right: 0
+        last_line_right: 1231
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1231
+        last_line_left: 1233
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1233
+        last_line_left: 1439
+        first_line_right: 1231
+        last_line_right: 1437
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1439
+        last_line_left: 1441
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1441
+        last_line_left: 1632
+        first_line_right: 1437
+        last_line_right: 1628
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 1632
+        last_line_left: 1634
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 1634
+        last_line_left: 1722
+        first_line_right: 1628
+        last_line_right: 1716
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 60861
+        md5: "3973BCE6FAE46C53BF0BC0CD8B249452"
+      }
+    }
+    reverted: true
+  }
+  depot_file {
+    depot_path: "//depot/google3/configs/security/ganpati/contrib/ganpaticfg/attribution/external_groups.gcl"
+    snapshot {
+      snapshot_number: 1
+      timestamp: 1594418964
+      base_perforce_revision: 80
+      content_size: 18400
+      file_type: "text"
+      md5: "B93F96B42210686D75D8F3E479F0CA94"
+      action: "edit"
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 0
+        last_line_left: 59
+        first_line_right: 0
+        last_line_right: 59
+      }
+      diff_chunk {
+        type: DELETE
+        first_line_left: 59
+        last_line_left: 69
+        first_line_right: 0
+        last_line_right: 0
+      }
+      diff_chunk {
+        type: EQUAL
+        first_line_left: 69
+        last_line_left: 519
+        first_line_right: 59
+        last_line_right: 509
+      }
+      timestamp_modified: 1594418962
+      base_perforce_file_type: "text"
+      file_properties {
+        timestamp_modified_sec: 1594418962
+        file_type: "text"
+        size: 18400
+        md5: "B93F96B42210686D75D8F3E479F0CA94"
+      }
+    }
+    reverted: true
+  }
+  comment {
+    id: "<abrahamkang-1595536571598-33fe841a-fb26-4bd8-a344-6ace41aa4df6@critique>"
+    timestamp: 1595536571
+    type: CL_COMMENT
+    author: "abrahamkang"
+    content: ""
+    resolved: true
+    published: true
+    publish_timestamp: 1595536571
+    approval {
+      type: "LGTM"
+      approve: true
+      display_name: "LGTM"
+    }
+    approval {
+      type: "PIPER"
+      approve: true
+      display_name: "Approval"
+    }
+    citc_write_id: 62
+  }
+  comment {
+    id: "<davidlerner-1595439458130-8e7df200-008b-48d2-bb28-d0d27398d021@critique>"
+    timestamp: 1595439458
+    type: CL_COMMENT
+    author: "davidlerner"
+    content: "CheckPresubmitService:blade:diffender-presubmit/0:\n\nAsset change request presubmit:cl_320684349 is APPROVED\n\nAPPROVED: \nads-frontend: cdpush.googleprod.com/pushdef/adwordsapi%2Fauthserver-client-authorization\n\nDetails\nPresubmitActionCode: MAIL\nBorgDiff: http://ubdiff/#uid=111b-fa24-9b87-999a\n\n\n\n[end personal message]\n\nHello adsapi-auth-reviews, pensadov,\n\nPlease review the following changelist:\n\n\thttps://critique.corp.google.com/#review/320684349"
+    resolved: true
+    published: true
+    publish_timestamp: 1595439458
+    citc_write_id: 39
+  }
+  comment {
+    id: "<gwsq-1595439461270-34ff1614-37b6-46e7-a7e8-724f2324056c@critique>"
+    timestamp: 1595439461
+    type: CL_COMMENT
+    author: "gwsq"
+    content: "From ads/api/authserver/REVIEWERS.gwsq:\n[prod change] Requires LGTM by primary oncall/adwordsapi.\n[auth change] Requires LGTM by an auth config reviewer.\nabrahamkang, manveen added for:\n    production/config/cdd/adwords-authserver/api-client-authorization-config.txt\n"
+    resolved: true
+    published: true
+    publish_timestamp: 1595439461
+    citc_write_id: 52
+  }
+  comment {
+    id: "<gwsq-1595439461602-c11f6ad9-2efc-4610-9c6f-eebf2022906a@critique>"
+    timestamp: 1595439461
+    type: CL_COMMENT
+    author: "gwsq"
+    content: "gwsq has modified changelist 320684349:\n R: +abrahamkang, +manveen, -adsapi-auth-reviews\n CC: +adsapi-auth-reviews, +adwordsapi-pushmaster-notify+changes\n WANT_LGTM: +all"
+    resolved: true
+    published: true
+    publish_timestamp: 1595439461
+    citc_write_id: 50
+  }
+  comment {
+    id: "<manveen-1595441785979-1021244f-a55d-4f53-ad68-1353be0e1cc9@critique>"
+    timestamp: 1595441785
+    type: CL_COMMENT
+    author: "manveen"
+    content: ""
+    resolved: true
+    published: true
+    publish_timestamp: 1595441785
+    approval {
+      type: "LGTM"
+      approve: true
+      display_name: "LGTM"
+    }
+    citc_write_id: 59
+  }
+  comment {
+    id: "<noreply-tap-eng-1595367214300-7e4f5c05-1b8c-4164-854a-caeaf37d6722@critique>"
+    timestamp: 1595367214
+    type: CL_COMMENT
+    author: "noreply-tap-eng"
+    content: "FYI\r\nALL affected tests pass! :)\r\n\r\nTAP presubmit finished testing change 320684349 (Workspace:  \r\ncodereview/321119031, Snapshot #7) with 4 passing, 0 failed/broken/unknown.\r\n\r\nView all results from this run:  \r\nhttps://test.corp.google.com/ui#id=OCL:320684349:BASE:322443795:1595367148840:6ab5662d\r\n\r\nView ads_authserver\'s status at base changelist:  \r\nhttps://test.corp.google.com/ui#cl=322443795&d=grid2&p=ads_authserver\r\n\r\n\r\nTo retry this TAP presubmit using a newer version of the code, run:\r\ntap_presubmit --email --detach -c 320684349 -cb \\\r\nads_authserver\r\n\r\nor, in Fig:\r\nhg presubmit -r 320684349 \\\r\n--tap-project=ads_authserver\r\n\r\n"
+    resolved: true
+    published: true
+    publish_timestamp: 1595367214
+    citc_write_id: 34
+  }
+  comment {
+    id: "<noreply-tap-eng-1595439477666-de28f2b4-8685-4330-a014-13d78b3feb5c@critique>"
+    timestamp: 1595439477
+    type: CL_COMMENT
+    author: "noreply-tap-eng"
+    content: "FYI\r\nALL affected tests pass! :)\r\n\r\nTAP presubmit finished testing change 320684349 (Workspace:  \r\ncodereview/321119031, Snapshot #8) with 4 passing, 0 failed/broken/unknown.\r\n\r\nView all results from this run:  \r\nhttps://test.corp.google.com/ui#id=OCL:320684349:BASE:322604923:1595439424841:a3f0ea0a\r\n\r\nView ads_authserver\'s status at base changelist:  \r\nhttps://test.corp.google.com/ui#cl=322604923&d=grid2&p=ads_authserver\r\n\r\n\r\nTo retry this TAP presubmit using a newer version of the code, run:\r\ntap_presubmit --email --detach -c 320684349 -cb \\\r\nads_authserver\r\n\r\nor, in Fig:\r\nhg presubmit -r 320684349 \\\r\n--tap-project=ads_authserver\r\n\r\n"
+    resolved: true
+    published: true
+    publish_timestamp: 1595439477
+    citc_write_id: 55
+  }
+  comment {
+    id: "<pensadov-1595439504365-160f437a-5f83-428c-a8c7-18fea3ebcc4d@critique>"
+    timestamp: 1595439504
+    type: CL_COMMENT
+    author: "pensadov"
+    content: ""
+    resolved: true
+    published: true
+    publish_timestamp: 1595439504
+    approval {
+      type: "LGTM"
+      approve: true
+      display_name: "LGTM"
+    }
+    citc_write_id: 56
+  }
+  overall_lgtm: true
+  lgtm: "manveen"
+  lgtm: "abrahamkang"
+  lgtm: "pensadov"
+  workspace_id: "codereview/321119031"
+  approval_state {
+    type: "LGTM"
+    display_name: "LGTM"
+    state: SATISFIED
+    approved_by: "abrahamkang"
+    approved_by: "manveen"
+    approved_by: "pensadov"
+    user_can_approve: false
+    user_can_satisfy: false
+  }
+  approval_state {
+    type: "PIPER"
+    display_name: "Approval"
+    state: SATISFIED
+    approved_by: "abrahamkang"
+    user_can_approve: false
+  }
+  approval_state {
+    type: "APPROVAL_COVERAGE"
+    display_name: "Approvals coverage"
+    state: CANNOT_BE_GRANTED
+    reason_message: "All approvals are granted"
+  }
+  finding {
+    category: "Presubmit"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "Presubmits finished with status ERROR.\nERROR: Your change includes out of date files.  You must either\nsync/resolve or revert them before presubmit checks can be run.\n\n//depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config.txt\n\nReported 0 notice(s), 0 warning(s), 1 error(s).\n\n\n\nPresubmits finished with status ERROR.\nERROR: Your change includes out of date files.  You must either\nsync/resolve or revert them before presubmit checks can be run.\n\n//depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config.txt\n\nReported 0 notice(s), 0 warning(s), 1 error(s)."
+    actionable: true
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/baa1405e-5103-4394-9365-81c01d50fefd/findings/004b774d8d04e408aaa878d9e5a294dcf57f2e3b773a8aebbb84cd555702d96738"
+    timestamp_micros: 1595536903230700
+    created_by: "piper-api"
+  }
+  finding {
+    category: "Submit"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "Submit halted because Presubmits failed.\n\nPresubmits finished with status ERROR.\nERROR: Your change includes out of date files.  You must either\nsync/resolve or revert them before presubmit checks can be run.\n\n//depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config.txt\n\nReported 0 notice(s), 0 warning(s), 1 error(s).\n\n\n\nPresubmits finished with status ERROR.\nERROR: Your change includes out of date files.  You must either\nsync/resolve or revert them before presubmit checks can be run.\n\n//depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config.txt\n\nReported 0 notice(s), 0 warning(s), 1 error(s)."
+    actionable: true
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/baa1405e-5103-4394-9365-81c01d50fefd/findings/00a26923ffbefb6f8558fc503b909ec58e54f1be607767f1cb977109b1e0700756"
+    timestamp_micros: 1595536903246645
+    created_by: "piper-api"
+  }
+  finding {
+    category: "TapPresubmit:ads_authserver"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "PASSED\n\n    4 Passing Targets\n\nBuilds:\nads_authserver\n\nCommand line flag: ads_authserver"
+    url: "https://test.corp.google.com/OCL:320684349:BASE:322604923:1595439424841:a3f0ea0a"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/20b2230e-aba0-4860-8835-7a7d41a186bd/findings/0031ae59121d165463f8daa41c22f739ef29d7fb0f507f6f1fabb3c539b980d295"
+    timestamp_micros: 1595439476210687
+    created_by: "tap-prod-presubmit"
+  }
+  finding {
+    category: "SafetyNetTests"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "No extra failures found when running the safety net.\nThese are the sponge links for this CL:\n\thttp://sponge2/2e042a40-109c-4f97-96c9-1f4d888329ce\n\nAnd the sponge links for the base CL:\n\thttp://sponge2/fa500f98-5552-402b-b55d-82f0a557ff69\n"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/5f3b191c-fdec-4e48-a98f-0d11d07cc9d8/findings/00630931f1a5d3454f8c1e85313a00bbe4a10679ccf0a56fa3cf9ba402057a13a9"
+    timestamp_micros: 1595439766708146
+    created_by: "video-youtube-testing-presubmit-safetynet"
+  }
+  finding {
+    category: "Presubmit:CheckTests"
+    subcategory: "0"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "CheckTests/0: Notice (//depot/google3/production/config/cdd/adwords-authserver/METADATA:12:3)\nNote: TAP presubmit execution requested (ads_authserver)\nView details and progress:\n\thttp://test/OCL:320684349:BASE:322604923:1595439424841:a3f0ea0a\nTAP presubmit (2020/07/21 14:32:28, 20.1 h ago) (ads_authserver)\n\tis/are older than the configured limit (12 h).\n\tChangelist will be sent to http://test for execution."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/08b065e5-db01-4366-a17c-b3cc9d9d2689/findings/001d76db7e03c3d9493512a57a3791c5dfa296756d264385b0cd196598cebca1da"
+    timestamp_micros: 1595439427285053
+    extra_info {
+      key: "tap_run_id"
+      value {
+        type_url: "type.googleapis.com/devtools.api.TapRunId"
+        value: "\n3OCL:320684349:BASE:322604923:1595439424841:a3f0ea0a"
+      }
+    }
+    created_by: "piper-api"
+  }
+  finding {
+    category: "Presubmit:Service:blade:diffender-presubmit"
+    subcategory: "0"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "CheckPresubmitService:blade:diffender-presubmit/0: RUNNING (//depot/google3/production/config/cdd/adwords-authserver/METADATA:4:3)\nNotes:\n  Notice: Resolving affected assets.\n  Notice: Still running after 30 s\n  Notice: Still working: Resolving affected assets.\n  Notice: Updating asset change request.\n  Notice: Awaiting asset change request status.\n  Notice: Status update.\n  Notice: \nAsset change request presubmit:cl_320684349 is APPROVED\n\nAPPROVED: \nads-frontend: cdpush.googleprod.com/pushdef/adwordsapi%2Fauthserver-client-authorization\n\nDetails\nPresubmitActionCode: MAIL\nBorgDiff: http://ubdiff/#uid=111b-fa24-9b87-999a\n  Notice: Preparing response."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/08b065e5-db01-4366-a17c-b3cc9d9d2689/findings/0026bbc1621630c41e74af05e76fb0f6ecf17050d64687053e97d8bc6c68ca05c4"
+    timestamp_micros: 1595439457228804
+    created_by: "piper-api"
+  }
+  finding {
+    category: "DiffEmAll"
+    subcategory: "zy Summary"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "Running on: 4.prod.dea-server.social-dea.oo.borg.google.com:26155\n\nDiffable targets:\n//javatests/com/google/ads/api/authserver/config:api_client_authorization_config_prod_diff\n\nONEDIFF found diffs: see per-category findings\n"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9/findings/006c0ab0a9f35b3edee7e40c1957ae95c8231815f4dc62d46858f1f6316da64b01"
+    timestamp_micros: 1595439407685402
+    created_by: "social-dea"
+  }
+  finding {
+    category: "DiffEmAll"
+    subcategory: "ads.api.authserver.config.ApiClientAuthorizationConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "Found diffs: https://onediff.googleplex.com/managed/project/dea_dev/report-id/f996a1bb6e275667/results/data-set/ads.api.authserver.config.ApiClientAuthorizationConfig?summary=true"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9/findings/006e911aead7e6ffc7c98696ec4a72f74f7ad99642d5a0062947fed13def43a556"
+    timestamp_micros: 1595439407593747
+    created_by: "social-dea"
+  }
+  finding {
+    category: "DiffEmAll"
+    subcategory: "zz Previous results"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 8
+        }
+      }
+    }
+    message: "FYI: Findings for previous snapshot 7:\nIf you don\'t see new findings yet, they are still in progress, see the Summary finding.\n\nads.api.authserver.config.ApiClientAuthorizationConfig: Found diffs: https://onediff.googleplex.com/managed/project/dea_dev/report-id/a4075c0fbe352d1c/results/data-set/ads.api.authserver.config.ApiClientAuthorizationConfig?summary=true\n"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9/findings/007d71bb98cbda12572f0c115efb828697a46447f444b527ecbe318a7620aeaa8a"
+    timestamp_micros: 1595439028222440
+    created_by: "social-dea"
+  }
+  finding {
+    category: "Presubmit:FileSet"
+    subcategory: "0"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 6
+        }
+      }
+    }
+    message: "CheckFileSet/0: Error (//depot/google3/production/config/cdd/adwords-authserver/METADATA:20:3)\nProduction config must not be changed at the same time as the QA config. Please submit the QA change first, test it, then send out the production change.\nProhibited file present: //depot/google3/production/config/cdd/adwords-authserver/api-client-authorization-config.txt"
+    actionable: true
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/b9666fcc-ecc3-43a0-b0de-a38db4d8a4a9/findings/00e86da25b089bfd36aa91a0027828696c5538f12b39f95c2b5de2c023488d74ac"
+    timestamp_micros: 1595027362839157
+    created_by: "piper-api"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 257
+        }
+      }
+    }
+    message: "WARNING: SERVICE_KEY_MISSING_KEY_FORMAT: Service keys which define autokey_config should specify a key_format in their autokey_config section. See go/examplekeystoreconfig for canonical examples."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/000866c2d7a5f2f1fcb9fcc855d591e3af47ff7402409dd67a285bdca7bd75a1a8"
+    timestamp_micros: 1594418970497113
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 164
+        }
+      }
+    }
+    message: "WARNING: HMAC_SIG_SIZE: This HMAC is small (10 bytes), prefer 16 bytes or larger. Consult keymaster-team if you want a shorter tag."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/000db56d760775d48d31813fffd829e1f321627127f0bb05e63854b437df9627fb"
+    timestamp_micros: 1594418970496417
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 70
+        }
+      }
+    }
+    message: "WARNING: SHA1_IS_WEAK: Avoid new use of SHA1 for hashing algorithms in key configs as SHA1 is likely to be less secure than more modern algorithms, see go/EncryptionGuidance"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0011b7e1a80fd48a260eaf349c58d36a2609620b88d98bec0d9daae4fbbb84ce0d"
+    timestamp_micros: 1594418970495761
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 220
+        }
+      }
+    }
+    message: "WARNING: HMAC_SIG_SIZE: This HMAC is small (10 bytes), prefer 16 bytes or larger. Consult keymaster-team if you want a shorter tag."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0018c6b6c8b93f569ef4b311854d3561a553bb0db1c450e408284b82d4efdc8512"
+    timestamp_micros: 1594418970496836
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 68
+        }
+      }
+    }
+    message: "WARNING: HMAC_SIG_SIZE: This HMAC is small (10 bytes), prefer 16 bytes or larger. Consult keymaster-team if you want a shorter tag."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/002cf4d96e0ee07fedd265c72fc2b471b9ec06665253ed4e14b81620ae8db41cb4"
+    timestamp_micros: 1594418970495609
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 222
+        }
+      }
+    }
+    message: "WARNING: SHA1_IS_WEAK: Avoid new use of SHA1 for hashing algorithms in key configs as SHA1 is likely to be less secure than more modern algorithms, see go/EncryptionGuidance"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/002e23c76ae3ce7f5ecc49eb8f37bdb6dfaa9609d13a5b4a2c047b6dfacaa39030"
+    timestamp_micros: 1594418970496979
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 33
+        }
+      }
+    }
+    message: "WARNING: SHA1_IS_WEAK: Avoid new use of SHA1 for hashing algorithms in key configs as SHA1 is likely to be less secure than more modern algorithms, see go/EncryptionGuidance"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/004e069bc4c32e5dacce724bf60bb882913e09b73f49b8a77f47fa2e7cf551d649"
+    timestamp_micros: 1594418970495204
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 166
+        }
+      }
+    }
+    message: "WARNING: SHA1_IS_WEAK: Avoid new use of SHA1 for hashing algorithms in key configs as SHA1 is likely to be less secure than more modern algorithms, see go/EncryptionGuidance"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00505487cfd0a13adb2cdca353a670776a0c4c7099688d1f3289cfe204967f0203"
+    timestamp_micros: 1594418970496528
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 134
+        }
+      }
+    }
+    message: "WARNING: HMAC_SIG_SIZE: This HMAC is small (10 bytes), prefer 16 bytes or larger. Consult keymaster-team if you want a shorter tag."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0071d008f8e10c6257d00f0d707854e19eb745437b5bb5bac98482789d41655b89"
+    timestamp_micros: 1594418970496152
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 176
+        }
+      }
+    }
+    message: "ERROR: USER_DOES_NOT_EXIST: User does not exist: \'analytics-frontend-experiments\'. If this user was recently created, you may need to re-run the tricorder analyses. Newly created users may take up to 40 minutes to propagate."
+    actionable: true
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00823556a47f5d785fb769becddf8788ffbe9edd24ea59f149db9796994279550d"
+    timestamp_micros: 1594418970496666
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 40
+        }
+      }
+    }
+    message: "ERROR: USER_DOES_NOT_EXIST: User does not exist: \'analytics-frontend-experiments\'. If this user was recently created, you may need to re-run the tricorder analyses. Newly created users may take up to 40 minutes to propagate."
+    actionable: true
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/008de39cc389c9e216af7d33c28774d60d4eeae06b7fd653b05b22b3596fa4f2c2"
+    timestamp_micros: 1594418970495445
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 31
+        }
+      }
+    }
+    message: "WARNING: HMAC_SIG_SIZE: This HMAC is small (10 bytes), prefer 16 bytes or larger. Consult keymaster-team if you want a shorter tag."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0093f1f00419e9ef24c2ef74655e664a3a5254aa2110af708403a8957d9f11cf27"
+    timestamp_micros: 1594418970494916
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 105
+        }
+      }
+    }
+    message: "WARNING: SHA1_IS_WEAK: Avoid new use of SHA1 for hashing algorithms in key configs as SHA1 is likely to be less secure than more modern algorithms, see go/EncryptionGuidance"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0098f361d40f8d5760efa5e38ad33b229caf56094d2f3e17297a2eaa7465851ba7"
+    timestamp_micros: 1594418970496041
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 136
+        }
+      }
+    }
+    message: "WARNING: SHA1_IS_WEAK: Avoid new use of SHA1 for hashing algorithms in key configs as SHA1 is likely to be less secure than more modern algorithms, see go/EncryptionGuidance"
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00a01dff6c05ea74810d1dff7d03ab6f50d16df8f585123d35fa4842a469e2a279"
+    timestamp_micros: 1594418970496286
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "KeystoreClientConfig"
+    location {
+      source_context {
+        kind: CITC_CLIENT
+        citc_workspace_context {
+          workspace_id: "codereview/321119031"
+          snapshot_version: 1
+        }
+      }
+      path: "//depot/google3/production/security/keystore/config/analytics_ics/keystore-prod.cfg"
+      range {
+        text_range {
+          start_line: 103
+        }
+      }
+    }
+    message: "WARNING: HMAC_SIG_SIZE: This HMAC is small (10 bytes), prefer 16 bytes or larger. Consult keymaster-team if you want a shorter tag."
+    actionable: false
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00e6bca0683a497176998c78d78ef72ac348ff1e81abecc2ec4cb1f075e28eb7de"
+    timestamp_micros: 1594418970495923
+    created_by: "tricorder-pipeline"
+  }
+  finding {
+    category: "CritiqueHiddenWhoseTurn"
+    location {
+      source_context {
+        kind: CHANGELIST_REFERENCE
+        changelist_reference {
+          changelist_id {
+            change_number: 320684349
+          }
+          time_micros: 1595536574674000
+        }
+      }
+    }
+    message: "The event \'comments published by abrahamkang\' changed the attention set from [abrahamkang] to [davidlerner] at 2020-07-23T13:36:14.673-07:00."
+    finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/2d76ed4a-8eba-4a78-8e62-9023e7fa498f/findings/0023e73b7efac57940e73bc2e06cc084b90a8d5be92bd30cf5d52bce30163fdc77"
+    timestamp_micros: 1595536574992381
+    created_by: "code-codereview-api"
+  }
+  auto_submit_enabled: false
+  needs_attention: "davidlerner"
+  revision_number: 22
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/2d76ed4a-8eba-4a78-8e62-9023e7fa498f"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "CritiqueHiddenWhoseTurn"
+      status: COMPLETED
+      update_time {
+        seconds: 1595536575
+        nanos: 166265339
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/2d76ed4a-8eba-4a78-8e62-9023e7fa498f/findings/0023e73b7efac57940e73bc2e06cc084b90a8d5be92bd30cf5d52bce30163fdc77"
+      last_updated_by: "code-codereview-api"
+    }
+    create_time {
+      seconds: 1595536574
+      nanos: 737135034
+    }
+    update_time {
+      seconds: 1595536575
+      nanos: 166265339
+    }
+    tool_tag: "CritiqueAttentionSet"
+    created_by: "code-codereview-api"
+    last_updated_by: "code-codereview-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d7398250-87cf-4416-85bd-ca773596c724"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "CritiqueHiddenWhoseTurn"
+      status: COMPLETED
+      update_time {
+        seconds: 1595441786
+        nanos: 651699300
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d7398250-87cf-4416-85bd-ca773596c724/findings/007b636dcaa145007ca808822fc2818b4fff6401315704c4bd76def7ea354ad054"
+      last_updated_by: "code-codereview-api"
+    }
+    create_time {
+      seconds: 1595441786
+      nanos: 375625559
+    }
+    update_time {
+      seconds: 1595441786
+      nanos: 651699300
+    }
+    tool_tag: "CritiqueAttentionSet"
+    created_by: "code-codereview-api"
+    last_updated_by: "code-codereview-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/9ba93689-2b15-4019-aa51-5d3ceab2127b"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "CritiqueHiddenWhoseTurn"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439504
+        nanos: 936724416
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/9ba93689-2b15-4019-aa51-5d3ceab2127b/findings/003c72e546da3e60b7cbeb483dd2f72e9d99fa47c014ebed52e0161b4e8b04732d"
+      last_updated_by: "code-codereview-api"
+    }
+    create_time {
+      seconds: 1595439504
+      nanos: 712862742
+    }
+    update_time {
+      seconds: 1595439504
+      nanos: 936724416
+    }
+    tool_tag: "CritiqueAttentionSet"
+    created_by: "code-codereview-api"
+    last_updated_by: "code-codereview-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/421f02ea-900d-4baf-b69e-1754709202f3"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "CritiqueHiddenWhoseTurn"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439461
+        nanos: 185340299
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/421f02ea-900d-4baf-b69e-1754709202f3/findings/00e95df38dc9ce1d14be43f3693d1e2e6e7fd0485730268c7861239fca3282d77c"
+      last_updated_by: "code-codereview-api"
+    }
+    create_time {
+      seconds: 1595439460
+      nanos: 922853542
+    }
+    update_time {
+      seconds: 1595439461
+      nanos: 185340299
+    }
+    tool_tag: "CritiqueAttentionSet"
+    created_by: "code-codereview-api"
+    last_updated_by: "code-codereview-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0164ec66-4b48-4010-b81e-4b22b9f6f25c"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "CritiqueHiddenWhoseTurn"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439458
+        nanos: 781341451
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0164ec66-4b48-4010-b81e-4b22b9f6f25c/findings/002669d939324d6a6decc954d6f74cb7bc7f19b0b5ae3931ff6764bcb56fae5d82"
+      last_updated_by: "code-codereview-api"
+    }
+    create_time {
+      seconds: 1595439458
+      nanos: 672706726
+    }
+    update_time {
+      seconds: 1595439458
+      nanos: 781341451
+    }
+    tool_tag: "CritiqueAttentionSet"
+    created_by: "code-codereview-api"
+    last_updated_by: "code-codereview-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/801df1eb-700a-4db4-a022-5d3fa242f250"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "CritiqueHiddenWhoseTurn"
+      status: COMPLETED
+      update_time {
+        seconds: 1594846918
+        nanos: 151965522
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/801df1eb-700a-4db4-a022-5d3fa242f250/findings/0047fb9a607a23bc4dee4bdaeddf79f9b3fdd7023fcb9e7f8bc798f7c72ae3d8bc"
+      last_updated_by: "code-codereview-api"
+    }
+    create_time {
+      seconds: 1594846918
+      nanos: 12241900
+    }
+    update_time {
+      seconds: 1594846918
+      nanos: 151965522
+    }
+    tool_tag: "CritiqueAttentionSet"
+    created_by: "code-codereview-api"
+    last_updated_by: "code-codereview-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/282bd008-a65b-4623-ae71-880ba053fa41"
+    source_context {
+      kind: CHANGELIST_REFERENCE
+      changelist_reference {
+        changelist_id {
+          change_number: 320684349
+        }
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418963
+        nanos: 64632755
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594418962
+      nanos: 835721445
+    }
+    update_time {
+      seconds: 1594418963
+      nanos: 64632755
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/baa1405e-5103-4394-9365-81c01d50fefd"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595536903
+        nanos: 331871316
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/baa1405e-5103-4394-9365-81c01d50fefd/findings/004b774d8d04e408aaa878d9e5a294dcf57f2e3b773a8aebbb84cd555702d96738"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1595536903
+        nanos: 296793130
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595536903
+        nanos: 308555239
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595536903
+        nanos: 320312568
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Submit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595536903
+        nanos: 343333755
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/baa1405e-5103-4394-9365-81c01d50fefd/findings/00a26923ffbefb6f8558fc503b909ec58e54f1be607767f1cb977109b1e0700756"
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1595536901
+      nanos: 265310210
+    }
+    update_time {
+      seconds: 1595536903
+      nanos: 343333755
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/f45dfe2c-dfdf-4ff4-9b8b-fff6848820fa"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-22T17:37:44.872Z."
+      update_time {
+        seconds: 1595439464
+        nanos: 873930838
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1595439464
+      nanos: 873930838
+    }
+    update_time {
+      seconds: 1595439464
+      nanos: 873930838
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/484f9079-6b15-4d9f-b6a9-e369150944ec"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-22T17:37:43.868Z."
+      update_time {
+        seconds: 1595439463
+        nanos: 932189144
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1595439463
+      nanos: 932189144
+    }
+    update_time {
+      seconds: 1595439463
+      nanos: 932189144
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0a4c75e5-a82c-4ad7-8d67-1f37cc313886"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439462
+        nanos: 590513596
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595439462
+      nanos: 279202427
+    }
+    update_time {
+      seconds: 1595439462
+      nanos: 590513596
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6de5f824-491d-48ae-ac35-96089701fb83"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439458
+        nanos: 520806415
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595439458
+      nanos: 350512700
+    }
+    update_time {
+      seconds: 1595439458
+      nanos: 520806415
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/20b2230e-aba0-4860-8835-7a7d41a186bd"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "TapPresubmit:ads_authserver"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439476
+        nanos: 296286891
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/20b2230e-aba0-4860-8835-7a7d41a186bd/findings/0031ae59121d165463f8daa41c22f739ef29d7fb0f507f6f1fabb3c539b980d295"
+      last_updated_by: "tap-prod-presubmit"
+    }
+    create_time {
+      seconds: 1595439433
+      nanos: 786868733
+    }
+    update_time {
+      seconds: 1595439476
+      nanos: 296286891
+    }
+    tool_tag: "tap-presubmit"
+    labels {
+      key: "tap-presubmit-id"
+      value: "OCL:320684349:BASE:322604923:1595439424841:a3f0ea0a"
+    }
+    created_by: "tap-prod-presubmit"
+    last_updated_by: "tap-prod-presubmit"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/5f3b191c-fdec-4e48-a98f-0d11d07cc9d8"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SafetyNetTests"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439766
+        nanos: 839184734
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/5f3b191c-fdec-4e48-a98f-0d11d07cc9d8/findings/00630931f1a5d3454f8c1e85313a00bbe4a10679ccf0a56fa3cf9ba402057a13a9"
+      last_updated_by: "video-youtube-testing-presubmit-safetynet"
+    }
+    create_time {
+      seconds: 1595439433
+      nanos: 106978690
+    }
+    update_time {
+      seconds: 1595439766
+      nanos: 839184734
+    }
+    tool_tag: "safety_net"
+    created_by: "video-youtube-testing-presubmit-safetynet"
+    last_updated_by: "video-youtube-testing-presubmit-safetynet"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/08b065e5-db01-4366-a17c-b3cc9d9d2689"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439457
+        nanos: 368074286
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/08b065e5-db01-4366-a17c-b3cc9d9d2689/findings/003c8307769ba02c2f606c960e21a8dec98ead73445df2901b692cfcc74e223363"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 370499629
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckComponents:CheckComponents"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 453958224
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckContents:CheckPrivateKey"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 477945652
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckContents:CheckVersionControlMarkers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 510103039
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckCopyright:CheckCopyright"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 537054078
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckIncorrectTags"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 563642523
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckManyCCs"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 588196122
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckManyReviewers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 615346810
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckTooManyCCs"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 644505581
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckTooManyReviewers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 671434275
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckExternalSymlinks:CheckExternalSymlinks"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 698150681
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckProtoConflict:CheckProtoConflict"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 722284582
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckTests"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 750027309
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/08b065e5-db01-4366-a17c-b3cc9d9d2689/findings/001d76db7e03c3d9493512a57a3791c5dfa296756d264385b0cd196598cebca1da"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 399312518
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:OverlayBranch"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 776864189
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439427
+        nanos: 426824408
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:Service:blade:diffender-presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439457
+        nanos: 341114515
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/08b065e5-db01-4366-a17c-b3cc9d9d2689/findings/0026bbc1621630c41e74af05e76fb0f6ecf17050d64687053e97d8bc6c68ca05c4"
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1595439423
+      nanos: 313352039
+    }
+    update_time {
+      seconds: 1595439457
+      nanos: 368074286
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439407
+        nanos: 778296921
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9/findings/006c0ab0a9f35b3edee7e40c1957ae95c8231815f4dc62d46858f1f6316da64b01"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9/findings/006e911aead7e6ffc7c98696ec4a72f74f7ad99642d5a0062947fed13def43a556"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c87a280d-b119-4faa-a853-47fabe2620f9/findings/007d71bb98cbda12572f0c115efb828697a46447f444b527ecbe318a7620aeaa8a"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1595439028
+      nanos: 67392043
+    }
+    update_time {
+      seconds: 1595439407
+      nanos: 778296921
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d92d11cf-b8a2-4b70-9a7a-fb8a71e78c5a"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-22T17:30:28.034Z."
+      update_time {
+        seconds: 1595439028
+        nanos: 36288464
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1595439028
+      nanos: 36288464
+    }
+    update_time {
+      seconds: 1595439028
+      nanos: 36288464
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/640b8710-361b-4f6b-9590-57cc948eea1d"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439028
+        nanos: 52779794
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully.\n\nDetails:\nSuccess\n    http://sponge2/026f35d4-f7e7-45be-9c97-edc06c8eb925\n\n"
+      update_time {
+        seconds: 1595439269
+        nanos: 834227315
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439028
+        nanos: 67137435
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439028
+        nanos: 260986881
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439040
+        nanos: 963785222
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439027
+        nanos: 379963636
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IsClPresent"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439028
+        nanos: 279498849
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439027
+        nanos: 943170933
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439028
+        nanos: 53755847
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439040
+        nanos: 968139783
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439028
+        nanos: 419663128
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439269
+        nanos: 834478423
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439027
+        nanos: 359428220
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439027
+        nanos: 332804032
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 14 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/640b8710-361b-4f6b-9590-57cc948eea1d\nSource context: workspace codereview/321119031, snapshot 8\nBase changelist: cl/322602674\nPipeline task: /bns/os/borg/os/bns/tricorder-pipeline/prod.pipeline/4\nPipeline analog: http://analog/viewremote?bns=/bns/os/borg/os/bns/tricorder-pipeline/prod.pipeline/4&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/640b8710-361b-4f6b-9590-57cc948eea1d\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //configs/production/cdpush/adwordsapi:authserver-client-authorization_set_test\n  //javatests/com/google/ads/api/authserver/config:toolTests\n  //javatests/com/google/ads/api/authserver/config:unittests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_prod.txt\n  //javatests/com/google/ads/api/authserver/config:configTests\n\nCL used for computing affected targets: 322598561\n"
+      update_time {
+        seconds: 1595439028
+        nanos: 50995154
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1595439024
+      nanos: 946502115
+    }
+    update_time {
+      seconds: 1595439269
+      nanos: 834478423
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "20"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/637988c1-abfc-4a48-848f-e3ff8a5ff204"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "GeneratedFileState"
+      status: COMPLETED
+      message: "This snapshot doesn\'t affect any BBCP targets."
+      update_time {
+        seconds: 1595439025
+        nanos: 406929766
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1595439024
+      nanos: 676731260
+    }
+    update_time {
+      seconds: 1595439025
+      nanos: 406929766
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/2c420c25-f6f2-4646-9d8c-82115eccdb9d"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 8
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-22T17:30:24.645Z."
+      update_time {
+        seconds: 1595439024
+        nanos: 646449045
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1595439024
+      nanos: 646449045
+    }
+    update_time {
+      seconds: 1595439024
+      nanos: 646449045
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/f426fa9c-99c1-4518-8db8-46fcc79ac293"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439025
+        nanos: 837086021
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595439025
+      nanos: 537277386
+    }
+    update_time {
+      seconds: 1595439025
+      nanos: 837086021
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d38b0b0d-a245-4983-ab66-9e34c773883a"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595439021
+        nanos: 533070741
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595439021
+      nanos: 364772886
+    }
+    update_time {
+      seconds: 1595439021
+      nanos: 533070741
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d19a8ac4-667c-48f9-b777-eceb736b1d14"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595438621
+        nanos: 454227916
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d19a8ac4-667c-48f9-b777-eceb736b1d14/findings/004b774d8d04e408aaa878d9e5a294dcf57f2e3b773a8aebbb84cd555702d96738"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1595438621
+        nanos: 417853370
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595438621
+        nanos: 430700694
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595438621
+        nanos: 442285067
+      }
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1595438617
+      nanos: 601843281
+    }
+    update_time {
+      seconds: 1595438621
+      nanos: 454227916
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/4f92bf8b-52c8-4dbe-9583-ed406056b2aa"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "FakeStack"
+      status: COMPLETED
+      update_time {
+        seconds: 1595368741
+        nanos: 327869880
+      }
+      last_updated_by: "adwords-videoads-fakestack"
+    }
+    create_time {
+      seconds: 1595368741
+      nanos: 196422574
+    }
+    update_time {
+      seconds: 1595368741
+      nanos: 327869880
+    }
+    tool_tag: "FakeStack"
+    created_by: "adwords-videoads-fakestack"
+    last_updated_by: "adwords-videoads-fakestack"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ee513d5f-4cde-40cd-8690-3f1fc190563e"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "TapPresubmit:ads_authserver"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367212
+        nanos: 228721536
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ee513d5f-4cde-40cd-8690-3f1fc190563e/findings/0009a5341ef6d1d52c312ba2de37e07ee0ffb7f5e1004ec98d1253ef96a2733a3c"
+      last_updated_by: "tap-prod-presubmit"
+    }
+    create_time {
+      seconds: 1595367159
+      nanos: 48204068
+    }
+    update_time {
+      seconds: 1595367212
+      nanos: 228721536
+    }
+    tool_tag: "tap-presubmit"
+    labels {
+      key: "tap-presubmit-id"
+      value: "OCL:320684349:BASE:322443795:1595367148840:6ab5662d"
+    }
+    created_by: "tap-prod-presubmit"
+    last_updated_by: "tap-prod-presubmit"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0b322990-cd1f-4a45-b322-6ab54ae1c157"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SafetyNetTests"
+      status: COMPLETED
+      update_time {
+        seconds: 1595369187
+        nanos: 905318365
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0b322990-cd1f-4a45-b322-6ab54ae1c157/findings/000bffddb55ea6ee58acebb08d273537977b7cb43b415a2fb9d8716f60e01fe2f4"
+      last_updated_by: "video-youtube-testing-presubmit-safetynet"
+    }
+    create_time {
+      seconds: 1595367157
+      nanos: 494223836
+    }
+    update_time {
+      seconds: 1595369187
+      nanos: 905318365
+    }
+    tool_tag: "safety_net"
+    created_by: "video-youtube-testing-presubmit-safetynet"
+    last_updated_by: "video-youtube-testing-presubmit-safetynet"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/95cc8240-1389-4f78-96ab-1cc087fbfcbb"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367170
+        nanos: 792745337
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/95cc8240-1389-4f78-96ab-1cc087fbfcbb/findings/008ecc8cf481965553ad5b0ffc98e7645e47bdb34c2d1be1697641d00d6de7b740"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 117944904
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckComponents:CheckComponents"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 160083534
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckContents:CheckPrivateKey"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 173973728
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckContents:CheckVersionControlMarkers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 187703544
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckCopyright:CheckCopyright"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 201588033
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckIncorrectTags"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 215309030
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckManyCCs"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 229017027
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckManyReviewers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 242100603
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckTooManyCCs"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 255584754
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckTooManyReviewers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 269285529
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckExternalSymlinks:CheckExternalSymlinks"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 283120783
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckProtoConflict:CheckProtoConflict"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 298066677
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckTests"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367151
+        nanos: 973538137
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/95cc8240-1389-4f78-96ab-1cc087fbfcbb/findings/00da7e3a112b17e3ba39d6415742b13dcb0db5b94e0b38057c42d366be4644b50c"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 132042795
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:OverlayBranch"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 311914427
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367149
+        nanos: 146132082
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:Service:blade:diffender-presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595367170
+        nanos: 781261101
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/95cc8240-1389-4f78-96ab-1cc087fbfcbb/findings/0087ea432bfa223a0e49682b17e7424422817191c1f42cc2f78a27d1f2ed36bf31"
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1595367145
+      nanos: 124336257
+    }
+    update_time {
+      seconds: 1595367170
+      nanos: 792745337
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ade2010a-b4fd-4fba-bf87-4d6f545def04"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366295
+        nanos: 172060473
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ade2010a-b4fd-4fba-bf87-4d6f545def04/findings/006c0ab0a9f35b3edee7e40c1957ae95c8231815f4dc62d46858f1f6316da64b01"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ade2010a-b4fd-4fba-bf87-4d6f545def04/findings/006f8bdd542ffb9a7b45ecf7a449b9597d375e0b6a6534291b9bd8018f49d524d6"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ade2010a-b4fd-4fba-bf87-4d6f545def04/findings/008f58ea63926d9311faa07a84959fc0824fb4ab44ed2d5ccaa9a39e405c1cccab"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1595366009
+      nanos: 213880553
+    }
+    update_time {
+      seconds: 1595366295
+      nanos: 172060473
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/95f5f511-e692-4e2d-b5c9-a55d7a9fb56e"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-21T21:13:28.127Z."
+      update_time {
+        seconds: 1595366008
+        nanos: 129256671
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1595366008
+      nanos: 129256671
+    }
+    update_time {
+      seconds: 1595366008
+      nanos: 129256671
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/20edcbf6-1a06-49c9-8977-7df2fb3b10fb"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366006
+        nanos: 291450718
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595366006
+      nanos: 112196684
+    }
+    update_time {
+      seconds: 1595366006
+      nanos: 291450718
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ad78d9cb-5020-42ac-8a02-9a7bfd35f3b1"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-21T21:13:25.152Z."
+      update_time {
+        seconds: 1595366005
+        nanos: 153413785
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1595366005
+      nanos: 153413785
+    }
+    update_time {
+      seconds: 1595366005
+      nanos: 153413785
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/5925d971-f968-4ecc-ac4c-9ada18504b90"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 206365138
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully.\n\nDetails:\nSuccess\n    http://sponge2/ddf0282a-a05f-4b11-b4f1-348c51fa73ae\n\n"
+      update_time {
+        seconds: 1595366241
+        nanos: 737618076
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 231570302
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 311320398
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366013
+        nanos: 932936331
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366008
+        nanos: 832679191
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IsClPresent"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 715924001
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 492371650
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 206508350
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366013
+        nanos: 957221901
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 547739802
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366241
+        nanos: 738122071
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366008
+        nanos: 782719526
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366009
+        nanos: 32669558
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 14 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/5925d971-f968-4ecc-ac4c-9ada18504b90\nSource context: workspace codereview/321119031, snapshot 7\nBase changelist: cl/322438743\nPipeline task: /bns/ix/borg/ix/bns/tricorder-pipeline/prod.pipeline/7\nPipeline analog: http://analog/viewremote?bns=/bns/ix/borg/ix/bns/tricorder-pipeline/prod.pipeline/7&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/5925d971-f968-4ecc-ac4c-9ada18504b90\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //configs/production/cdpush/adwordsapi:authserver-client-authorization_set_test\n  //javatests/com/google/ads/api/authserver/config:toolTests\n  //javatests/com/google/ads/api/authserver/config:unittests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_prod.txt\n  //javatests/com/google/ads/api/authserver/config:configTests\n\nCL used for computing affected targets: 322438743\n"
+      update_time {
+        seconds: 1595366009
+        nanos: 224241635
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1595366005
+      nanos: 135435962
+    }
+    update_time {
+      seconds: 1595366241
+      nanos: 738122071
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "18"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/280144a1-ad5c-4198-bde9-f88cc8a3dd1b"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 7
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "GeneratedFileState"
+      status: COMPLETED
+      message: "This snapshot doesn\'t affect any BBCP targets."
+      update_time {
+        seconds: 1595366005
+        nanos: 433826126
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1595366005
+      nanos: 91412669
+    }
+    update_time {
+      seconds: 1595366005
+      nanos: 433826126
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/15bc4d24-f2f8-473f-9563-c7250928f0fa"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595366002
+        nanos: 869123707
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595366002
+      nanos: 688954867
+    }
+    update_time {
+      seconds: 1595366002
+      nanos: 869123707
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/b9666fcc-ecc3-43a0-b0de-a38db4d8a4a9"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 120410963
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/b9666fcc-ecc3-43a0-b0de-a38db4d8a4a9/findings/00e51defd78b46684a3be017a026685f27aa4cf9ac07592f40f37cb7c4e1736bb4"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 899771679
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckComponents:CheckComponents"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 939540916
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckContents:CheckPrivateKey"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 952621584
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckContents:CheckVersionControlMarkers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 965270522
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckCopyright:CheckCopyright"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 978429365
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckIncorrectTags"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 991708370
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckManyCCs"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 5280948
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckManyReviewers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 18918715
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckTooManyCCs"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 32410440
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckDescription:CheckTooManyReviewers"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 45865489
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckExternalSymlinks:CheckExternalSymlinks"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 58927198
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckProtoConflict:CheckProtoConflict"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 77478167
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:FileSet"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 90903775
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/b9666fcc-ecc3-43a0-b0de-a38db4d8a4a9/findings/00e86da25b089bfd36aa91a0027828696c5538f12b39f95c2b5de2c023488d74ac"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 913111158
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:OverlayBranch"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027363
+        nanos: 106841675
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027362
+        nanos: 926387258
+      }
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1595027360
+      nanos: 565063223
+    }
+    update_time {
+      seconds: 1595027363
+      nanos: 120410963
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/438dae4f-d587-4840-b3e0-01ad7e146c1b"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-17T23:06:40.750Z."
+      update_time {
+        seconds: 1595027200
+        nanos: 752152299
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1595027200
+      nanos: 752152299
+    }
+    update_time {
+      seconds: 1595027200
+      nanos: 752152299
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/8fbdb9ed-8d2b-4e3b-be80-037d9a965c37"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027367
+        nanos: 584509899
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/8fbdb9ed-8d2b-4e3b-be80-037d9a965c37/findings/003366d368c4a8c2e9e28a329ec37b56324bfa577b8693970e4e6e8c48d35ba16d"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/8fbdb9ed-8d2b-4e3b-be80-037d9a965c37/findings/00a4e306301f76d1ee1646ac82520023b573f6ea3114ee84a997e751378ac761c1"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/8fbdb9ed-8d2b-4e3b-be80-037d9a965c37/findings/00f8530cf9237e72e1de5c5364f246a31ae4a687a41f12a636d0d1389dadc1c8a8"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1595027200
+      nanos: 153828865
+    }
+    update_time {
+      seconds: 1595027367
+      nanos: 584509899
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/3dfb909a-69e8-4091-92ef-dcf9bd9267c9"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027199
+        nanos: 528692100
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595027199
+      nanos: 238606620
+    }
+    update_time {
+      seconds: 1595027199
+      nanos: 528692100
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c202ab6f-2a8e-4f83-b5a3-1c6249804d62"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027200
+        nanos: 140110097
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully!\n\nDetails:\nSuccess\n    http://sponge2/95c801a4-9e42-497d-98dd-61d643dbbe44\n\n"
+      update_time {
+        seconds: 1595027343
+        nanos: 969750083
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027200
+        nanos: 151594925
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027200
+        nanos: 326431396
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027202
+        nanos: 290866315
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027199
+        nanos: 508709965
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027199
+        nanos: 789429222
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027200
+        nanos: 140603193
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027202
+        nanos: 293275382
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027200
+        nanos: 163734025
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027343
+        nanos: 969941627
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027199
+        nanos: 120477920
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027199
+        nanos: 320435736
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 13 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c202ab6f-2a8e-4f83-b5a3-1c6249804d62\nSource context: workspace codereview/321119031, snapshot 6\nBase changelist: cl/321873688\nPipeline task: /bns/os/borg/os/bns/tricorder-pipeline/prod.pipeline/4\nPipeline analog: http://analog/viewremote?bns=/bns/os/borg/os/bns/tricorder-pipeline/prod.pipeline/4&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c202ab6f-2a8e-4f83-b5a3-1c6249804d62\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //java/com/google/ads/api/authserver/server:server\n  //configs/production/cdpush/adwordsapi:authserver-client-authorization_set_test\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_prod.txt\n  //javatests/com/google/ads/api/authserver/config:toolTests\n  //javatests/com/google/ads/api/authserver/config:unittests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_qa.txt\n  //javatests/com/google/ads/api/authserver/config:configTests\n\nCL used for computing affected targets: 321873063\n"
+      update_time {
+        seconds: 1595027200
+        nanos: 138346127
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1595027196
+      nanos: 965325869
+    }
+    update_time {
+      seconds: 1595027343
+      nanos: 969941627
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "15"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/b942a420-14d8-4246-b0a6-8e7fe9cb78b5"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "GeneratedFileState"
+      status: COMPLETED
+      message: "This snapshot affects 1 target(s). Affected targets were attributed to the following PAs: { [ads: 1] }.\nIf you don\'t see your generated files, please check go/bbcp-critique-queue to see the current state of the build queue."
+      update_time {
+        seconds: 1595027242
+        nanos: 449257972
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1595027196
+      nanos: 962815829
+    }
+    update_time {
+      seconds: 1595027242
+      nanos: 449257972
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c7d001a7-8e1b-4f41-a424-7a13e6e16154"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 6
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-17T23:06:36.716Z."
+      update_time {
+        seconds: 1595027196
+        nanos: 717842352
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1595027196
+      nanos: 717842352
+    }
+    update_time {
+      seconds: 1595027196
+      nanos: 717842352
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/7c76e4b8-ec6f-43cd-b81a-8ce43343a7f2"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595027193
+        nanos: 470871810
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595027193
+      nanos: 350538954
+    }
+    update_time {
+      seconds: 1595027193
+      nanos: 470871810
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6ce077da-9368-4f90-88f7-ed878a83afde"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-17T22:55:33.984Z."
+      update_time {
+        seconds: 1595026533
+        nanos: 985356290
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1595026533
+      nanos: 985356290
+    }
+    update_time {
+      seconds: 1595026533
+      nanos: 985356290
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0646b40b-77fc-48a1-b93f-3b4814ae11f7"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026729
+        nanos: 480429134
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0646b40b-77fc-48a1-b93f-3b4814ae11f7/findings/006c9f8e883efcd6e249165f51b1be731074b364d6bd6b198f13df513438e7d279"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0646b40b-77fc-48a1-b93f-3b4814ae11f7/findings/00a61be87add9dc3008ef3408e9322f5f15e0f6783905d23d5d997d78a0fd9618c"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0646b40b-77fc-48a1-b93f-3b4814ae11f7/findings/00b27161a4d4d59b1f787c980d4ae824a6a85094d83477652f3d40d44ca399c87b"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1595026533
+      nanos: 754120337
+    }
+    update_time {
+      seconds: 1595026729
+      nanos: 480429134
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/a84737cd-1a26-4ec8-baf3-e3913c9883a5"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026532
+        nanos: 524383779
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595026532
+      nanos: 226669488
+    }
+    update_time {
+      seconds: 1595026532
+      nanos: 524383779
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/d4ce58aa-aa1b-4c2a-8d3c-b4f4acd18e20"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "GeneratedFileState"
+      status: COMPLETED
+      message: "This snapshot affects 1 target(s). Affected targets were attributed to the following PAs: { [ads: 1] }.\nIf you don\'t see your generated files, please check go/bbcp-critique-queue to see the current state of the build queue."
+      update_time {
+        seconds: 1595026531
+        nanos: 873042775
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1595026531
+      nanos: 194689946
+    }
+    update_time {
+      seconds: 1595026531
+      nanos: 873042775
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/517f42f7-d836-45e7-88bb-034ae6b7df4d"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026533
+        nanos: 745967326
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully!\n\nDetails:\nSuccess\n    http://sponge2/09f646de-ec56-4844-994e-fc1d5e856f9b\n\n"
+      update_time {
+        seconds: 1595026762
+        nanos: 132081389
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026533
+        nanos: 776796062
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026533
+        nanos: 798639191
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026538
+        nanos: 675519324
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026534
+        nanos: 242095824
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026534
+        nanos: 133688683
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026533
+        nanos: 745963744
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026538
+        nanos: 700829393
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026534
+        nanos: 535918037
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026762
+        nanos: 131752627
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026533
+        nanos: 830177912
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026533
+        nanos: 545664077
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 13 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/517f42f7-d836-45e7-88bb-034ae6b7df4d\nSource context: workspace codereview/321119031, snapshot 5\nBase changelist: cl/321871571\nPipeline task: /bns/jv/borg/jv/bns/tricorder-pipeline/prod.pipeline/0\nPipeline analog: http://analog/viewremote?bns=/bns/jv/borg/jv/bns/tricorder-pipeline/prod.pipeline/0&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/517f42f7-d836-45e7-88bb-034ae6b7df4d\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //java/com/google/ads/api/authserver/server:server\n  //configs/production/cdpush/adwordsapi:authserver-client-authorization_set_test\n  //javatests/com/google/ads/api/authserver/config:toolTests\n  //javatests/com/google/ads/api/authserver/config:unittests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_qa.txt\n  //javatests/com/google/ads/api/authserver/config:configTests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_prod.txt\n\nCL used for computing affected targets: 321871571\n"
+      update_time {
+        seconds: 1595026533
+        nanos: 746389251
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1595026530
+      nanos: 989711641
+    }
+    update_time {
+      seconds: 1595026762
+      nanos: 132081389
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "14"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/c56e8985-642a-49c5-8a96-d45c0c8b3d39"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 5
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-17T22:55:30.845Z."
+      update_time {
+        seconds: 1595026530
+        nanos: 846707906
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1595026530
+      nanos: 846707906
+    }
+    update_time {
+      seconds: 1595026530
+      nanos: 846707906
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/7dffc285-e0b9-4117-b582-a8bde22d8236"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026520
+        nanos: 819287010
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1595026520
+      nanos: 679164523
+    }
+    update_time {
+      seconds: 1595026520
+      nanos: 819287010
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/19127c1b-2a2b-48c7-804c-d148677d93e0"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026034
+        nanos: 941129527
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/19127c1b-2a2b-48c7-804c-d148677d93e0/findings/00404cee445fe2f5ee6bebde9ae29dd52046296535cb39df461db69498a82f67d8"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026034
+        nanos: 904578285
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026034
+        nanos: 916655497
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1595026034
+        nanos: 929060940
+      }
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1595026032
+      nanos: 487455914
+    }
+    update_time {
+      seconds: 1595026034
+      nanos: 941129527
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6874803f-d7b0-447a-b8b2-9de775716d6f"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847719
+        nanos: 347683669
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6874803f-d7b0-447a-b8b2-9de775716d6f/findings/002fe66626160b2a9f617d77836e2360de9ab2e96a17dc859c22329a28d559d042"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6874803f-d7b0-447a-b8b2-9de775716d6f/findings/009b23653177f1721e1aa7e43e01e61741e58e55b0ca8847ee674f61e166eee3c2"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6874803f-d7b0-447a-b8b2-9de775716d6f/findings/00bfbcb3f19f99d86081f18a6dd7c8dd3950cb69a905461b5f40caccb397aa125e"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1594847404
+      nanos: 980642777
+    }
+    update_time {
+      seconds: 1594847719
+      nanos: 347683669
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/44a95c59-a4fc-428e-9d63-db595cf0bada"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-15T21:10:03.300Z."
+      update_time {
+        seconds: 1594847403
+        nanos: 301692618
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594847403
+      nanos: 301692618
+    }
+    update_time {
+      seconds: 1594847403
+      nanos: 301692618
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/da8cfaff-0019-4e0b-a16c-7475da0400c6"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847401
+        nanos: 262488820
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594847400
+      nanos: 969540454
+    }
+    update_time {
+      seconds: 1594847401
+      nanos: 262488820
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0b55e31b-5898-4f4d-b299-b4c12b0e8954"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "GeneratedFileState"
+      status: COMPLETED
+      message: "This snapshot affects 1 target(s), which were attributed to the following PAs: [{\"ads\": 1}]. If you don\'t see your generated files, please check go/bbcp-critique-queue to see the current state of the build queue."
+      update_time {
+        seconds: 1594847400
+        nanos: 787056358
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1594847399
+      nanos: 937186509
+    }
+    update_time {
+      seconds: 1594847400
+      nanos: 787056358
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0d6fc1d2-e80e-49dc-80c5-ffbc617657b0"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847404
+        nanos: 959669138
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully!\n\nDetails:\nSuccess\n    http://sponge2/046b09fc-3f05-41d8-99c2-5d8078bdd7d0\n\n"
+      update_time {
+        seconds: 1594847519
+        nanos: 485105774
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847405
+        nanos: 18118085
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847405
+        nanos: 19431951
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847407
+        nanos: 501857778
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847404
+        nanos: 3741472
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847404
+        nanos: 296842959
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847404
+        nanos: 959505526
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847407
+        nanos: 533607958
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847404
+        nanos: 219838624
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847519
+        nanos: 485301335
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847403
+        nanos: 297064423
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847403
+        nanos: 297504869
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 13 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0d6fc1d2-e80e-49dc-80c5-ffbc617657b0\nSource context: workspace codereview/321119031, snapshot 4\nBase changelist: cl/321434401\nPipeline task: /bns/jv/borg/jv/bns/tricorder-pipeline/prod.pipeline/8\nPipeline analog: http://analog/viewremote?bns=/bns/jv/borg/jv/bns/tricorder-pipeline/prod.pipeline/8&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/0d6fc1d2-e80e-49dc-80c5-ffbc617657b0\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //java/com/google/ads/api/authserver/server:server\n  //configs/production/cdpush/adwordsapi:authserver-client-authorization_set_test\n  //javatests/com/google/ads/api/authserver/config:toolTests\n  //javatests/com/google/ads/api/authserver/config:unittests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_qa.txt\n  //javatests/com/google/ads/api/authserver/config:configTests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_prod.txt\n\nCL used for computing affected targets: 321431907\n"
+      update_time {
+        seconds: 1594847404
+        nanos: 959690244
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1594847399
+      nanos: 935033932
+    }
+    update_time {
+      seconds: 1594847519
+      nanos: 485301335
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "12"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/32c658af-3942-4d9e-9060-cccdc9b8b0a5"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 4
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-15T21:09:59.810Z."
+      update_time {
+        seconds: 1594847399
+        nanos: 812776163
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1594847399
+      nanos: 812776163
+    }
+    update_time {
+      seconds: 1594847399
+      nanos: 812776163
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/20c52e2e-2f2d-42b4-adf8-d9c407bae88f"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594847397
+        nanos: 616277273
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594847397
+      nanos: 285874405
+    }
+    update_time {
+      seconds: 1594847397
+      nanos: 616277273
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/53da9b61-e47a-4159-93d6-7b05a687e1d9"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-15T21:01:59.446Z."
+      update_time {
+        seconds: 1594846919
+        nanos: 449382767
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594846919
+      nanos: 449382767
+    }
+    update_time {
+      seconds: 1594846919
+      nanos: 449382767
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/854dc194-114d-422b-9c05-15faa6428d3b"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594846917
+        nanos: 134444732
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594846916
+      nanos: 837808898
+    }
+    update_time {
+      seconds: 1594846917
+      nanos: 134444732
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ec3ec1b6-7973-434d-ac88-f8166c17da97"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "Presubmit"
+      status: COMPLETED
+      update_time {
+        seconds: 1594846917
+        nanos: 511647725
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ec3ec1b6-7973-434d-ac88-f8166c17da97/findings/00404cee445fe2f5ee6bebde9ae29dd52046296535cb39df461db69498a82f67d8"
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:CheckChangeModification"
+      status: COMPLETED
+      update_time {
+        seconds: 1594846917
+        nanos: 474181034
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:InternalCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1594846917
+        nanos: 486458649
+      }
+      last_updated_by: "piper-api"
+    }
+    category_status {
+      category: "Presubmit:PresubmitCheck"
+      status: COMPLETED
+      update_time {
+        seconds: 1594846917
+        nanos: 499053532
+      }
+      last_updated_by: "piper-api"
+    }
+    create_time {
+      seconds: 1594846915
+      nanos: 774139351
+    }
+    update_time {
+      seconds: 1594846917
+      nanos: 511647725
+    }
+    tool_tag: "piper-api"
+    created_by: "piper-api"
+    last_updated_by: "piper-api"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/76d76b61-d402-420b-b3c8-e63fab41ed62"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-13T20:47:19.731Z."
+      update_time {
+        seconds: 1594673239
+        nanos: 732310637
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594673239
+      nanos: 732310637
+    }
+    update_time {
+      seconds: 1594673239
+      nanos: 732310637
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/fe567c54-d6d5-4e02-9b4a-312894252b48"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673393
+        nanos: 565379360
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/fe567c54-d6d5-4e02-9b4a-312894252b48/findings/002bb4ca112ca0f51730c6cd5348f0e59b2d79e2476f5e162fcb8a833a9de55c14"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/fe567c54-d6d5-4e02-9b4a-312894252b48/findings/009d09024c3bad6eefac7f40e99ca41d4488a7edb987eb3ca82938ea8d8de7517b"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/fe567c54-d6d5-4e02-9b4a-312894252b48/findings/00e73f569773cabf20e88b36a087d991778b0bcc64cb86b4c391bd05da500aa3a6"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1594673239
+      nanos: 18931490
+    }
+    update_time {
+      seconds: 1594673393
+      nanos: 565379360
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/53fce1e5-e104-409e-be77-e61a96d20acb"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 295569978
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594673238
+      nanos: 957119223
+    }
+    update_time {
+      seconds: 1594673239
+      nanos: 295569978
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/4bc8776b-c2b8-4eb9-8696-904a1179f516"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "GeneratedFileState"
+      status: COMPLETED
+      message: "This snapshot affects 1 target(s), which were attributed to the following PAs: [{\"ads\": 1}]. If you don\'t see your generated files, please check go/bbcp-critique-queue to see the current state of the build queue."
+      update_time {
+        seconds: 1594673243
+        nanos: 59114371
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1594673236
+      nanos: 633940885
+    }
+    update_time {
+      seconds: 1594673243
+      nanos: 59114371
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/1698198d-c328-4b8a-9b55-9b250f75bb6e"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 16712690
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully!\n\nDetails:\nSuccess\n    http://sponge2/fc0ea414-18e8-4973-ab15-4aed5cd661bd\n\n"
+      update_time {
+        seconds: 1594673384
+        nanos: 499513680
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 34310505
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 83828110
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673240
+        nanos: 491741425
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 689361281
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 561847524
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 16670472
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673240
+        nanos: 515838856
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673239
+        nanos: 688631640
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673384
+        nanos: 499604560
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673238
+        nanos: 943638207
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673238
+        nanos: 943568228
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 13 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/1698198d-c328-4b8a-9b55-9b250f75bb6e\nSource context: workspace codereview/321119031, snapshot 3\nBase changelist: cl/321021072\nPipeline task: /bns/jr/borg/jr/bns/tricorder-pipeline/prod.pipeline/0\nPipeline analog: http://analog/viewremote?bns=/bns/jr/borg/jr/bns/tricorder-pipeline/prod.pipeline/0&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/1698198d-c328-4b8a-9b55-9b250f75bb6e\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //java/com/google/ads/api/authserver/server:server\n  //configs/production/cdpush/adwordsapi:authserver-client-authorization_set_test\n  //javatests/com/google/ads/api/authserver/config:toolTests\n  //javatests/com/google/ads/api/authserver/config:unittests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_qa.txt\n  //javatests/com/google/ads/api/authserver/config:configTests\n  //javatests/com/google/ads/api/authserver/config:gen_canonical_api_client_authorization_config_prod.txt\n\nCL used for computing affected targets: 321021072\n"
+      update_time {
+        seconds: 1594673239
+        nanos: 16680039
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1594673236
+      nanos: 548785899
+    }
+    update_time {
+      seconds: 1594673384
+      nanos: 499604560
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "9"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/37adb3fa-6e6b-48fb-a497-3e2e1b547106"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 3
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-13T20:47:16.397Z."
+      update_time {
+        seconds: 1594673236
+        nanos: 399667583
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1594673236
+      nanos: 399667583
+    }
+    update_time {
+      seconds: 1594673236
+      nanos: 399667583
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/1359a565-2717-462f-b628-218cfba9ec55"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594673234
+        nanos: 776910362
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594673234
+      nanos: 530916925
+    }
+    update_time {
+      seconds: 1594673234
+      nanos: 776910362
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/17ce963a-4bb2-4e99-a8a8-801297733070"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594672305
+        nanos: 295403522
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594672305
+      nanos: 61173624
+    }
+    update_time {
+      seconds: 1594672305
+      nanos: 295403522
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/2b88ae59-2489-49e2-982c-d2ecc3a4e8ec"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:12:12.873Z."
+      update_time {
+        seconds: 1594419132
+        nanos: 937548470
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594419132
+      nanos: 937548470
+    }
+    update_time {
+      seconds: 1594419132
+      nanos: 937548470
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/9368adcb-9a73-45f7-96e6-177d115405b2"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419553
+        nanos: 709392763
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/9368adcb-9a73-45f7-96e6-177d115405b2/findings/0041ef65b627ac38f57578d9662f204ec3e27f4d3282116b1977b4ef7f784d1743"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/9368adcb-9a73-45f7-96e6-177d115405b2/findings/00551d8b79757736056d3ace2d76be53b022b2f28471eca5d127e4a341e97ab4b7"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1594419131
+      nanos: 158558924
+    }
+    update_time {
+      seconds: 1594419553
+      nanos: 709392763
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/75df2dfa-8988-49be-a115-25b7588bd109"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:12:10.296Z."
+      update_time {
+        seconds: 1594419130
+        nanos: 298158001
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594419130
+      nanos: 298158001
+    }
+    update_time {
+      seconds: 1594419130
+      nanos: 298158001
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/07dce080-7ab2-4911-b5dd-de0ca039e338"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419128
+        nanos: 611854104
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594419128
+      nanos: 342586500
+    }
+    update_time {
+      seconds: 1594419128
+      nanos: 611854104
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/224c31ee-44e6-4588-a746-079af079d28d"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419127
+        nanos: 534517513
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594419127
+      nanos: 261708920
+    }
+    update_time {
+      seconds: 1594419127
+      nanos: 534517513
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/cb197f98-53ce-4c2a-bb65-9617e35986a7"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419131
+        nanos: 149224747
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "No builds performed."
+      update_time {
+        seconds: 1594419133
+        nanos: 218627844
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419131
+        nanos: 170477464
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419131
+        nanos: 148722399
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419133
+        nanos: 218403203
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419129
+        nanos: 836393965
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419129
+        nanos: 610942249
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419131
+        nanos: 226821829
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/cb197f98-53ce-4c2a-bb65-9617e35986a7/findings/0037ed24bbc8250211f325ea71d4897153d93690c895fc02d80c9a8d232cb40348"
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419133
+        nanos: 243062032
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419129
+        nanos: 809605124
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419133
+        nanos: 218412484
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419128
+        nanos: 980852915
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419128
+        nanos: 980530966
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 13 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/cb197f98-53ce-4c2a-bb65-9617e35986a7\nSource context: workspace codereview/321119031, snapshot 2\nBase changelist: cl/320252324\nPipeline task: /bns/jr/borg/jr/bns/tricorder-pipeline/prod.pipeline/1\nPipeline analog: http://analog/viewremote?bns=/bns/jr/borg/jr/bns/tricorder-pipeline/prod.pipeline/1&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/cb197f98-53ce-4c2a-bb65-9617e35986a7\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n\nCL used for computing affected targets: 320684349\n"
+      update_time {
+        seconds: 1594419131
+        nanos: 155567806
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1594419126
+      nanos: 648485872
+    }
+    update_time {
+      seconds: 1594419133
+      nanos: 243062032
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "5"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/369872cd-384d-448d-ac63-40450ba03788"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: FAILED
+    category_status {
+      category: "GeneratedFileState"
+      status: FAILED
+      message: "Failed to build metadata: CL is too far behind depot head. Please sync your workspace."
+      update_time {
+        seconds: 1594419126
+        nanos: 821311961
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1594419126
+      nanos: 623064665
+    }
+    update_time {
+      seconds: 1594419126
+      nanos: 821311961
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/8fff7332-4c55-47eb-9b15-f509a339da5c"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 2
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:12:06.555Z."
+      update_time {
+        seconds: 1594419126
+        nanos: 557310713
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1594419126
+      nanos: 557310713
+    }
+    update_time {
+      seconds: 1594419126
+      nanos: 557310713
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ab24714d-2756-4585-ab29-14e7b6104f55"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419123
+        nanos: 707292169
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594419123
+      nanos: 561222376
+    }
+    update_time {
+      seconds: 1594419123
+      nanos: 707292169
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/a2ac1290-3705-467b-aadf-b4043da771b5"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "DiffEmAll"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419671
+        nanos: 886281410
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/a2ac1290-3705-467b-aadf-b4043da771b5/findings/00a43af4e992d584b3eaba795524ff4bcc538f0b4b465fb5e693e810f5f62cc138"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/a2ac1290-3705-467b-aadf-b4043da771b5/findings/00e91947627bab1806f910fbd3f15160c6514c5bf91c0ff210d941ffc0c2e171f4"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/a2ac1290-3705-467b-aadf-b4043da771b5/findings/00e9fa934cbb7dffca6ed267040de5a962858bf9f43b7accdb10a65f5d5f035165"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/a2ac1290-3705-467b-aadf-b4043da771b5/findings/00f9b8d2ca1109abfd7fb757b7f59bec3800376790baf4834d595b26a10ec37f53"
+      last_updated_by: "social-dea"
+    }
+    create_time {
+      seconds: 1594418990
+      nanos: 725582488
+    }
+    update_time {
+      seconds: 1594419671
+      nanos: 886281410
+    }
+    tool_tag: "DiffEmAll"
+    created_by: "social-dea"
+    last_updated_by: "social-dea"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/ee75994d-3ea2-4571-b22d-f9b61b6443ec"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:09:30.818Z."
+      update_time {
+        seconds: 1594418970
+        nanos: 854739438
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594418970
+      nanos: 854739438
+    }
+    update_time {
+      seconds: 1594418970
+      nanos: 854739438
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/7330a3de-1bbb-4558-90b9-e58cc7eff80a"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:09:30.191Z."
+      update_time {
+        seconds: 1594418970
+        nanos: 278657156
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594418970
+      nanos: 278657156
+    }
+    update_time {
+      seconds: 1594418970
+      nanos: 278657156
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/57c6cf14-97a2-418d-8cfc-de203439c9fb"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418967
+        nanos: 805171557
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594418967
+      nanos: 459603947
+    }
+    update_time {
+      seconds: 1594418967
+      nanos: 805171557
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6ef2db06-04e5-4097-8aa2-5614457f377d"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "SpongeMonitor"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418967
+        nanos: 703705891
+      }
+      last_updated_by: "sponge-monitor"
+    }
+    create_time {
+      seconds: 1594418967
+      nanos: 431628901
+    }
+    update_time {
+      seconds: 1594418967
+      nanos: 703705891
+    }
+    tool_tag: "sponge_monitor"
+    created_by: "sponge-monitor"
+    last_updated_by: "sponge-monitor"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/176ecd69-b544-44c7-880c-52f546e2878f"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:09:25.588Z."
+      update_time {
+        seconds: 1594418965
+        nanos: 589754844
+      }
+      last_updated_by: "code-codereview-pubsub-subscriber"
+    }
+    create_time {
+      seconds: 1594418965
+      nanos: 589754844
+    }
+    update_time {
+      seconds: 1594418965
+      nanos: 589754844
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-pubsub-subscriber"
+    last_updated_by: "code-codereview-pubsub-subscriber"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/73c00109-553c-4551-b7ed-c49988b88099"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "OutOfOfficeDetection"
+      status: COMPLETED
+      message: "No reviewer detected to be out of office, as of 2020-07-10T22:09:25.215Z."
+      update_time {
+        seconds: 1594418965
+        nanos: 216716411
+      }
+      last_updated_by: "code-codereview-snapshot"
+    }
+    create_time {
+      seconds: 1594418965
+      nanos: 216716411
+    }
+    update_time {
+      seconds: 1594418965
+      nanos: 216716411
+    }
+    tool_tag: "CritiqueVacationManager"
+    created_by: "code-codereview-snapshot"
+    last_updated_by: "code-codereview-snapshot"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/3eb9f332-ce2d-4375-816b-5fc2fbcf0a98"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: FAILED
+    category_status {
+      category: "GeneratedFileState"
+      status: FAILED
+      message: "Failed to build metadata: CL is too far behind depot head. Please sync your workspace."
+      update_time {
+        seconds: 1594418966
+        nanos: 427332581
+      }
+      last_updated_by: "build-based-config-platform-prod"
+    }
+    create_time {
+      seconds: 1594418965
+      nanos: 207312641
+    }
+    update_time {
+      seconds: 1594418966
+      nanos: 427332581
+    }
+    tool_tag: "bbcp"
+    created_by: "build-based-config-platform-prod"
+    last_updated_by: "build-based-config-platform-prod"
+  }
+  run {
+    run_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e"
+    source_context {
+      kind: CITC_CLIENT
+      citc_workspace_context {
+        workspace_id: "codereview/321119031"
+        snapshot_version: 1
+      }
+    }
+    change_handle {
+      pending_changelist: 320684349
+    }
+    status: COMPLETED
+    category_status {
+      category: "AffectedTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418990
+        nanos: 679603051
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Builder"
+      status: COMPLETED
+      message: "This CL builds successfully!\n\nDetails:\nSuccess\n    http://sponge2/1717e066-ecf9-4047-9e63-44cd71ed14f3\n\n"
+      update_time {
+        seconds: 1594419024
+        nanos: 335392055
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "CommonTypos"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418969
+        nanos: 365863736
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "DiffEmAllTrigger"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418990
+        nanos: 713750972
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "FlakyTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418991
+        nanos: 529981801
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ForgeLimits"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418993
+        nanos: 90869139
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "GanpaticfgAnnealingOwners"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418991
+        nanos: 755962605
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "IfThisThenThat"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418970
+        nanos: 834560346
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "KeystoreClientConfig"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418970
+        nanos: 552021667
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/000866c2d7a5f2f1fcb9fcc855d591e3af47ff7402409dd67a285bdca7bd75a1a8"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/000db56d760775d48d31813fffd829e1f321627127f0bb05e63854b437df9627fb"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0011b7e1a80fd48a260eaf349c58d36a2609620b88d98bec0d9daae4fbbb84ce0d"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0018c6b6c8b93f569ef4b311854d3561a553bb0db1c450e408284b82d4efdc8512"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/002cf4d96e0ee07fedd265c72fc2b471b9ec06665253ed4e14b81620ae8db41cb4"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/002e23c76ae3ce7f5ecc49eb8f37bdb6dfaa9609d13a5b4a2c047b6dfacaa39030"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/004e069bc4c32e5dacce724bf60bb882913e09b73f49b8a77f47fa2e7cf551d649"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00505487cfd0a13adb2cdca353a670776a0c4c7099688d1f3289cfe204967f0203"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0071d008f8e10c6257d00f0d707854e19eb745437b5bb5bac98482789d41655b89"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00823556a47f5d785fb769becddf8788ffbe9edd24ea59f149db9796994279550d"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/008de39cc389c9e216af7d33c28774d60d4eeae06b7fd653b05b22b3596fa4f2c2"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0093f1f00419e9ef24c2ef74655e664a3a5254aa2110af708403a8957d9f11cf27"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0098f361d40f8d5760efa5e38ad33b229caf56094d2f3e17297a2eaa7465851ba7"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00a01dff6c05ea74810d1dff7d03ab6f50d16df8f585123d35fa4842a469e2a279"
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/00e6bca0683a497176998c78d78ef72ac348ff1e81abecc2ec4cb1f075e28eb7de"
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Lint"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418969
+        nanos: 16158115
+      }
+      finding_id: "v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e/findings/0078b3f4e25f8172e94cb6aa3439e1463fe236e1ab40bca5e35ae977823c8f2479"
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "MissingPpUuidAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418971
+        nanos: 797312835
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "NoTargets"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418990
+        nanos: 681935963
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "ProdspecDiff"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418993
+        nanos: 104077480
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Readability"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418968
+        nanos: 939882312
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SnaprefExtraActions"
+      status: COMPLETED
+      update_time {
+        seconds: 1594419024
+        nanos: 335807801
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "SyftAnalyzer"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418968
+        nanos: 162964511
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "TextBlockId"
+      status: COMPLETED
+      update_time {
+        seconds: 1594418968
+        nanos: 59146495
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    category_status {
+      category: "Tricorder"
+      status: COMPLETED
+      message: "Running 17 analyzers...\n\nNo Tricorder configuration found in METADATA. Using defaults.\n\nTricorder run ID: v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e\nSource context: workspace codereview/321119031, snapshot 1\nBase changelist: cl/320252324\nPipeline task: /bns/ue/borg/ue/bns/tricorder-pipeline/staging.pipeline/2\nPipeline analog: http://analog/viewremote?bns=/bns/ue/borg/ue/bns/tricorder-pipeline/staging.pipeline/2&q=v1/runs/0de3fb663cefbd6f51b7f0de077c502d7cc9080fced66d7b3273638006690db4/6dd499f5-98bd-473f-bf95-2c419acb8b5e\nSponge for CL: http://sponge2/cr_cl%3D320684349\n\nDirectly affected targets:\n  //production/security/keystore/config:create_shardqual_shard_specific_expanded_prod_app_configs_no_realms_group\n  //production/security/keystore/config:create_shardo_shard_specific_expanded_prod_app_configs_no_realms_group\n  //production/security/data_access:dev_policies\n  //production/security/data_access:dapolicy_test_suite/policy__analytics__dev.dapolicy\n  //production/security/data_access:dapolicy_test_suite/policy__analytics__prod.dapolicy_kythe_trigger\n  //production/security/data_access:dapolicy_test_suite/policy__other__prod.dapolicy\n  //production/security/data_access:dapolicy_test_suite/policy__other__prod.dapolicy_kythe_trigger\n  //production/security/keystore/config:create_shardvc_shard_filtered_prod_app_configs\n  //production/security/keystore/config:create_shardo_shard_filtered_prod_app_configs\n  //production/security/data_access:all_policies_prod_text\n  //production/security/keystore/config:all_files\n  //configs/security/ganpati/contrib/ganpaticfg/attribution/templates:exporter-googleads\n  //production/security/keystore/config:create_shardqual_shard_filtered_prod_app_configs\n  //production/security/keystore/config:create_shardvc_shard_specific_expanded_prod_app_configs_no_realms_group\n  //configs/security/ganpati/contrib/ganpaticfg/attribution:external_groups\n  //production/security/data_access:prod_policies\n  //production/security/data_access:dapolicy_test_suite/policy__analytics__dev.dapolicy_kythe_trigger\n  //production/security/data_access:all\n  //production/security/keystore/config:keystore_prod_configs\n  //production/security/data_access:dapolicy_test_suite/policy__analytics__prod.dapolicy\n  //production/security/keystore/config:create_shardturnuptest_shard_filtered_prod_app_configs\n  //configs/security/ganpati/contrib/ganpaticfg/analytics/config/clients:clients\n  //production/security/keystore/config:create_shardturnuptest_shard_specific_expanded_prod_app_configs_no_realms_group\n\nCL used for computing affected targets: 320684349\n"
+      update_time {
+        seconds: 1594418990
+        nanos: 675857531
+      }
+      last_updated_by: "tricorder-pipeline"
+    }
+    create_time {
+      seconds: 1594418965
+      nanos: 158981451
+    }
+    update_time {
+      seconds: 1594419024
+      nanos: 335807801
+    }
+    tool_tag: "tricorder"
+    labels {
+      key: "cl_revision_number"
+      value: "2"
+    }
+    created_by: "tricorder-pipeline"
+    last_updated_by: "tricorder-pipeline"
+  }
+  auto_sync_enabled: false
+  auto_delete_workspace_enabled: false
+  changelist_key: "320684349"
+  snapshot_id: 8
+  changelist_number: 320684349
+}

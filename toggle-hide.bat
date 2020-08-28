@@ -1,0 +1,1 @@
+"C:\Program Files\nirsoft\nircmd.exe" win togglehide class Shell_TrayWnd

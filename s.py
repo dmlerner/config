@@ -9,6 +9,8 @@ p(sys.argv[1:])
 
 def get_find():
     find = sys.argv[1] if len(sys.argv) > 1 else '.*'
+    if set('()') - set(find):
+        find = '(' + find + ')'
     return find
 
 def get_replace():
