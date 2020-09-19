@@ -7,8 +7,8 @@ fi
 
 ZSH_DISABLE_COMPFIX=true
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='100'
-#ZSH_THEME="powerlevel10k/powerlevel10k" # using 10k now lol
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k" # using 10k now lol
+#ZSH_THEME="robbyrussell"
 
 # cache-path muth must exist
 zstyle ':completion:*' use-cache on
@@ -66,7 +66,7 @@ if [[ -f /etc/bash_completion.d/g4d ]]; then
 	. /etc/bash_completion.d/g4d
 fi
 
-#set ZLE=true
+set ZLE=true
 export KEYTIMEOUT=1
 #export FZF_BASE=/usr/bin/fzf
 
@@ -78,6 +78,14 @@ export KEYTIMEOUT=1
 HYPHEN_INSENSITIVE="true"
 
 DISABLE_UPDATE_PROMPT="true"
+# PROMPT_COMMAND='LAST="`cat /tmp/x`"; exec >/dev/tty; exec > >(tee /tmp/x)'
+my-accept-line () {
+  echo foo
+  zle .accept-line #| tee tmp
+  echo fooagain
+  cat tmp
+}
+#zle -N accept-line my-accept-line
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -219,8 +227,8 @@ fpath=($HOME/.zsh-functions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias -s {go,py,proto,txt}=nvim
-unalias d
+#alias -s {go,py,proto,txt}=nvim
+#unalias d
 function d {
 	commit_line=$(p4 commitlog | grep ID | awk -v n=${1:-1} 'NR==n')
 	p4 diff --since_commit "$(echo $commit_line | awk '{print $3}')";
@@ -281,10 +289,11 @@ alias vt='nvim --cmd term --cmd star'
 alias sd='ssh davidlerner1.irv.corp.google.com -t "/usr/bin/zsh -l"'
 alias sc='ssh davidlerner.c.googlers.com  -t "/usr/bin/zsh -l"'
 GDRIVE="$(realpath ~/gdrive)"
+CONFIG="$GDRIVE/config"
+SCRIPTS="$GDRIVE/scripts"
 alias scripts='cd "$GDRIVE/scripts"'
 alias config='cd "$GDRIVE/config"'
 alias host="cat /proc/sys/kernel/hostname"
-alias m='python -m mawk'
 
 #function hdn() { # hg diff names only
 	#hg diff -c ${1:-.} | no
@@ -314,7 +323,7 @@ export PATH="${PATH}:/google/data/ro/teams/devtools/editors/live"
 alias i='sudo apt install'
 
 # better zz from fasd
-unalias zz
+#unalias zz
 function zz() {
   local dir
   dir="$(fasd -Rdl "$*" | fzf --query="$*" -1 -0 --no-sort +m)" && cd "${dir}" || return 1
@@ -332,9 +341,12 @@ function hdn() {
   hg diff -r p4head | rg '\+\+\+.*google3/(.*)' -r '$1'
 }
 
-function hdnv() {
+#unalias v
+function _v() {
+  g4d
   hdn | xargs nvim
 }
+alias v=_v
 
 function jt() {
   p=$(pwd)
@@ -342,7 +354,7 @@ function jt() {
   [[ $p =~ java/ ]] && cd $(pwd | rg '/(java)/' -r '/javatests/')
 }
 
-unalias s
+#unalias s
 alias s='python3 ~/gdrive/config/s.py'
 
 function parsecl() {
@@ -358,7 +370,23 @@ function clws() {
   g4d $(g4cl $1 | s 'client: (.*?):(.*?):' '@2')
 }
 alias cm='hg commit --same-cl -m '
-alias bb='blaze build :all '
-alias bbk='blaze build :all -k '
+#alias bb='blaze build :all '
+#alias bbk='blaze build :all -k '
+function bb() {
+  $SCRIPTS/keep-build-cleaning-and-blaze-build.sh :all
+}
 alias bt='blaze test :all '
 alias vl='cat out | s "(/usr.*test.log)" | xargs nvim'
+HOST='davidlerner1.irv.corp.google.com'
+alias c='ssh $HOST -Y'
+function C() {
+  ~/gdrive/scripts/auth-refresh-gtunnel.py $HOST
+  ssh $HOST -Y
+}
+alias hg=chg
+function lo () {
+  sh $CONFIG/laptoponly.sh
+}
+function lu () {
+  sh $CONFIG/usb.zsh
+}

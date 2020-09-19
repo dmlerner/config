@@ -115,9 +115,10 @@ let g:ctrlp_root_markers = [
 
 " auto use current file directory
 let g:ctrlp_working_path_mode = 'c'
-"let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_cmd = 'CtrlP'
-nnoremap <leader><leader> :CtrlP<CR>
+let g:ctrlp_switch_buffer = ''
+let g:ctrlp_cmd = 'CtrlPBuffer'
+"let g:ctrlp_cmd = 'CtrlP'
+nnoremap <leader><leader> :CtrlPBuffer<CR>
 nnoremap <leader>pc :CtrlPChange<CR>
 nnoremap <leader>pC :CtrlPChangeAll<CR>
 nnoremap <leader>pu :CtrlPUndo<CR>
@@ -137,7 +138,7 @@ set updatetime=300
 set shortmess+=c
 
 " always show signcolumns
-"set signcolumn=yes
+set signcolumn=no
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -288,7 +289,7 @@ set ignorecase
 set smartcase
 
 nmap af :wa<CR>
-nmap ad :SyntasticCheck<CR>:lw<CR>
+nmap ad :xa<CR>
 let HlUnderCursor=0
 let g:HiCursorWords_delay = 400
 
@@ -473,6 +474,9 @@ function! JavaSucks()
   let output = system(cmd)
   call setline(".", split(output, '\n'))
 endfunction
+
+nnoremap <leader>j :bn<CR>
+nnoremap <leader>k :bp<CR>
 
 nnoremap <leader>dj :call JavaSucks()<CR>
 nnoremap <leader>di :CsImporter<CR>

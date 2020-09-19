@@ -42,6 +42,7 @@
     # =========================[ Line #2 ]=========================
     newline
     prompt_char             # prompt symbol
+    foo # store last outputs
   )
 
   # The list of segments shown on the right. Fill it with less important segments.

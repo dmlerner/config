@@ -1,3 +1,5 @@
+exec --no-startup-id xsetroot -solid "#ffffff"
+exec --no-startup-id xcalib -i -a
 # It will not be overwritten, so edit it as you like.
 #
 # Should you change your keyboard layout some time, delete
@@ -64,9 +66,9 @@ bindsym $mod+b exec xcalib -i -a
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+v exec alacritty --window -e nvim -c 'pwd'
-bindsym $mod+Shift+t exec alacritty --window -e nvim -c 'term' -c 'star'
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Shift+v exec alacritty --window -e nvim -c 'pwd'
+#bindsym $mod+Shift+t exec alacritty --window -e nvim -c 'term' -c 'star'
+bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec vim -c "term" -c "res"
 #bindsym $mod+Return exec sh ~/Scripts/open-terminal-at-pwd.sh
 
@@ -171,7 +173,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec xcalib -i -a && i3-msg exit
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,4 +225,5 @@ client.background       #ffffff
 #bindsym $mod+y exec "i3-input -F 'move container to workspace %s' -P 'move to workspace: ndsym XF86MonBrightnessDown exec "/usr/local/bin/light -U 5; notify-send 'brightness down'"
 bindsym XF86MonBrightnessDown exec "/usr/local/bin/light -U 10"
 bindsym XF86MonBrightnessUp exec "/usr/local/bin/light -A 10"
+
 
