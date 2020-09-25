@@ -96,6 +96,7 @@ link_home ackrc .ackrc
 link_home xsessionrc .xsessionrc
 link_home zshenv .zshenv
 link_home zshrc .zshrc
+link_home p10k.zsh .p10k.zsh
 link_home hgrc .hgrc
 link_home tmux .tmux.conf
 
