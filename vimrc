@@ -117,6 +117,9 @@ let g:ctrlp_root_markers = [
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_switch_buffer = ''
 let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_by_filename = 0
+let g:ctrlp_regexp = 1
+let g:ctrlp_match_current_file = 1
 "let g:ctrlp_cmd = 'CtrlP'
 nnoremap <leader><leader> :CtrlPBuffer<CR>
 nnoremap <leader>pc :CtrlPChange<CR>

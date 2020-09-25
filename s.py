@@ -26,7 +26,7 @@ def get_replace():
 
 def get_cmd():
     find, replace = get_find(), get_replace()
-    return ['rg', find, '--replace', replace, '-o']
+    return ['rg', find, '--replace', replace, '-o', '-U']
     return f"rg {find} --replace '{replace}' -o"
 
 def run(cmd=None):
