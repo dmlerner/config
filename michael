@@ -1,0 +1,88 @@
+graph emails are vertices
+and names are edges
+check for connectedness
+says overall point of function
+describes list as doubly linked list
+  but not why we might care
+c++ struct for account
+in my work manually manage memory
+  but not for brevity for now
+names input
+assumes using std
+says first want to make a graph from the list
+going to make a helper function makeGraph
+  turns emails into vertices
+  connects with names that we know
+    tc continues to be vauge about names/edges
+    would love to hear 'fully connected'
+tc didn't explain that Graph isn't a built in
+  I ask about it and suggest we be explicit on types
+maybe make names vertices?
+I ask when there is an edge between nodes
+  kinda punts
+I just need a tree
+  if I find it
+start with n trees for the emails...
+going back to hashmaps...
+I ask when is there an edge between two nodes if nodes are emails
+  says if they share an account
+don't have to create the whole graph
+  I ask for clarification
+  just have to check for connectedness
+    but still hasn't told me
+unordered map in c++
+  stores vertices
+  adjacency list tracking edges
+I suggest working through examples
+edge labeling with names is useless, adn what names anyway?
+need unordered map
+  clarifies is hashmap
+hasn't named this function you're writing return for
+oh ok there
+  describes value in return map as adjaceny list
+  a little unclear in context
+  and what are the keys?
+tc asks what I think about auto
+tc uses ref and says let's not allocate more memory
+have to stick the emails for the given account into our graph
+  but still hasn't said connecting each emailt o each other
+    or realized that's not needed
+says it's O(n)
+  n being number of not even distinct emails, just total
+c++ will implicitly create element if accessed before exists and need to avoid that
+need to remove current (key) email from list
+uses good name, acocuntsWithoutCurrentEmail
+  almost, except should be emailsWithoutCurrentEmail or accountWithoutCurrentEmail
+  doesn't mention big o
+  oh, but I think that's what you're getting at with erase by iterator, so that would be o(1) in doublely linked list
+points out duplicates
+  I SAY don't worry for now
+I ask what 'merge' is
+  just a c++ term I forgot
+Now I'm going to traverse
+  removing vertices so they don't come up twice
+  hasn't said bfs/dfs
+first time I'm done, first connected group removed
+  and each time it'll be different
+for email in graph is bad nmes
+  which quickly you do point out
+tc uses blank lines some times
+  can you really make an account off just email.first?
+push_back, could have used emplace_back
+implicit struct syntax
+oh god now you mixed in emplace_back without explaining what it is
+I ask about difference in the helper and main erasings
+instead of erasing, how about visited sets?
+realizes quite late we need a stack/queue
+could have used another helper for traversal
+"what I'm doing here is I'm going to push tehf rist thing onto the stack which is ok yeah'
+tc says bfs, no it's dfs because it's a stack
+tc realizes didn't get around to tracking names
+if I could go back, I'd used unordered map to prevent duplicates
+....time
+make graph is n
+  n being #accounts*#email
+# of graphs * depth of graph
+being very sloppy on n
+I say because of erasing we just need copies, how to avoid?
+  could just put in both directions of edge and delete as go

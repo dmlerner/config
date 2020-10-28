@@ -52,7 +52,7 @@ alias vim=$(which nvim)
 # Will show command status and time
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/google/home/davidlerner/.local/bin:$PATH
 
 plugins=(common-aliases extract fasd history fzf vi-mode )
 
@@ -238,7 +238,7 @@ function d {
 
 # Function to switch and save the current path
 function cd() {
-	builtin pushd "$@";
+	builtin pushd "$@" > /dev/null;
 	echo "$PWD" >! ~/.cwd;
 }
 export cd
@@ -270,16 +270,11 @@ function get_path() {
 	fi
 }
 
-function gc() {
-	pkill ssh-agent
-	eval $(ssh-agent -s)
-	gcert
-}
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 alias mt='g4d; cd ./attribution/midtier' # todo: preserve pushd
 alias vm='m; nvim'
-alias jm='g4d; cd ./java/com/google/attribution/midtier'
+alias jm='c; cd ./java/com/google/attribution/midtier'
 alias vjm='jm; nvim'
 alias vz='nvim ~/.zshrc'
 alias vv='nvim ~/.vimrc'
@@ -343,7 +338,7 @@ function hdn() {
 
 #unalias v
 function _v() {
-  g4d
+  c
   hdn | xargs nvim
 }
 alias v=_v
@@ -355,7 +350,7 @@ function jt() {
 }
 
 #unalias s
-alias s='python3 ~/gdrive/config/s.py'
+alias s='python3 ~/gdrive/scripts/sub/s.py'
 
 function parsecl() {
   echo "$1" | s '(.*cl/)?(\d+)' '$2'
@@ -378,8 +373,10 @@ function bb() {
 alias bt='blaze test :all '
 alias vl='cat out | s "(/usr.*test.log)" | xargs nvim'
 HOST='davidlerner1.irv.corp.google.com'
-alias c='ssh $HOST -Y'
-function C() {
+function cc () {
+  ssh $HOST -Y
+}
+function gc() {
   ~/gdrive/scripts/auth-refresh-gtunnel.py $HOST
   ssh $HOST -Y
 }
@@ -390,3 +387,21 @@ function lo () {
 function lu () {
   sh $CONFIG/usb.zsh
 }
+function citc_root() {
+  pwd | s '.*/google3'
+}
+function citc_relative() {
+  echo $1 | s '(google3/)*(.*)' 2
+
+}
+function in_current_citc() {
+  echo "$(citc_root)/$(citc_relative $1)"
+}
+function c() {
+  cd $(in_current_citc $1)
+}
+function ex() {
+  #cdc experimental/users/davidlerner/$1
+}
+
+

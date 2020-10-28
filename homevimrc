@@ -1,19 +1,15 @@
-if !empty(glob('~/google'))
-	source /usr/share/vim/google/glug/bootstrap.vim
-	source /usr/share/vim/google/core.vim
-endif
-"set autoread | au CursorHold * checktime | call feedkeys("lh")
-
 set expandtab
 set ts=2
 set sw=2
 syntax on
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
-" Isn't syntastic redundant with coc.nvim lsp?
-" Plug 'vim-syntastic/syntastic'
-" signify is causing errors
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 "Plug 'mhinz/vim-signify'
 "Plug 'djoshea/vim-autoread'
 "Plug 'chrisbra/changesPlugin'
@@ -43,52 +39,9 @@ Plug 'vim-scripts/tabmerge'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 
-if !empty(glob('~/google'))
-	Glug codefmt-google
-	Glug codefmt-google auto_filetypes+=blazebuild
-	Glug blazedeps auto_filetypes=`['go']`
-	Glug critique plugin[mappings]
-	Glug blaze !alerts plugin[mappings]
-	let g:blazevim_quickfix_autoopen = 1
-	Glug syntastic-google
-	Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
-	Glug corpweb plugin[mappings]
-	" uses <Leader>r
-	Glug relatedfiles plugin[mappings]
-	Glug google-csimporter
-	nnoremap <leader>i :CsImporter<CR>
-        nnoremap <leader>cs :CsImporterSort<CR>
-        Glug outline-window
-
-        "Glug glug sources+=/google/src/head/depot/google3/experimental/users/jkolb/vim
-        "Glug simplegutter
-        " Add n or p to the map prefix to go the next or previous signgroup, or add l to view logs.
-        " Diff and lint autorun on save and load.
-        "Glug sg_diff plugin[mappings]='cd'
-        "Glug sg_lint plugin[mappings]='cx'
-
-        " Add b or t to the map prefix to build or test the current buffer.
-        " Note that auto_query=1 will blaze query every buffer ahead of time. I like this, but you might want to remove it.
-        "Glug sg_blaze plugin[mappings]='cz' auto_query=1
-endif
-
 set autowriteall
 
-
-"if !empty(glob("~/google-desktop"))
-	"":FZFPiperActiveFiles or :FZFPiperActiveFiles?
-	"Glug fzf-piper
-	"nnoremap <Leader>p :FZFPiperActiveFiles<Cr>
-
-	"Glug piper plugin[mappings]
-	"" Keep sourcing this after glugs...
-	"" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
-	"source /usr/share/vim/google/google.vim
-"endif
-
-
 filetype plugin indent on
-syntax on
 
 set background=light
 let mapleader = " "

@@ -106,10 +106,8 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+Control+w exec "pactl -- set-sink-volume @DEFAULT_SINK@ +5%"
-# bindsym $mod+Control+w exec "pactl -- set-sink-volume $(pactl list sinks | python3 ~/gdrive/config/s.py 'Name: (.*)' | tail -n 1) +5%"
-bindsym $mod+Control+q exec "pactl -- set-sink-volume @DEFAULT_SINK@ -5%"
-#bindsym $mod+Control+q exec "pactl -- set-sink-volume $(pactl list sinks | python3 ~/gdrive/config/s.py 'Name: (.*)' | tail -n 1) -5%"
+bindsym $mod+Control+w exec "pulsemixer --change-volume 5 --max-volume 100"
+bindsym $mod+Control+q exec "pulsemixer --change-volume -5 --max-volume 100"
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking

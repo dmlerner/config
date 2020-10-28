@@ -1,0 +1,3 @@
+#0 21 * * * david cd /mnt/c/Users/david/google-drive/coding/paprestart; management-scripts/restart.sh
+* * * * * david cd /mnt/c/Users/david/google-drive/coding/paprestart; management-scripts/restart.sh
+* * * * * david touch ~/crontouch
