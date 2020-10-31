@@ -1,9 +1,3 @@
-if !empty(glob('~/google'))
-	source /usr/share/vim/google/glug/bootstrap.vim
-	source /usr/share/vim/google/core.vim
-endif
-"set autoread | au CursorHold * checktime | call feedkeys("lh")
-
 set expandtab
 set ts=2
 set sw=2
@@ -13,79 +7,31 @@ call plug#begin('~/.vim/plugged')
 " Isn't syntastic redundant with coc.nvim lsp?
 " Plug 'vim-syntastic/syntastic'
 " signify is causing errors
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 "Plug 'mhinz/vim-signify'
 "Plug 'djoshea/vim-autoread'
 "Plug 'chrisbra/changesPlugin'
 Plug 'ctrlpvim/ctrlp.vim'
 " with set hidden, ctrlspace messes up syntax highlighting except for first and last buffer; lolwtf
 "Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'majutsushi/tagbar'
-Plug 'mileszs/ack.vim'
+"Plug 'majutsushi/tagbar'
+"Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pboettch/vim-highlight-cursor-words'
-Plug 'preservim/nerdcommenter'
+"Plug 'preservim/nerdcommenter'
 "Plug 'preservim/nerdtree'
-Plug 'shougo/echodoc.vim'
+"Plug 'shougo/echodoc.vim'
 "Plug 'thaerkh/vim-indentguides'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'valloric/matchtagalways'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" for search count
-"Plug 'osyo-manga/vim-anzu'
-"Plug 'emilyst/match-count-statusline'
-
-Plug 'vim-scripts/tabmerge'
-Plug 'tmux-plugins/vim-tmux-focus-events'
+"Plug 'valloric/matchtagalways'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-scripts/tabmerge'
+"Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 
-if !empty(glob('~/google'))
-	Glug codefmt-google
-	Glug codefmt-google auto_filetypes+=blazebuild
-	Glug blazedeps auto_filetypes=`['go']`
-	Glug critique plugin[mappings]
-	Glug blaze !alerts plugin[mappings]
-	let g:blazevim_quickfix_autoopen = 1
-	Glug syntastic-google
-	Glug syntastic-google checkers=`{ 'go': ['go','gofmt', 'golint'], 'java':['glint'], 'proto':['glint'] }`
-	Glug corpweb plugin[mappings]
-	" uses <Leader>r
-	Glug relatedfiles plugin[mappings]
-	Glug google-csimporter
-	nnoremap <leader>i :CsImporter<CR>
-        nnoremap <leader>cs :CsImporterSort<CR>
-        Glug outline-window
-
-        "Glug glug sources+=/google/src/head/depot/google3/experimental/users/jkolb/vim
-        "Glug simplegutter
-        " Add n or p to the map prefix to go the next or previous signgroup, or add l to view logs.
-        " Diff and lint autorun on save and load.
-        "Glug sg_diff plugin[mappings]='cd'
-        "Glug sg_lint plugin[mappings]='cx'
-
-        " Add b or t to the map prefix to build or test the current buffer.
-        " Note that auto_query=1 will blaze query every buffer ahead of time. I like this, but you might want to remove it.
-        "Glug sg_blaze plugin[mappings]='cz' auto_query=1
-endif
-
 set autowriteall
-
-
-"if !empty(glob("~/google-desktop"))
-	"":FZFPiperActiveFiles or :FZFPiperActiveFiles?
-	"Glug fzf-piper
-	"nnoremap <Leader>p :FZFPiperActiveFiles<Cr>
-
-	"Glug piper plugin[mappings]
-	"" Keep sourcing this after glugs...
-	"" https://groups.google.com/a/google.com/g/vi-users/c/7bvZehko_Oc/m/cuUxZyFDDgAJ
-	"source /usr/share/vim/google/google.vim
-"endif
-
 
 filetype plugin indent on
 syntax on
@@ -100,6 +46,7 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-html',
       \ 'coc-css',
+      \ 'coc-python',
       \ 'coc-java' ]
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -107,28 +54,25 @@ set hidden
 let g:ctrlp_root_markers = [
       \ "BUILD",
       \ "davidlerner",
-      \ "__init__.py",
       \ ".gitignore",
       \ ".git",
       \ "METADATA",
       \]
 
 " auto use current file directory
-let g:ctrlp_working_path_mode = 'c'
-let g:ctrlp_switch_buffer = ''
-let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_by_filename = 0
-let g:ctrlp_match_current_file = 1
+let g:ctrlp_working_path_mode = 'r'
+"let g:ctrlp_cmd = 'CtrlPBuffer'
 "let g:ctrlp_cmd = 'CtrlP'
-nnoremap <leader><leader> :CtrlPBuffer<CR>
+let g:ctrlp_cmd = 'CtrlPMixed'
+nnoremap <leader><leader> :CtrlP<CR>
 nnoremap <leader>pc :CtrlPChange<CR>
 nnoremap <leader>pC :CtrlPChangeAll<CR>
 nnoremap <leader>pu :CtrlPUndo<CR>
 nnoremap <leader>pb :CtrlPBuffer<CR>
 
 " Some servers have issues with backup files, see #649
-"set nobackup
-"set nowritebackup
+set nobackup
+set nowritebackup
 
 " Better display for messages
 set cmdheight=2
@@ -167,6 +111,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> <leader>n CocNext
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -267,16 +213,6 @@ let g:asyncomplete_auto_popup = 1
 
 
 
-augroup autoformat_settings
-  autocmd!
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType proto AutoFormatBuffer clang-format
-augroup END
-
-
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -291,7 +227,7 @@ set ignorecase
 set smartcase
 
 nmap af :wa<CR>
-nmap ad :xa<CR>
+"nmap ad :SyntasticCheck<CR>:lw<CR>
 let HlUnderCursor=0
 let g:HiCursorWords_delay = 400
 
@@ -369,7 +305,7 @@ augroup settings
         \   textwidth=0
         \   wrapmargin=0
         \   cursorline
-        \   cursorcolumn
+        \   nocursorcolumn
         \   tw=0
         \   incsearch
         \   nohlsearch
@@ -459,8 +395,7 @@ function GenerateFigDiffs()
 endfunction
 
 function LoadFigDiffs()
-  tabnew | args ~/hgdiffs/*p4head ~/hgdiffs/*exported | vertical all
-  tabnew | args ~/hgdiffs/*change ~/hgdiffs/*commit ~/hgdiffs/hgdiff | vertical all
+  tabnew | args ~/hgdiffs/* | vertical all
 endfunction
 
 function GenerateAndLoadFigDiffs()
@@ -478,9 +413,6 @@ function! JavaSucks()
   call setline(".", split(output, '\n'))
 endfunction
 
-nnoremap <leader>j :bn<CR>
-nnoremap <leader>k :bp<CR>
-
 nnoremap <leader>dj :call JavaSucks()<CR>
 nnoremap <leader>di :CsImporter<CR>
 " print [a]rgument value and name
@@ -491,7 +423,6 @@ nnoremap <leader>df :norm 0f(F lyt(oSystem.out.println("");F(lp?"n
 nnoremap <leader>dfa :norm 0f(f wywoSystem.out.println("pA");yyp:s/"//g0f(F lyt(oSystem.out.println("");F(lp?"n
 " print [v]ariable under cursor
 nnoremap <leader>dv :norm yawOiSystem.out.println("pA");F"i=yyp:s/"//gf=xjdd
-"source /google/data/ro/projects/vigor/vigor.vim
 
 if &term =~ "screen"
         let &t_BE = "\e[?2004h"
@@ -499,10 +430,9 @@ if &term =~ "screen"
         exec "set t_PS=\e[200~"
         exec "set t_PE=\e[201~"
 endif
-nnoremap <leader>dc :'<,'>s/\S\+//gn<CR>
 
-set shortmess-=S
-nnoremap cp :let @+=expand("%:p")<CR>
-nnoremap cdp :let @+=expand("%:h")<CR>
-set backupdir=$HOME/gdrive/vimbackups
+autocmd FileType python let g:coc_root_patterns =
+						\ ['.git', '.env']
 
+nnoremap <leader>j :bn<CR>
+nnoremap <leader>k :bp<CR>
