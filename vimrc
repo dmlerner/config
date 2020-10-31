@@ -25,7 +25,7 @@ Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 Plug 'shougo/echodoc.vim'
 "Plug 'thaerkh/vim-indentguides'
 Plug 'tpope/vim-repeat'

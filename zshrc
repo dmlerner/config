@@ -404,4 +404,4 @@ function ex() {
   #cdc experimental/users/davidlerner/$1
 }
 
-
+alias rgf='rg --files | rg '
